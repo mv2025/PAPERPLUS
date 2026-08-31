@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C8A24D;
+  --color-primary-hover: #D8B56B;
+  --color-primary-soft: #F3E7C6;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F8F8F6;
+  --color-background: #F5F7FA;
+  --color-foreground: #1E1E1E;
+  --color-muted: #64748B;
+  --color-navy: #1F3A5F;
+  --color-emerald: #2F855A;
+  --color-sky: #EAF4FF;
+  
+  --font-scratchy: "Nothing You Could Do", cursive;
+}
+
+@layer base {
+  html, body {
+    @apply bg-background text-foreground;
+  }
+}

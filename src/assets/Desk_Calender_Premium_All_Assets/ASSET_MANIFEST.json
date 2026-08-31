@@ -1,0 +1,280 @@
+{
+  "source_html": "Desk Calender - Premium Updated.html",
+  "embedded_image_occurrences": 48,
+  "unique_embedded_images": 45,
+  "assets": [
+    {
+      "file": "assets/asset_01_1035dd3e31a9.png",
+      "type": "image/png",
+      "bytes": 275870,
+      "sha256": "1035dd3e31a9772818b1c90693419ea910a15fad2de8c0f305b70e2d2759ad92"
+    },
+    {
+      "file": "assets/asset_02_635a7db1bc7c.png",
+      "type": "image/png",
+      "bytes": 439087,
+      "sha256": "635a7db1bc7c35f98cd20afd7e7a02e11a02a94579cc38679527e52739d96716"
+    },
+    {
+      "file": "assets/asset_03_39f8718b3f3a.png",
+      "type": "image/png",
+      "bytes": 133718,
+      "sha256": "39f8718b3f3abbb6c69b7b8cd2197010b7b96cee91fac7044408aec969b33902"
+    },
+    {
+      "file": "assets/asset_04_d63402e89e59.png",
+      "type": "image/png",
+      "bytes": 363962,
+      "sha256": "d63402e89e595991a28251c69ad878d122b79ff9e0b4510781e8c949539c9929"
+    },
+    {
+      "file": "assets/asset_05_48754b090041.png",
+      "type": "image/png",
+      "bytes": 388676,
+      "sha256": "48754b0900412bf8684699a94fd3ec62c12a74f9ae413c4381e4b05d7a9df134"
+    },
+    {
+      "file": "assets/asset_06_3c8400189653.png",
+      "type": "image/png",
+      "bytes": 367645,
+      "sha256": "3c84001896532e9859355e41c8e24d27da91bb93fa16a316f2a112df3624576b"
+    },
+    {
+      "file": "assets/asset_07_34f659ded564.png",
+      "type": "image/png",
+      "bytes": 318626,
+      "sha256": "34f659ded56486cf9f976be039c6cfa38ad2648fdb0a634aa7b5140ba1dc7551"
+    },
+    {
+      "file": "assets/asset_08_6ffb634797eb.png",
+      "type": "image/png",
+      "bytes": 389617,
+      "sha256": "6ffb634797ebb2866bd34f3f0d262852506966a355abb211c4f40657762cea76"
+    },
+    {
+      "file": "assets/asset_09_a9e40c740a48.png",
+      "type": "image/png",
+      "bytes": 405446,
+      "sha256": "a9e40c740a4847d6861f653aa76a38b717b406916826dd3e276037ea7a5046aa"
+    },
+    {
+      "file": "assets/asset_10_e57c12c4fbc9.png",
+      "type": "image/png",
+      "bytes": 325376,
+      "sha256": "e57c12c4fbc9ee03c370b33c797368ee86d7c58ff508ad24a73d53f5122ad7fb"
+    },
+    {
+      "file": "assets/asset_11_2726cb46b89c.png",
+      "type": "image/png",
+      "bytes": 386926,
+      "sha256": "2726cb46b89c329c20cc2b6535451baf65dca65b7f42a8dfe0f963f808c1f2b7"
+    },
+    {
+      "file": "assets/asset_12_2b92baf92633.png",
+      "type": "image/png",
+      "bytes": 160795,
+      "sha256": "2b92baf926335f132a4ac3ed17a6f6953e7098b9dbb1fd880ebc9a5ba9994149"
+    },
+    {
+      "file": "assets/asset_13_450c5b41a0d2.png",
+      "type": "image/png",
+      "bytes": 304787,
+      "sha256": "450c5b41a0d2c116d29c92f61180bf4113b32e58c37f73ba55bbb09f437fa32f"
+    },
+    {
+      "file": "assets/asset_14_68918cabe40b.png",
+      "type": "image/png",
+      "bytes": 420006,
+      "sha256": "68918cabe40b23fb1dfd2354de71375398b2bf197579e5780ec18d3aab70c9f6"
+    },
+    {
+      "file": "assets/asset_15_064d507aa534.png",
+      "type": "image/png",
+      "bytes": 422387,
+      "sha256": "064d507aa5344398dbadf858ca01b11f5937376af50aa3d4389abbfbd9b308a0"
+    },
+    {
+      "file": "assets/asset_16_ad042c5a9e12.png",
+      "type": "image/png",
+      "bytes": 371469,
+      "sha256": "ad042c5a9e125998d58d149f36e49ef4c41ec6a429bc4c73f40950122f3a0d6d"
+    },
+    {
+      "file": "assets/asset_17_ce4497b2f894.png",
+      "type": "image/png",
+      "bytes": 443919,
+      "sha256": "ce4497b2f894ebd0c70594d8605175190c74914aae7c25fc700ecc81397470ef"
+    },
+    {
+      "file": "assets/asset_18_2759aa0b1bec.png",
+      "type": "image/png",
+      "bytes": 458578,
+      "sha256": "2759aa0b1becb4e664aedbadc1bd82fe9bdf146a46578af11b584db281f2c28e"
+    },
+    {
+      "file": "assets/asset_19_125c742a038f.png",
+      "type": "image/png",
+      "bytes": 375257,
+      "sha256": "125c742a038ff065a7cba2761ac0995c091f039f74be7603fa1ae4fba2e82294"
+    },
+    {
+      "file": "assets/asset_20_78014560dcdc.png",
+      "type": "image/png",
+      "bytes": 440740,
+      "sha256": "78014560dcdc4b513fb128bbadccea95bda7b5cc5ac214a8e733da8859b1a6ef"
+    },
+    {
+      "file": "assets/asset_21_be605dba59fa.png",
+      "type": "image/png",
+      "bytes": 3007338,
+      "sha256": "be605dba59fa3e6b131184704fe068017e9f1cc86f0404136f35abc982c867ea"
+    },
+    {
+      "file": "assets/asset_22_fc7a9002813f.png",
+      "type": "image/png",
+      "bytes": 2999328,
+      "sha256": "fc7a9002813fb27601a0fa38d25dc86fbd761954bc4beaa97a4a039830ce827a"
+    },
+    {
+      "file": "assets/asset_23_3d59a55e4cf3.png",
+      "type": "image/png",
+      "bytes": 3208570,
+      "sha256": "3d59a55e4cf357cfc686f6d548239e3b17249f869cfc27f140f23d2f7acf3a1d"
+    },
+    {
+      "file": "assets/asset_24_b169f7ce24ef.png",
+      "type": "image/png",
+      "bytes": 3346332,
+      "sha256": "b169f7ce24efcb6b5875795a920d002c835ff5d8db354bb901736bbea326f2a1"
+    },
+    {
+      "file": "assets/asset_25_c9168ddbe608.png",
+      "type": "image/png",
+      "bytes": 3200965,
+      "sha256": "c9168ddbe6084ba8a758346432fccefeb94c54c02812d660a183a995b4e86200"
+    },
+    {
+      "file": "assets/asset_26_9aa8ab1c50f4.png",
+      "type": "image/png",
+      "bytes": 3215139,
+      "sha256": "9aa8ab1c50f4cfc322f78db306585eb9ec669580ae9e45061277a928e266ac7f"
+    },
+    {
+      "file": "assets/asset_27_38fa2c68b07a.jpg",
+      "type": "image/jpeg",
+      "bytes": 167493,
+      "sha256": "38fa2c68b07a6df0eaf51beb384189f9b32b69a9cd4e929b041d9bb8f40f1018"
+    },
+    {
+      "file": "assets/asset_28_0ccfd02dfe29.jpg",
+      "type": "image/jpeg",
+      "bytes": 213387,
+      "sha256": "0ccfd02dfe2933fa22539a47bb4f56a036d5401ea92ea80ea4b0dd75105c54bb"
+    },
+    {
+      "file": "assets/asset_29_e259bc1b5a9f.jpg",
+      "type": "image/jpeg",
+      "bytes": 188636,
+      "sha256": "e259bc1b5a9f8d2363840ba41ec5be0cc7f2e9f45fd596208228e43f2504732d"
+    },
+    {
+      "file": "assets/asset_30_ae8d1cb7dc12.jpg",
+      "type": "image/jpeg",
+      "bytes": 195629,
+      "sha256": "ae8d1cb7dc12242279eba8d7bd4fbdea6586f147350b36d395502f84b856740d"
+    },
+    {
+      "file": "assets/asset_31_9872eb025040.jpg",
+      "type": "image/jpeg",
+      "bytes": 152353,
+      "sha256": "9872eb025040525ca7d59ed6e23be5cd2aec122ecb8ef4c71eef3ca1ea6e7d3a"
+    },
+    {
+      "file": "assets/asset_32_626e8d0f0f3d.jpg",
+      "type": "image/jpeg",
+      "bytes": 153745,
+      "sha256": "626e8d0f0f3d588d74bd656d76da618a099a2da777a8748addee1cf946476c60"
+    },
+    {
+      "file": "assets/asset_33_c43d04ff816d.jpg",
+      "type": "image/jpeg",
+      "bytes": 151248,
+      "sha256": "c43d04ff816da7cbbf48d6ecfb92018b2c03f4b9f8599d36f11bf8c815383722"
+    },
+    {
+      "file": "assets/asset_34_318a2d2844c1.jpg",
+      "type": "image/jpeg",
+      "bytes": 135295,
+      "sha256": "318a2d2844c1745111c20a9206e0cc7b2cfe6ce68f2d43ba04ce68b180f9d2ba"
+    },
+    {
+      "file": "assets/asset_35_3e48bfef482d.jpg",
+      "type": "image/jpeg",
+      "bytes": 126958,
+      "sha256": "3e48bfef482dd99d8557aae23048a06fabb972a0b6799e78ee689df103ef2336"
+    },
+    {
+      "file": "assets/asset_36_bbd680d90bdc.jpg",
+      "type": "image/jpeg",
+      "bytes": 161900,
+      "sha256": "bbd680d90bdc34aa9c9a55bf07fb47573b186eceec2a604f07714099f8889272"
+    },
+    {
+      "file": "assets/asset_37_3dc458d379ba.jpg",
+      "type": "image/jpeg",
+      "bytes": 145874,
+      "sha256": "3dc458d379ba9eaa0006de698ed575af77c5a3688e28469722f0746c3f91a4b7"
+    },
+    {
+      "file": "assets/asset_38_cadc85f19878.jpg",
+      "type": "image/jpeg",
+      "bytes": 123131,
+      "sha256": "cadc85f19878b0fadb8b6cc8e2e6dc0df9c3ecaab058f2db4ac5a11da80e2440"
+    },
+    {
+      "file": "assets/asset_39_14bbe5e5a2f1.jpg",
+      "type": "image/jpeg",
+      "bytes": 128540,
+      "sha256": "14bbe5e5a2f1088fe8e99f8cb51ae98ab8029d2f33be5c59fab338eb4d5a49d7"
+    },
+    {
+      "file": "assets/asset_40_cd91005e88a0.jpg",
+      "type": "image/jpeg",
+      "bytes": 154877,
+      "sha256": "cd91005e88a0fea1d298e5f21da05a37b30ca551dca32c2e2ae27050c67e3031"
+    },
+    {
+      "file": "assets/asset_41_d2cfd4b09d1c.jpg",
+      "type": "image/jpeg",
+      "bytes": 175958,
+      "sha256": "d2cfd4b09d1ce0b67a72c3246189f454582ba8f67039b5e6b2e8e5b485a64bcd"
+    },
+    {
+      "file": "assets/asset_42_74a914016a0f.jpg",
+      "type": "image/jpeg",
+      "bytes": 161916,
+      "sha256": "74a914016a0f9b773317c6d445e6c8048794cbe1f344048b7535fd9d0a2fbd4b"
+    },
+    {
+      "file": "assets/asset_43_cef8d754fd60.jpg",
+      "type": "image/jpeg",
+      "bytes": 161917,
+      "sha256": "cef8d754fd603baa9fd71dd5abc24b42a0881ed257e0fc1b84855bffab452654"
+    },
+    {
+      "file": "assets/asset_44_11c03e7f3028.jpg",
+      "type": "image/jpeg",
+      "bytes": 160667,
+      "sha256": "11c03e7f30286f01e9bc4c008d874ee093209c5c80844fc61faed7b49be9510f"
+    },
+    {
+      "file": "assets/asset_45_251cd5d74bd2.jpg",
+      "type": "image/jpeg",
+      "bytes": 158707,
+      "sha256": "251cd5d74bd2e28263480e545517edcfb4714abf3b0de648ed2bdef7a24968f8"
+    }
+  ],
+  "external_assets": [
+    "Google Fonts CSS: https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+  ]
+}

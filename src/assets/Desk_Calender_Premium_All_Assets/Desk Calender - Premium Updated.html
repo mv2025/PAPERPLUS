@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARG Enterprise — 2027 Flip Calendar Memo Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141F42;
+    --ink-2:#1B2A56;
+    --red:#DA2030;
+    --cream:#FAF6EC;
+    --paper:#FFFFFF;
+    --slate:#5C6478;
+    --line:#E8E1D0;
+    --gold:#E9AF3C;
+    --radius:14px;
+    --shadow: 0 20px 45px -22px rgba(20,31,66,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;margin:0;padding:0;}
+  h1,h2,h3{font-family:'Sora',sans-serif;margin:0;line-height:1.05;}
+  .script{font-family:'Caveat',cursive;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'Sora',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--red);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Sora',sans-serif;font-weight:600;font-size:14.5px;
+    padding:13px 24px;border-radius:999px;border:2px solid transparent;
+    cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 24px -10px rgba(218,32,48,.55);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(218,32,48,.6);}
+  .btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px);}
+  .btn-dark{background:var(--ink);color:#fff;}
+  .btn-dark:hover{background:var(--ink-2);transform:translateY(-2px);}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(250,246,236,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1200px;margin:0 auto;}
+  .logo{display:flex;align-items:baseline;gap:2px;font-family:'Sora',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.02em;}
+  .logo span.mark{color:var(--red);}
+  .logo small{font-family:'Inter',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);display:block;margin-top:-2px;}
+  nav.links{display:flex;gap:32px;font-size:14.5px;font-weight:500;color:var(--ink);}
+  nav.links a{position:relative;padding:4px 0;}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--red);transition:width .2s ease;}
+  nav.links a:hover::after{width:100%;}
+  .nav-right{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;padding:64px 0 40px;overflow:hidden;}
+  .hero::before{
+    content:"27";
+    position:absolute;right:-40px;top:-60px;
+    font-family:'Sora',sans-serif;font-weight:800;font-size:min(46vw,520px);
+    color:var(--ink);opacity:.035;line-height:1;z-index:0;pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative;z-index:1;}
+  .hero-copy .script{font-size:34px;color:var(--ink-2);display:block;margin-bottom:2px;}
+  .hero-title{font-size:clamp(38px,5vw,60px);font-weight:800;letter-spacing:-.02em;margin:2px 0 20px;}
+  .hero-title .num-navy{color:var(--ink-2);}
+  .hero-title .num-red{color:var(--red);}
+  .hero-desc{font-size:16.5px;line-height:1.65;color:var(--slate);max-width:480px;margin-bottom:28px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .trust-chip{
+    display:flex;align-items:center;gap:8px;
+    background:var(--paper);border:1px solid var(--line);
+    padding:9px 14px;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink);
+  }
+  .trust-chip svg{width:15px;height:15px;flex:none;color:var(--red);}
+  .hero-visual{position:relative;}
+  .hero-visual .glow{
+    position:absolute;inset:-8%;
+    background:radial-gradient(closest-side, rgba(233,175,60,.35), transparent 70%);
+    filter:blur(10px);z-index:0;
+  }
+  .hero-stack{position:relative;z-index:1;}
+  .hero-stack img.main-shot{
+    width:88%;margin:0 auto;display:block;
+    filter:drop-shadow(0 30px 40px rgba(20,31,66,.28));
+    animation:floatIn .8s ease both;
+  }
+  .hero-stack img.side-shot{
+    position:absolute;width:36%;right:-2%;bottom:2%;
+    filter:drop-shadow(0 20px 26px rgba(20,31,66,.3));
+    animation:floatIn .8s .15s ease both;
+    border-radius:10px;
+  }
+  @keyframes floatIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion:reduce){
+    .hero-stack img{animation:none;}
+  }
+
+  /* ===== SECTION HEADS ===== */
+  section{padding:78px 0;}
+  .section-head{max-width:620px;margin-bottom:46px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;letter-spacing:-.01em;margin-top:8px;}
+  .section-head p{color:var(--slate);font-size:15.5px;line-height:1.6;margin-top:12px;}
+
+  /* ===== FEATURES ===== */
+  .features{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .feature{background:var(--paper);padding:30px 26px;}
+  .feature .ic{width:38px;height:38px;color:var(--red);margin-bottom:16px;}
+  .feature h3{font-size:16.5px;font-weight:700;margin-bottom:8px;}
+  .feature p{font-size:13.8px;color:var(--slate);line-height:1.55;margin:0;}
+
+  /* ===== CONFIGURATOR ===== */
+  .configurator .section-head{margin-bottom:30px;}
+  .tabs{display:flex;gap:10px;margin-bottom:38px;flex-wrap:wrap;}
+  .tab-btn{
+    font-family:'Sora',sans-serif;font-weight:600;font-size:14px;
+    padding:11px 20px;border-radius:999px;border:1.5px solid var(--line);
+    background:var(--paper);cursor:pointer;color:var(--slate);transition:all .18s ease;
+  }
+  .tab-btn.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+  .config-panel{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:var(--shadow);}
+  .config-visual{position:relative;text-align:center;}
+  .config-visual .frame{
+    background:linear-gradient(180deg,#fff, #f4efe2 90%);
+    border-radius:16px;padding:26px;position:relative;
+    min-height:340px;display:flex;align-items:center;justify-content:center;
+  }
+  .config-visual .frame::after{
+    content:"";position:absolute;left:8%;right:8%;bottom:14px;height:22px;
+    background:radial-gradient(closest-side, rgba(20,31,66,.18), transparent 72%);
+    filter:blur(4px);
+  }
+  .config-visual img{max-height:320px;margin:0 auto;position:relative;z-index:1;transition:opacity .25s ease, transform .25s ease;}
+  .inside-toggle{
+    margin-top:16px;font-family:'Sora',sans-serif;font-weight:600;font-size:13px;
+    color:var(--ink-2);background:none;border:1.5px solid var(--ink-2);border-radius:999px;
+    padding:9px 18px;cursor:pointer;transition:all .18s ease;
+  }
+  .inside-toggle:hover{background:var(--ink-2);color:#fff;}
+
+  .config-info .colorway-label{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:6px;}
+  .config-info h3{font-size:26px;font-weight:800;margin-bottom:8px;}
+  .config-info .tagline{color:var(--slate);font-size:14.5px;line-height:1.6;margin-bottom:22px;}
+
+  .swatches{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;}
+  .swatch{
+    width:38px;height:38px;border-radius:50%;cursor:pointer;
+    border:3px solid transparent;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .swatch:hover{transform:translateY(-2px);}
+  .swatch.active{border-color:var(--ink);transform:translateY(-2px);}
+  .swatch .tip{
+    position:absolute;bottom:120%;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:#fff;font-size:11px;font-family:'Inter';
+    padding:4px 8px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;
+  }
+  .swatch:hover .tip{opacity:1;}
+
+  .spec-list{border-top:1px solid var(--line);margin-top:6px;}
+  .spec-row{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .spec-row dt{color:var(--slate);}
+  .spec-row dd{margin:0;font-weight:600;text-align:right;}
+
+  .config-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center;}
+  .moq-note{font-size:12.5px;color:var(--slate);}
+
+  /* ===== GALLERY ===== */
+  .gallery-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+  .chip-filter{
+    font-family:'Sora',sans-serif;font-size:13px;font-weight:600;
+    padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);
+    background:var(--paper);cursor:pointer;color:var(--slate);
+  }
+  .chip-filter.active{background:var(--red);border-color:var(--red);color:#fff;}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;}
+  .g-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:16px;text-align:center;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .g-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ink);}
+  .g-card img{height:150px;margin:0 auto 12px;object-fit:contain;}
+  .g-card .g-name{font-family:'Sora',sans-serif;font-weight:700;font-size:13px;}
+  .g-card .g-sub{font-size:11.5px;color:var(--slate);margin-top:2px;}
+
+  /* ===== CORPORATE SERIES ===== */
+  .corp-series{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .corp-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+  .corp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px;}
+  .corp-card{
+    background:var(--cream);border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    display:flex;flex-direction:column;
+  }
+  .corp-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--ink);}
+  .corp-card.premium-card{border-color:rgba(233,175,60,.45);}
+  .corp-card.premium-card:hover{border-color:var(--gold);}
+  .corp-card.premium-card .corp-cat{color:#B77900;}
+  .corp-card .corp-thumb{position:relative;background:#fff;}
+  .corp-card .corp-thumb img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;object-position:top;}
+  .corp-card .corp-zoom{
+    position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;
+    background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;
+    color:var(--ink);opacity:0;transition:opacity .18s ease;
+  }
+  .corp-card:hover .corp-zoom{opacity:1;}
+  .corp-card .corp-zoom svg{width:15px;height:15px;}
+  .corp-card .corp-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:6px;}
+  .corp-card .corp-cat{font-family:'Sora',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);}
+  .corp-card .corp-name{font-family:'Sora',sans-serif;font-weight:700;font-size:15.5px;line-height:1.3;}
+  .corp-card .corp-spec{font-size:12px;color:var(--slate);margin-top:auto;padding-top:8px;border-top:1px solid var(--line);}
+  .corp-note{font-size:13px;color:var(--slate);margin-top:28px;}
+
+  .lightbox{
+    position:fixed;inset:0;z-index:120;background:rgba(20,31,66,.78);
+    display:flex;align-items:center;justify-content:center;padding:28px;
+    opacity:0;pointer-events:none;transition:opacity .22s ease;
+  }
+  .lightbox.open{opacity:1;pointer-events:auto;}
+  .lightbox-inner{max-width:min(1000px,94vw);max-height:88vh;position:relative;}
+  .lightbox-inner img{max-width:100%;max-height:88vh;border-radius:10px;display:block;box-shadow:0 30px 60px rgba(0,0,0,.4);}
+  .lightbox-caption{color:#fff;text-align:center;margin-top:14px;font-family:'Sora',sans-serif;font-size:14px;}
+  .lightbox-close{
+    position:absolute;top:-18px;right:-18px;width:38px;height:38px;border-radius:50%;
+    background:#fff;color:var(--ink);border:none;font-size:20px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(0,0,0,.25);
+  }
+
+  /* ===== BULK BAND ===== */
+  .bulk-band{
+    background:var(--ink);color:#fff;border-radius:24px;
+    padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap;
+    position:relative;overflow:hidden;
+  }
+  .bulk-band::before{
+    content:"2027";font-family:'Sora',sans-serif;font-weight:800;
+    position:absolute;left:-30px;bottom:-60px;font-size:220px;color:#fff;opacity:.05;
+  }
+  .bulk-band h2{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:10px;position:relative;z-index:1;}
+  .bulk-band p{color:#C9CEE0;font-size:15px;max-width:440px;position:relative;z-index:1;}
+  .bulk-band .btn-primary{position:relative;z-index:1;}
+
+  /* ===== QUOTE DRAWER ===== */
+  .quote-fab{
+    position:fixed;right:24px;bottom:24px;z-index:80;
+    background:var(--red);color:#fff;border:none;border-radius:999px;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:14px;
+    padding:15px 22px;display:flex;align-items:center;gap:10px;
+    box-shadow:0 16px 34px -12px rgba(218,32,48,.55);cursor:pointer;
+  }
+  .quote-fab .badge{background:#fff;color:var(--red);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:12px;}
+  .quote-drawer{
+    position:fixed;top:0;right:0;height:100%;width:380px;max-width:92vw;
+    background:var(--paper);z-index:90;box-shadow:-20px 0 50px rgba(20,31,66,.25);
+    transform:translateX(100%);transition:transform .3s ease;
+    display:flex;flex-direction:column;
+  }
+  .quote-drawer.open{transform:translateX(0);}
+  .qd-head{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line);}
+  .qd-head h3{font-size:18px;font-weight:800;}
+  .qd-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--slate);line-height:1;}
+  .qd-list{flex:1;overflow-y:auto;padding:16px 24px;}
+  .qd-empty{color:var(--slate);font-size:14px;text-align:center;margin-top:40px;}
+  .qd-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .qd-item img{width:52px;height:52px;object-fit:contain;background:var(--cream);border-radius:8px;padding:6px;}
+  .qd-item .qd-info{flex:1;}
+  .qd-item .qd-info b{font-size:13.5px;display:block;}
+  .qd-item .qd-info span{font-size:12px;color:var(--slate);}
+  .qd-remove{background:none;border:none;color:var(--slate);cursor:pointer;font-size:18px;}
+  .qd-footer{padding:20px 24px;border-top:1px solid var(--line);}
+  .qd-footer .btn{width:100%;justify-content:center;}
+  .qd-scrim{position:fixed;inset:0;background:rgba(20,31,66,.35);z-index:85;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+  .qd-scrim.show{opacity:1;pointer-events:auto;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);color:#C9CEE0;padding:56px 0 28px;margin-top:20px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12);}
+  .foot-grid h4{color:#fff;font-family:'Sora',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+  .foot-grid li{margin-bottom:10px;font-size:13.5px;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-logo{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:10px;}
+  .foot-logo span{color:var(--red);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:12.5px;color:#8891AC;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;max-width:420px;margin:0 auto;}
+    .config-panel{grid-template-columns:1fr;padding:26px;gap:30px;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:760px){
+    nav.links{display:none;}
+    .burger{display:block;}
+    .bulk-band{flex-direction:column;text-align:center;padding:40px 26px;}
+    .bulk-band p{margin:0 auto;}
+  }
+  @media (max-width:560px){
+    .feature-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-actions,.trust-row{flex-direction:column;align-items:flex-start;}
+    .config-cta{flex-direction:column;align-items:stretch;}
+    .quote-drawer{width:100%;}
+    section{padding:56px 0;}
+    .corp-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;}
+    .lightbox-close{top:-14px;right:0;}
+  }
+</style>
+</head>
+<body>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">2027 Corporate Gifting Collection</span>
+        <span class="script">calendar</span>
+        <h1 class="hero-title"><span class="num-navy">20</span><span class="num-red">27</span> Flip Calendar Memo Box</h1>
+        <p class="hero-desc">A spiral flip calendar sits on a fabric-bound memo cube stocked with 400 note sheets — one desk set your clients will open every single morning of the year. Nine colorways, two cover stories, one logo placement: yours.</p>
+        <div class="hero-actions">
+          <a href="#collection" class="btn btn-primary">Browse the 9 colorways</a>
+          <a href="#bulk" class="btn btn-ghost">Get bulk pricing</a>
+        </div>
+        <div class="trust-row">
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>9 fabric colorways</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Custom logo on cover</span>
+          <span class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>400-sheet memo refill</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow"></div>
+        <div class="hero-stack">
+          <img class="main-shot" src="asset_01_1035dd3e31a9.png" alt="Navy 2027 flip calendar memo box, Happy New Year cover">
+          <img class="side-shot" src="asset_02_635a7db1bc7c.png" alt="Red 2027 flip calendar memo box, Windmill Getaway cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why teams reorder this one</span>
+        <h2>Built like a desk fixture, priced like a giveaway</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+          <h3>Full 12-month spiral calendar</h3>
+          <p>Jan – Dec 2027, wire-bound and hinged to flip flat against the memo box lid.</p>
+        </div>
+        <div class="feature">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>
+          <h3>400-sheet memo cube</h3>
+          <p>The base doubles as a refillable notepad box — cream stock, cut flush, sitting in a fabric-bound tray.</p>
+        </div>
+        <div class="feature">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.9 6.3L21 10l-5 4.3L17.5 21 12 17.6 6.5 21 8 14.3 3 10l6.1-.7z"/></svg>
+          <h3>Full-colour logo print</h3>
+          <p>Your mark goes on the calendar cover, the memo box lid, or both — one setup fee, two placements.</p>
+        </div>
+        <div class="feature">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          <h3>Ships boxed and ready</h3>
+          <p>Each set arrives pre-assembled and individually sleeved — straight from your dock to their desk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIGURATOR -->
+  <section class="configurator" id="collection">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pick a cover story</span>
+        <h2>Two designs. Nine colorways each.</h2>
+        <p>Preview the exact cover art and box fabric before you commit to a production run. Tap a swatch to change the color, or flip the calendar open to see the January layout.</p>
+      </div>
+
+      <div class="tabs" id="tabs"></div>
+
+      <div class="config-panel">
+        <div class="config-visual">
+          <div class="frame">
+            <img id="mainImg" src="asset_01_1035dd3e31a9.png" alt="Selected calendar box preview">
+          </div>
+          <button class="inside-toggle" id="insideToggle">See inside — January layout</button>
+        </div>
+        <div class="config-info">
+          <div class="colorway-label" id="colorwayLabel">Navy</div>
+          <h3 id="designName">Happy New Year Classic</h3>
+          <p class="tagline" id="designTagline">A hand-lettered "calendar" script and bold split-colour 2027 numerals — clean enough for finance, warm enough for the front desk.</p>
+
+          <div class="swatches" id="swatches"></div>
+
+          <dl class="spec-list">
+            <div class="spec-row"><dt>Box footprint</dt><dd>6.5 × 6 × 3.5 in</dd></div>
+            <div class="spec-row"><dt>Calendar</dt><dd>Spiral-bound, Jan–Dec 2027</dd></div>
+            <div class="spec-row"><dt>Memo pad</dt><dd>400 sheets, cream stock</dd></div>
+            <div class="spec-row"><dt>Cover fabric</dt><dd>Textured leatherette</dd></div>
+            <div class="spec-row"><dt>Branding</dt><dd>1-colour to full-colour print</dd></div>
+          </dl>
+
+          <div class="config-cta">
+            <button class="btn btn-primary" id="addQuoteBtn">Add to enquiry list</button>
+            <span class="moq-note">MOQ 50 units · from $6.40/unit at 250+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Every option, side by side</span>
+        <h2>All 18 colorways</h2>
+        <p>Filter by cover design to see the full fabric range at a glance.</p>
+      </div>
+      <div class="gallery-filters" id="galleryFilters"></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- CORPORATE SERIES -->
+  <section class="corp-series" id="corporate-series">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Another way to gift the year ahead</span>
+        <h2>Corporate &amp; Premium Series Desk Calendars</h2>
+        <p>13-sheeter spiral desk calendars with a 4-colour back planner, printed UV &amp; Hybrid at 23 × 21cm. Nineteen ready-made corporate themes plus six Premium Series desk calendars — across devotional, motivational, wellness, travel art and premium spiritual collections.</p>
+      </div>
+      <div class="corp-filters" id="corpFilters"></div>
+      <div class="corp-grid" id="corpGrid"></div>
+      <p class="corp-note">Tap any calendar to view it larger. Premium Series items are 13-sheeter spiral desk calendars with planner layouts, while the corporate themes retain the existing UV &amp; Hybrid 23 × 21cm format.</p>
+    </div>
+  </section>
+
+  <!-- BULK BAND -->
+  <section id="bulk">
+    <div class="wrap">
+      <div class="bulk-band">
+        <div>
+          <h2>Ordering for a team, a client list, or an event?</h2>
+          <p>Tell us the quantity, colorway and logo placement — we'll send back pricing tiers and a production timeline within one business day.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:orders@arg-enterprise.example?subject=2027%20Flip%20Calendar%20Memo%20Box%20-%20Bulk%20Quote%20Request">Request bulk quote</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- QUOTE DRAWER -->
+<button class="quote-fab" id="quoteFab">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/><path d="M6 6L4 3H2"/></svg>
+  Enquiry list <span class="badge" id="quoteCount">0</span>
+</button>
+<div class="qd-scrim" id="qdScrim"></div>
+<aside class="quote-drawer" id="quoteDrawer">
+  <div class="qd-head">
+    <h3>Your enquiry list</h3>
+    <button class="qd-close" id="qdClose">&times;</button>
+  </div>
+  <div class="qd-list" id="qdList">
+    <p class="qd-empty">Nothing added yet — pick a colorway above and hit "Add to enquiry list".</p>
+  </div>
+  <div class="qd-footer">
+    <a class="btn btn-primary" id="qdSend" href="#">Email this list</a>
+  </div>
+</aside>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  const DESIGNS = [
+    {
+      id: 'classic',
+      name: 'Happy New Year Classic',
+      tagline: 'A hand-lettered "calendar" script and bold split-colour 2027 numerals — clean enough for finance, warm enough for the front desk.',
+      inside: 'asset_03_39f8718b3f3a.png',
+      colors: [
+        {name:'Navy',  hex:'#1B2A56', img:'asset_01_1035dd3e31a9.png'},
+        {name:'Black', hex:'#202124', img:'asset_04_d63402e89e59.png'},
+        {name:'Red',   hex:'#C81E2C', img:'asset_05_48754b090041.png'},
+        {name:'Teal',  hex:'#127A82', img:'asset_06_3c8400189653.png'},
+        {name:'Orange',hex:'#E07A1F', img:'asset_07_34f659ded564.png'},
+        {name:'Green', hex:'#1F7A3D', img:'asset_08_6ffb634797eb.png'},
+        {name:'Grey',  hex:'#9BA1A6', img:'asset_09_a9e40c740a48.png'},
+        {name:'Yellow',hex:'#E7B33E', img:'asset_10_e57c12c4fbc9.png'},
+        {name:'Aqua',  hex:'#3FB8C4', img:'asset_11_2726cb46b89c.png'}
+      ]
+    },
+    {
+      id: 'windmill',
+      name: 'Windmill Getaway',
+      tagline: 'A full-colour travel photo framed in a fine geometric border — a New Year cover with somewhere to go.',
+      inside: 'asset_12_2b92baf92633.png',
+      colors: [
+        {name:'Navy',  hex:'#1B2A56', img:'asset_13_450c5b41a0d2.png'},
+        {name:'Red',   hex:'#C81E2C', img:'asset_02_635a7db1bc7c.png'},
+        {name:'Black', hex:'#202124', img:'asset_14_68918cabe40b.png'},
+        {name:'Teal',  hex:'#127A82', img:'asset_15_064d507aa534.png'},
+        {name:'Orange',hex:'#E07A1F', img:'asset_16_ad042c5a9e12.png'},
+        {name:'Green', hex:'#1F7A3D', img:'asset_17_ce4497b2f894.png'},
+        {name:'Grey',  hex:'#9BA1A6', img:'asset_18_2759aa0b1bec.png'},
+        {name:'Yellow',hex:'#E7B33E', img:'asset_19_125c742a038f.png'},
+        {name:'Aqua',  hex:'#3FB8C4', img:'asset_20_78014560dcdc.png'}
+      ]
+    }
+  ];
+
+  let activeDesign = DESIGNS[0];
+  let activeColor = DESIGNS[0].colors[0];
+  let showingInside = false;
+  let quoteItems = [];
+
+  const tabsEl = document.getElementById('tabs');
+  const swatchesEl = document.getElementById('swatches');
+  const mainImg = document.getElementById('mainImg');
+  const designName = document.getElementById('designName');
+  const designTagline = document.getElementById('designTagline');
+  const colorwayLabel = document.getElementById('colorwayLabel');
+  const insideToggle = document.getElementById('insideToggle');
+
+  function renderTabs(){
+    tabsEl.innerHTML = DESIGNS.map(d =>
+      `<button class="tab-btn ${d.id===activeDesign.id?'active':''}" data-id="${d.id}">${d.name}</button>`
+    ).join('');
+    tabsEl.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        activeDesign = DESIGNS.find(d=>d.id===btn.dataset.id);
+        activeColor = activeDesign.colors[0];
+        showingInside = false;
+        renderTabs(); renderSwatches(); renderPanel();
+      });
+    });
+  }
+
+  function renderSwatches(){
+    swatchesEl.innerHTML = activeDesign.colors.map(c =>
+      `<div class="swatch ${c.name===activeColor.name?'active':''}" style="background:${c.hex}" data-name="${c.name}">
+         <span class="tip">${c.name}</span>
+       </div>`
+    ).join('');
+    swatchesEl.querySelectorAll('.swatch').forEach(sw=>{
+      sw.addEventListener('click', ()=>{
+        activeColor = activeDesign.colors.find(c=>c.name===sw.dataset.name);
+        showingInside = false;
+        renderSwatches(); renderPanel();
+      });
+    });
+  }
+
+  function renderPanel(){
+    mainImg.style.opacity = 0;
+    setTimeout(()=>{
+      mainImg.src = showingInside ? activeDesign.inside : activeColor.img;
+      mainImg.alt = `${activeDesign.name} — ${activeColor.name} — ${showingInside ? 'January layout' : 'cover view'}`;
+      mainImg.style.opacity = 1;
+    }, 120);
+    designName.textContent = activeDesign.name;
+    designTagline.textContent = activeDesign.tagline;
+    colorwayLabel.textContent = activeColor.name;
+    insideToggle.textContent = showingInside ? 'Back to cover' : 'See inside — January layout';
+  }
+
+  insideToggle.addEventListener('click', ()=>{
+    showingInside = !showingInside;
+    renderPanel();
+  });
+
+  renderTabs(); renderSwatches(); renderPanel();
+
+  // ===== GALLERY =====
+  const galleryFilters = document.getElementById('galleryFilters');
+  const galleryGrid = document.getElementById('galleryGrid');
+  let galleryFilter = 'all';
+
+  function renderGalleryFilters(){
+    const filters = [{id:'all', label:'All colorways'}, ...DESIGNS.map(d=>({id:d.id,label:d.name}))];
+    galleryFilters.innerHTML = filters.map(f =>
+      `<button class="chip-filter ${galleryFilter===f.id?'active':''}" data-id="${f.id}">${f.label}</button>`
+    ).join('');
+    galleryFilters.querySelectorAll('.chip-filter').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        galleryFilter = btn.dataset.id;
+        renderGalleryFilters(); renderGalleryGrid();
+      });
+    });
+  }
+
+  function renderGalleryGrid(){
+    let cards = [];
+    DESIGNS.forEach(d=>{
+      if(galleryFilter!=='all' && galleryFilter!==d.id) return;
+      d.colors.forEach(c=>{
+        cards.push({design:d, color:c});
+      });
+    });
+    galleryGrid.innerHTML = cards.map(({design,color}) => `
+      <div class="g-card" data-design="${design.id}" data-color="${color.name}">
+        <img src="${color.img}" alt="${design.name} in ${color.name}">
+        <div class="g-name">${color.name}</div>
+        <div class="g-sub">${design.name}</div>
+      </div>
+    `).join('');
+    galleryGrid.querySelectorAll('.g-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        activeDesign = DESIGNS.find(d=>d.id===card.dataset.design);
+        activeColor = activeDesign.colors.find(c=>c.name===card.dataset.color);
+        showingInside = false;
+        renderTabs(); renderSwatches(); renderPanel();
+        document.getElementById('collection').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  }
+
+  renderGalleryFilters(); renderGalleryGrid();
+
+  // ===== QUOTE DRAWER =====
+  const quoteFab = document.getElementById('quoteFab');
+  const quoteDrawer = document.getElementById('quoteDrawer');
+  const qdScrim = document.getElementById('qdScrim');
+  const qdClose = document.getElementById('qdClose');
+  const qdList = document.getElementById('qdList');
+  const qdSend = document.getElementById('qdSend');
+  const quoteCount = document.getElementById('quoteCount');
+  const addQuoteBtn = document.getElementById('addQuoteBtn');
+
+  function openDrawer(){ quoteDrawer.classList.add('open'); qdScrim.classList.add('show'); }
+  function closeDrawer(){ quoteDrawer.classList.remove('open'); qdScrim.classList.remove('show'); }
+  quoteFab.addEventListener('click', openDrawer);
+  qdClose.addEventListener('click', closeDrawer);
+  qdScrim.addEventListener('click', closeDrawer);
+
+  addQuoteBtn.addEventListener('click', ()=>{
+    quoteItems.push({design:activeDesign.name, color:activeColor.name, img:activeColor.img});
+    renderQuote();
+    openDrawer();
+  });
+
+  function renderQuote(){
+    quoteCount.textContent = quoteItems.length;
+    if(quoteItems.length===0){
+      qdList.innerHTML = '<p class="qd-empty">Nothing added yet — pick a colorway above and hit "Add to enquiry list".</p>';
+    } else {
+      qdList.innerHTML = quoteItems.map((it, i) => `
+        <div class="qd-item">
+          <img src="${it.img}" alt="${it.design} ${it.color}">
+          <div class="qd-info"><b>${it.design}</b><span>${it.color}</span></div>
+          <button class="qd-remove" data-i="${i}" aria-label="Remove">&times;</button>
+        </div>
+      `).join('');
+      qdList.querySelectorAll('.qd-remove').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          quoteItems.splice(Number(btn.dataset.i),1);
+          renderQuote();
+        });
+      });
+    }
+    const lines = quoteItems.map(it => `- ${it.design} (${it.color})`).join('%0D%0A');
+    qdSend.href = `mailto:orders@arg-enterprise.example?subject=2027%20Flip%20Calendar%20Memo%20Box%20-%20Enquiry&body=Hi%20ARG%20Enterprise%2C%0D%0A%0D%0APlease%20send%20pricing%20for%3A%0D%0A${lines || '- (add items first)'}%0D%0A%0D%0AQuantity%20needed%3A%20%0D%0A`;
+  }
+  renderQuote();
+
+  // ===== CORPORATE SERIES DESK CALENDARS =====
+  const CORP_ITEMS = [
+    {code:'300', name:'MAHA GANPATI', cat:'premium', img:'asset_21_be605dba59fa.png'},
+    {code:'301', name:'BHAKTI SAMARPAN', cat:'premium', img:'asset_22_fc7a9002813f.png'},
+    {code:'302', name:'AARTI SANGRAH', cat:'premium', img:'asset_23_3d59a55e4cf3.png'},
+    {code:'303', name:'RADHA MADHAV', cat:'premium', img:'asset_24_b169f7ce24ef.png'},
+    {code:'304', name:'SAI BABA', cat:'premium', img:'asset_25_c9168ddbe608.png'},
+    {code:'305', name:'JAI JAI JAGANNATH PRABHU', cat:'premium', img:'asset_26_9aa8ab1c50f4.png'},
+    {code:'1501', name:'Shree Ganeshaya Namaha', cat:'devotional', img:'asset_27_38fa2c68b07a.jpg'},
+    {code:'1502', name:'Prabhu Aradhana — Aarti Sangrah', cat:'devotional', img:'asset_28_0ccfd02dfe29.jpg'},
+    {code:'1503', name:'Radha Krishna', cat:'devotional', img:'asset_29_e259bc1b5a9f.jpg'},
+    {code:'1504', name:'Sai Baba — Sabka Malik Ek', cat:'devotional', img:'asset_30_ae8d1cb7dc12.jpg'},
+    {code:'1505', name:'Go Green — Breathe Clean', cat:'wellness', img:'asset_31_9872eb025040.jpg'},
+    {code:'1506', name:'Health & Wellness', cat:'wellness', img:'asset_32_626e8d0f0f3d.jpg'},
+    {code:'1507', name:'A Motivational Desk Calendar', cat:'motivational', img:'asset_33_c43d04ff816d.jpg'},
+    {code:'1508', name:'Motivation — The Will To Win', cat:'motivational', img:'asset_34_318a2d2844c1.jpg'},
+    {code:'1509', name:'Inspiration — Stay Strong, Be Brave, Go Beyond', cat:'motivational', img:'asset_35_3e48bfef482d.jpg'},
+    {code:'1510', name:'Don\u2019t Give Up', cat:'motivational', img:'asset_36_bbd680d90bdc.jpg'},
+    {code:'1511', name:'Mindful Escape — Unplug. Recharge. Be You.', cat:'wellness', img:'asset_37_3dc458d379ba.jpg'},
+    {code:'1512', name:'Dream It, Believe It, Achieve It', cat:'motivational', img:'asset_38_cadc85f19878.jpg'},
+    {code:'1513', name:'Do It Now', cat:'motivational', img:'asset_39_14bbe5e5a2f1.jpg'},
+    {code:'1514', name:'Royal Heritage — A Glimpse Into The Past', cat:'travel', img:'asset_40_cd91005e88a0.jpg'},
+    {code:'1515', name:'Travel — Discover Who You Really Are', cat:'travel', img:'asset_41_d2cfd4b09d1c.jpg'},
+    {code:'1516', name:'Nature & Horizons', cat:'travel', img:'asset_42_74a914016a0f.jpg'},
+    {code:'1517', name:'Travel Vista', cat:'travel', img:'asset_43_cef8d754fd60.jpg'},
+    {code:'1518', name:'Wonderful Nature', cat:'travel', img:'asset_44_11c03e7f3028.jpg'},
+    {code:'1519', name:'World Monuments 2027', cat:'travel', img:'asset_45_251cd5d74bd2.jpg'}
+  ];
+  const CORP_CATS = [
+    {id:'all', label:'All calendars'},
+    {id:'devotional', label:'Devotional'},
+    {id:'motivational', label:'Motivational'},
+    {id:'wellness', label:'Lifestyle & Wellness'},
+    {id:'travel', label:'Travel & Heritage'},
+    {id:'premium', label:'Premium'}
+  ];
+  let corpFilter = 'all';
+
+  const corpFiltersEl = document.getElementById('corpFilters');
+  const corpGridEl = document.getElementById('corpGrid');
+
+  function renderCorpFilters(){
+    corpFiltersEl.innerHTML = CORP_CATS.map(c =>
+      `<button class="chip-filter ${corpFilter===c.id?'active':''}" data-id="${c.id}">${c.label}</button>`
+    ).join('');
+    corpFiltersEl.querySelectorAll('.chip-filter').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        corpFilter = btn.dataset.id;
+        renderCorpFilters(); renderCorpGrid();
+      });
+    });
+  }
+
+  function renderCorpGrid(){
+    const items = CORP_ITEMS.filter(it => corpFilter==='all' || it.cat===corpFilter);
+    corpGridEl.innerHTML = items.map(it => `
+      <div class="corp-card ${it.cat==='premium'?'premium-card':''}" data-code="${it.code}">
+        <div class="corp-thumb">
+          <img src="${it.img}" alt="${it.name} — 2027 desk calendar, code ${it.code}" loading="lazy">
+          <span class="corp-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span>
+        </div>
+        <div class="corp-body">
+          <span class="corp-cat">${CORP_CATS.find(c=>c.id===it.cat).label}</span>
+          <span class="corp-name">${it.name}</span>
+          <span class="corp-spec">${it.cat==='premium' ? '13-sheeter · Premium Series · 21.5 × 19cm' : '13-sheeter · UV & Hybrid · 23 × 21cm'}</span>
+        </div>
+      </div>
+    `).join('');
+    corpGridEl.querySelectorAll('.corp-card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        const item = CORP_ITEMS.find(i=>i.code===card.dataset.code);
+        openLightbox(item.img, item.name);
+      });
+    });
+  }
+
+  renderCorpFilters(); renderCorpGrid();
+
+  // ===== LIGHTBOX =====
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function openLightbox(src, caption){
+    lightboxImg.src = src;
+    lightboxImg.alt = caption;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
