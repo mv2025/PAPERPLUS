@@ -198,194 +198,234 @@ export default function About() {
 }
 
 const HorizontalProcess = () => {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
-  const [maxTranslate, setMaxTranslate] = useState(0);
 
-  useEffect(() => {
-    const updateTranslate = () => {
-      if (trackRef.current) {
-        const totalWidth = trackRef.current.scrollWidth;
-        const viewportWidth = window.innerWidth;
-        // Calculate exact scroll distance needed so last card stops cleanly at screen edge
-        setMaxTranslate(Math.max(0, totalWidth - viewportWidth + 64));
-      }
-    };
+  const PROCESS_STEPS = [
+    {
+      id: 0,
+      stage: 'Stage 01',
+      title: 'Heavyweight Paper Stock & Gold Foil',
+      subtitle: 'Raw Stock Selection',
+      desc: 'We select heavy 250 GSM imported art card and textured virgin kraft. Engineered with zero curl memory, holding deep saturated inks and withstanding 140°C hot-stamp metallic gold foil without wrinkling.',
+      img: religiousHero,
+      badge: '250 GSM Art Stock',
+      specs: [
+        { label: 'Stock Weight', value: '250 GSM Premium' },
+        { label: 'Foil Temperature', value: '140°C Hot Stamped' },
+        { label: 'Surface Finish', value: 'Vedic Shloka Gold Accent' },
+        { label: 'Durability', value: '365-Day Zero Curl' },
+      ],
+      highlights: [
+        'Pure virgin pulp ensures uniform ink absorption across every page.',
+        'High-pressure gold foil embossing creates raised tactile deity shlokas.',
+        'UV barrier coating prevents yellowing from natural room sunlight.'
+      ]
+    },
+    {
+      id: 1,
+      stage: 'Stage 02',
+      title: 'High-Definition 6-Color Offset Printing',
+      subtitle: 'Micro-Screen Calibration',
+      desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every feather of Saraswati and every jewel of Ganpati.',
+      img: asset21,
+      badge: '2400 DPI Micro-Screen',
+      specs: [
+        { label: 'Press Technology', value: 'German 6-Color Offset' },
+        { label: 'Resolution', value: '2400 DPI Ultra HD' },
+        { label: 'Ink Type', value: 'Eco-Friendly Soy Inks' },
+        { label: 'Color Accuracy', value: '99.8% Delta-E Match' },
+      ],
+      highlights: [
+        'German Heidelberg precision cylinders eliminate double-image blurring.',
+        'Food-grade, non-toxic soy inks produce rich, deep jewel tones.',
+        'Automated spectrophotometer checks every 200th print sheet for color drift.'
+      ]
+    },
+    {
+      id: 2,
+      stage: 'Stage 03',
+      title: 'Velvet Thermal Film & Protective UV Shield',
+      subtitle: 'Surface Protection',
+      desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, oil, and atmospheric humidity throughout the entire calendar year.',
+      img: asset02,
+      badge: 'Velvet Anti-Scratch',
+      specs: [
+        { label: 'Film Type', value: 'Velvet Soft-Touch' },
+        { label: 'Bonding Method', value: 'Thermal Heat Fusion' },
+        { label: 'Resistance', value: 'Water & Fingerprint Proof' },
+        { label: 'Texture', value: 'Silk Matte Finish' },
+      ],
+      highlights: [
+        'Thermal heat fusion bonds film permanently with zero air-bubble trapping.',
+        'Matte glare reduction makes date grids legible from any viewing angle.',
+        'Scratch-resistant barrier keeps desk boxes looking brand-new in December.'
+      ]
+    },
+    {
+      id: 3,
+      stage: 'Stage 04',
+      title: 'Twin-Wire Hinges & Tin Rim Top Binding',
+      subtitle: 'Assembly & Finishing',
+      desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet precision memo blocks.',
+      img: asset01,
+      badge: 'Reinforced Steel Wire-O',
+      specs: [
+        { label: 'Wall Rim', value: 'Tin Plated Steel' },
+        { label: 'Wire Spiral', value: 'Twin-Loop Wire-O 3:1' },
+        { label: 'Memo Block', value: '400 Sheets Pre-Loaded' },
+        { label: 'Packaging', value: 'Individual Envelope Box' },
+      ],
+      highlights: [
+        'Tin rim top holds calendar flat against the wall without bottom sagging.',
+        'Precision 360-degree flip hinge turns smoothly without page tearing.',
+        'Every unit is hand-inspected before inserting into its custom gift sleeve.'
+      ]
+    }
+  ];
 
-    updateTranslate();
-    window.addEventListener('resize', updateTranslate);
-    return () => window.removeEventListener('resize', updateTranslate);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!wrapRef.current) return;
-      const rect = wrapRef.current.getBoundingClientRect();
-      const totalScrollable = wrapRef.current.scrollHeight - window.innerHeight;
-      const raw = -rect.top;
-      const p = totalScrollable > 0 ? Math.min(Math.max(raw / totalScrollable, 0), 1) : 0;
-
-      setProgress(p);
-      setActiveStep(Math.min(3, Math.floor(p * 4)));
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToStep = (stepIndex: number) => {
-    if (!wrapRef.current) return;
-    const top = wrapRef.current.offsetTop;
-    const totalScrollable = wrapRef.current.scrollHeight - window.innerHeight;
-    const targetY = top + (stepIndex / 3) * totalScrollable;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
-  };
+  const current = PROCESS_STEPS[activeStep];
 
   return (
-    <section ref={wrapRef} className="relative h-[300vh] bg-[#FAFAF8] text-[#14161C] border-t border-[#E4E1DA]">
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center py-8">
-        {/* Process Header */}
-        <div className="max-w-6xl mx-auto px-6 w-full mb-8">
-          <div className="flex items-center gap-2 text-xs font-mono font-medium uppercase tracking-widest text-[#9C7A3C] mb-3">
-            <span className="w-5 h-[1px] bg-[#9C7A3C] inline-block" /> Our Process
-          </div>
-          <Typography variant="h2" className="text-[#14161C] text-3xl sm:text-4xl font-bold mb-3">
-            How every calendar is made.
+    <section className="py-24 bg-[#FAF6EC] border-t border-[#E8E1D0] text-[#141F42]">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DA2030]/10 text-[#DA2030] text-xs font-extrabold uppercase tracking-widest mb-4 border border-[#DA2030]/20">
+            <Sparkles className="w-3.5 h-3.5" /> Craftsmanship Masterclass
+          </span>
+          <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">
+            How Every <span className="text-[#DA2030]">Paper Plus</span> Calendar is Engineered
           </Typography>
-          <p className="text-[#5B5F6B] text-sm sm:text-base max-w-2xl mb-8">
-            Four stages take each calendar from raw stock to a finished product built to last the full year. Scroll to follow the journey.
+          <p className="text-[#5C6478] text-base sm:text-lg">
+            From raw 250 GSM stock and hot-stamped gold foil to precision 6-color presses and steel Wire-O assembly — explore our 4-stage manufacturing process.
           </p>
+        </div>
 
-          {/* Interactive Progress Rail */}
-          <div className="relative h-10 w-full pt-1">
-            <div className="absolute top-2 left-0 right-0 h-[2px] bg-[#E4E1DA]" />
-            <div 
-              className="absolute top-2 left-0 h-[2px] bg-[#1F3A5F] transition-all duration-150"
-              style={{ width: `${progress * 100}%` }}
-            />
-            <div 
-              className="absolute top-[3px] w-3 h-3 bg-[#1F3A5F] rotate-45 transition-all duration-150 -ml-1.5 shadow-md"
-              style={{ left: `${progress * 100}%` }}
-            />
-            <div className="absolute top-5 left-0 right-0 flex justify-between font-mono text-xs text-[#9296A1]">
-              {[
-                { id: 0, label: '01 Paper' },
-                { id: 1, label: '02 Printing' },
-                { id: 2, label: '03 Lamination' },
-                { id: 3, label: '04 Binding' },
-              ].map((s) => (
+        {/* Interactive Step Switcher Tabs */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+          {PROCESS_STEPS.map((step, idx) => (
+            <button
+              key={step.id}
+              onClick={() => setActiveStep(idx)}
+              className={`p-4 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between ${
+                activeStep === idx
+                  ? 'bg-[#141F42] text-white border-[#141F42] shadow-xl scale-[1.02]'
+                  : 'bg-white text-[#141F42] border-[#E8E1D0] hover:border-[#DA2030]/50 hover:bg-white/80'
+              }`}
+            >
+              <div className="flex items-center justify-between w-full mb-3">
+                <span className={`text-[11px] font-bold uppercase tracking-wider ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
+                  {step.stage}
+                </span>
+                <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold ${activeStep === idx ? 'bg-[#DA2030] text-white' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'}`}>
+                  0{idx + 1}
+                </span>
+              </div>
+              <h4 className="text-sm font-bold leading-snug line-clamp-2">
+                {step.title}
+              </h4>
+            </button>
+          ))}
+        </div>
+
+        {/* Active Stage Interactive Showcase Card */}
+        <div className="bg-white border border-[#E8E1D0] rounded-3xl p-8 sm:p-12 shadow-xl mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Info Column (7 Cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-3.5 py-1 rounded-full bg-[#DA2030] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm">
+                    {current.stage}
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#5C6478]">
+                    {current.subtitle}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#141F42] mb-4 leading-tight">
+                  {current.title}
+                </h3>
+
+                <p className="text-[#5C6478] text-base leading-relaxed mb-8">
+                  {current.desc}
+                </p>
+
+                {/* Highlights List */}
+                <div className="space-y-3 mb-8">
+                  {current.highlights.map((h, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-[#FAF6EC] border border-[#E8E1D0] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#DA2030]">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-sm font-medium text-[#141F42]">
+                        {h}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Technical Specifications Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#E8E1D0]">
+                {current.specs.map((spec, i) => (
+                  <div key={i} className="bg-[#FAF6EC] border border-[#E8E1D0] p-3 rounded-xl">
+                    <span className="text-[10px] uppercase font-bold text-[#8D96A8] block">
+                      {spec.label}
+                    </span>
+                    <span className="text-xs font-extrabold text-[#141F42] block mt-0.5">
+                      {spec.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Visual Column (5 Cols) */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="w-full bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-6 relative overflow-hidden shadow-inner flex items-center justify-center min-h-[340px] group">
+                <span className="absolute top-3 left-3 bg-[#141F42] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                  {current.badge}
+                </span>
+                <img 
+                  src={current.img} 
+                  alt={current.title} 
+                  className="w-full max-h-[300px] object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                />
+              </div>
+
+              {/* Step Navigation Controls */}
+              <div className="flex items-center justify-between w-full mt-6 px-2">
                 <button
-                  key={s.id}
-                  onClick={() => scrollToStep(s.id)}
-                  className={`transition-colors hover:text-[#1F3A5F] cursor-pointer ${activeStep >= s.id ? 'text-[#1F3A5F] font-bold' : ''}`}
+                  onClick={() => setActiveStep(prev => (prev > 0 ? prev - 1 : PROCESS_STEPS.length - 1))}
+                  className="px-4 py-2 rounded-xl bg-white border border-[#E8E1D0] text-xs font-bold text-[#141F42] hover:border-[#DA2030] hover:text-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm"
                 >
-                  {s.label}
+                  ← Previous Stage
                 </button>
-              ))}
+                <div className="flex gap-1.5">
+                  {PROCESS_STEPS.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveStep(i)}
+                      className={`h-2 rounded-full transition-all ${activeStep === i ? 'w-6 bg-[#DA2030]' : 'w-2 bg-[#E8E1D0]'}`}
+                      aria-label={`Go to step ${i + 1}`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setActiveStep(prev => (prev < PROCESS_STEPS.length - 1 ? prev + 1 : 0))}
+                  className="px-4 py-2 rounded-xl bg-[#141F42] text-white text-xs font-bold hover:bg-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm"
+                >
+                  Next Stage →
+                </button>
+              </div>
             </div>
+
           </div>
         </div>
 
-        {/* Horizontal Track */}
-        <div className="w-full overflow-hidden">
-          <div 
-            ref={trackRef}
-            className="flex items-stretch px-6 sm:px-12 gap-8 transition-transform duration-100 ease-out will-change-transform"
-            style={{ transform: `translate3d(${-progress * maxTranslate}px, 0, 0)` }}
-          >
-            {/* Panel 1: Paper */}
-            <div className={`w-[320px] sm:w-[420px] flex-none p-8 md:p-10 bg-white border rounded-2xl flex flex-col justify-between transition-all duration-300 ${activeStep === 0 ? 'border-[#1F3A5F] shadow-2xl scale-100 opacity-100 ring-2 ring-[#1F3A5F]/10' : 'border-[#E4E1DA] opacity-60 scale-95'}`}>
-              <div>
-                <div className="font-mono text-xs text-[#9296A1] mb-6 flex justify-between items-center">
-                  <span><b className="text-[#1F3A5F] text-sm">01</b> / 04</span>
-                  <span className="px-3 py-1 bg-[#FAF6EC] rounded-full text-[11px] font-bold text-[#9C7A3C]">Stage 1</span>
-                </div>
-                <div className="w-16 h-16 mb-6">
-                  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-                    <rect x="14" y="20" width="34" height="38" rx="2" fill="#FFF" stroke="#14161C" strokeWidth="1.5" />
-                    <rect x="10" y="14" width="34" height="38" rx="2" fill="#FFF" stroke="#14161C" strokeWidth="1.5" />
-                    <rect x="6" y="8" width="34" height="38" rx="2" fill="#FFF" stroke="#1F3A5F" strokeWidth="2" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#14161C] mb-3">Paper Stock Selection</h3>
-                <p className="text-sm text-[#5B5F6B] leading-relaxed">
-                  Heavyweight 250gsm uncoated stock specially chosen for how evenly it holds ink and maintains paper rigidity across all 12 months.
-                </p>
-              </div>
-            </div>
-
-            {/* Panel 2: Printing */}
-            <div className={`w-[320px] sm:w-[420px] flex-none p-8 md:p-10 bg-white border rounded-2xl flex flex-col justify-between transition-all duration-300 ${activeStep === 1 ? 'border-[#1F3A5F] shadow-2xl scale-100 opacity-100 ring-2 ring-[#1F3A5F]/10' : 'border-[#E4E1DA] opacity-60 scale-95'}`}>
-              <div>
-                <div className="font-mono text-xs text-[#9296A1] mb-6 flex justify-between items-center">
-                  <span><b className="text-[#1F3A5F] text-sm">02</b> / 04</span>
-                  <span className="px-3 py-1 bg-[#FAF6EC] rounded-full text-[11px] font-bold text-[#9C7A3C]">Stage 2</span>
-                </div>
-                <div className="w-16 h-16 mb-6">
-                  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-                    <rect x="10" y="24" width="44" height="32" rx="2" fill="#FFF" stroke="#14161C" strokeWidth="1.5" />
-                    <line x1="16" y1="33" x2="48" y2="33" stroke="#1F3A5F" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="16" y1="41" x2="48" y2="41" stroke="#14161C" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="16" y1="49" x2="38" y2="49" stroke="#14161C" strokeWidth="2" strokeLinecap="round" />
-                    <rect x="8" y="8" width="48" height="11" rx="2" fill="#1F3A5F" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#14161C] mb-3">Color Precision Printing</h3>
-                <p className="text-sm text-[#5B5F6B] leading-relaxed">
-                  Each month is set and run through industrial offset presses, color by color, until every detail matches digital color calibration.
-                </p>
-              </div>
-            </div>
-
-            {/* Panel 3: Lamination */}
-            <div className={`w-[320px] sm:w-[420px] flex-none p-8 md:p-10 bg-white border rounded-2xl flex flex-col justify-between transition-all duration-300 ${activeStep === 2 ? 'border-[#1F3A5F] shadow-2xl scale-100 opacity-100 ring-2 ring-[#1F3A5F]/10' : 'border-[#E4E1DA] opacity-60 scale-95'}`}>
-              <div>
-                <div className="font-mono text-xs text-[#9296A1] mb-6 flex justify-between items-center">
-                  <span><b className="text-[#1F3A5F] text-sm">03</b> / 04</span>
-                  <span className="px-3 py-1 bg-[#FAF6EC] rounded-full text-[11px] font-bold text-[#9C7A3C]">Stage 3</span>
-                </div>
-                <div className="w-16 h-16 mb-6">
-                  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-                    <rect x="10" y="10" width="44" height="44" rx="2" fill="#FFF" stroke="#14161C" strokeWidth="1.5" />
-                    <line x1="16" y1="22" x2="48" y2="22" stroke="#1F3A5F" strokeWidth="2" />
-                    <line x1="16" y1="30" x2="48" y2="30" stroke="#14161C" strokeWidth="1.5" opacity="0.4" />
-                    <line x1="16" y1="38" x2="40" y2="38" stroke="#14161C" strokeWidth="1.5" opacity="0.4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#14161C] mb-3">Thermal Lamination</h3>
-                <p className="text-sm text-[#5B5F6B] leading-relaxed">
-                  A thin protective matte or gloss film is heat-sealed over every page, shielding the calendar from sunlight, spills, and fingerprints.
-                </p>
-              </div>
-            </div>
-
-            {/* Panel 4: Binding */}
-            <div className={`w-[320px] sm:w-[420px] flex-none p-8 md:p-10 bg-white border rounded-2xl flex flex-col justify-between transition-all duration-300 ${activeStep === 3 ? 'border-[#1F3A5F] shadow-2xl scale-100 opacity-100 ring-2 ring-[#1F3A5F]/10' : 'border-[#E4E1DA] opacity-60 scale-95'}`}>
-              <div>
-                <div className="font-mono text-xs text-[#9296A1] mb-6 flex justify-between items-center">
-                  <span><b className="text-[#1F3A5F] text-sm">04</b> / 04</span>
-                  <span className="px-3 py-1 bg-[#FAF6EC] rounded-full text-[11px] font-bold text-[#9C7A3C]">Stage 4</span>
-                </div>
-                <div className="w-16 h-16 mb-6">
-                  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-                    <rect x="18" y="10" width="38" height="44" rx="2" fill="#FFF" stroke="#14161C" strokeWidth="1.5" />
-                    <circle cx="18" cy="19" r="2.5" fill="#FFF" stroke="#14161C" strokeWidth="1.25" />
-                    <circle cx="18" cy="32" r="2.5" fill="#FFF" stroke="#14161C" strokeWidth="1.25" />
-                    <circle cx="18" cy="45" r="2.5" fill="#FFF" stroke="#14161C" strokeWidth="1.25" />
-                    <path d="M9 14 Q19 18 9 22 Q19 26 9 30 Q19 34 9 38 Q19 42 9 46 Q19 50 9 54" fill="none" stroke="#9C7A3C" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#14161C] mb-3">Spiral Wire Binding</h3>
-                <p className="text-sm text-[#5B5F6B] leading-relaxed">
-                  Sheets are precision-punched and set onto a heavy metallic twin-wire spiral, allowing pages to turn smoothly and lie 100% flat.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
