@@ -7,10 +7,10 @@ import { ArrowRight, ChevronRight } from 'lucide-react';
 // Real Calendar Assets
 import religiousHero from '@/assets/foundation/religious.jpg';
 import mangalGanesh from '@/assets/foundation/download.jpg';
-import omkarGanesh from '@/assets/foundation/download (1).jpg';
-import pillayarGanesh from '@/assets/foundation/download (3).jpg';
-import balaji from '@/assets/foundation/download (4).jpg';
-import durga from '@/assets/foundation/download (13).jpg';
+import shreeGaneshAarti from '@/assets/foundation/download (1).jpg';
+import pilliyarPattiGanesh from '@/assets/foundation/download (2).jpg';
+import charDham from '@/assets/foundation/download (4).jpg';
+import diwaliPoojaAarti from '@/assets/foundation/download (13).jpg';
 import desk01 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_01_1035dd3e31a9.png';
 import desk02 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_02_635a7db1bc7c.png';
 import desk21 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_21_be605dba59fa.png';
@@ -30,7 +30,7 @@ const PRODUCTS = [
   {
     id: 'wall-1',
     categoryId: 'wall',
-    title: 'Shree Ganesha Namaha',
+    title: 'Pratham Ganesh',
     subtitle: 'Classic Gold Foil Panchang',
     specs: ['Gold Foil Panchang', 'Tin Rim Top Hanging', '12-Month Grid', 'MOQ 100+'],
     productImage: religiousHero,
@@ -39,7 +39,7 @@ const PRODUCTS = [
   {
     id: 'wall-2',
     categoryId: 'wall',
-    title: 'Mangal Ganesh 2027',
+    title: 'Mangal Ganesh',
     subtitle: 'Auspicious Red Edition',
     specs: ['Vibrant Print Finish', 'Panchang Dates', 'Size: 15x20"', 'MOQ 150+'],
     productImage: mangalGanesh,
@@ -51,7 +51,7 @@ const PRODUCTS = [
     title: 'Shree Ganesh Aarti',
     subtitle: 'Devotional Wall Planner',
     specs: ['Premium Art Paper', 'Gold Foil Accents', 'Vedic Shlokas', 'MOQ 100+'],
-    productImage: omkarGanesh,
+    productImage: shreeGaneshAarti,
     link: '/religious-theme',
   },
   // Desk
@@ -76,7 +76,7 @@ const PRODUCTS = [
   {
     id: 'desk-3',
     categoryId: 'desk',
-    title: 'Maha Ganpati Desk Calendar',
+    title: 'Maha Ganpati',
     subtitle: 'Executive Series',
     specs: ['Textured Cardstock', 'Monthly Dividers', 'Pen Holder Stand', 'MOQ 200+'],
     productImage: desk21,
@@ -86,8 +86,8 @@ const PRODUCTS = [
   {
     id: 'exec-1',
     categoryId: 'exec-1',
-    title: 'Corporate Executive Series',
-    subtitle: 'Luxury Desktop Planner',
+    title: 'Shree Ganeshaya Namaha',
+    subtitle: 'Corporate Series',
     specs: ['Hardboard Case', 'Metallic Gold Edges', 'Custom Branding', 'MOQ 100+'],
     productImage: desk27,
     link: '/desk-calendar',
@@ -95,8 +95,8 @@ const PRODUCTS = [
   {
     id: 'exec-2',
     categoryId: 'executive',
-    title: 'World Monuments Desktop',
-    subtitle: 'International Series',
+    title: 'Go Green - Breathe Clean',
+    subtitle: 'Corporate Series',
     specs: ['Imported Art Card', 'Gold Wire-O', 'Monthly Quotes', 'MOQ 150+'],
     productImage: desk31,
     link: '/desk-calendar',
@@ -108,7 +108,7 @@ const PRODUCTS = [
     title: 'Pilliyar Patti Ganesh',
     subtitle: 'South Temple Edition',
     specs: ['Rich Color Embossing', 'Temple Photography', 'Tin Loop Rim', 'MOQ 200+'],
-    productImage: pillayarGanesh,
+    productImage: pilliyarPattiGanesh,
     link: '/religious-theme',
   },
   {
@@ -117,17 +117,17 @@ const PRODUCTS = [
     title: 'Diwali Pooja Aarti',
     subtitle: 'Devotional Special',
     specs: ['Gold Foil Shlokas', 'Full Year Dates', 'Individual Envelope', 'MOQ 100+'],
-    productImage: durga,
+    productImage: diwaliPoojaAarti,
     link: '/religious-theme',
   },
   // Custom
   {
     id: 'cust-1',
     categoryId: 'custom',
-    title: 'Char Dham Custom Wall',
+    title: 'Char Dham',
     subtitle: 'Bespoke Brand Printing',
     specs: ['Custom Logo Footer', 'Full Color Cover', 'Any Size', 'MOQ 250+'],
-    productImage: balaji,
+    productImage: charDham,
     link: '/religious-theme',
   },
 ];
