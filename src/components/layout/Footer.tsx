@@ -37,12 +37,16 @@ export const Footer = () => {
           
           {/* Brand Column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            <a href="/" className="inline-flex items-center group bg-white/95 backdrop-blur px-4 py-2 rounded-xl w-fit shadow-md">
-              <img 
-                src={paperPlusLogo} 
-                alt="Paper Plus Premium Calendars" 
-                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-              />
+            <a href="/" className="inline-flex flex-col group transition-transform duration-300 hover:scale-105 origin-left w-fit">
+              <div className="flex items-start">
+                <span className="font-serif text-3xl sm:text-4xl font-black tracking-tight text-[#E5232E] leading-none">
+                  Paper Plus
+                </span>
+                <span className="text-[10px] font-sans font-bold text-white/90 ml-0.5 mt-0.5">TM</span>
+              </div>
+              <span className="font-serif text-sm tracking-wider text-white font-medium mt-1">
+                Premium Calendars
+              </span>
             </a>
             <Typography variant="muted" className="text-sky/70 pr-4">
               Premium calendar manufacturing and corporate gifting solutions. Delivering quality across India with precision and care.
