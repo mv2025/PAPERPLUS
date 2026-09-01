@@ -1,81 +1,124 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Typography } from '../components/ui/Typography';
+import { Sparkles, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+
+// Real Product Assets
+import asset01 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_01_1035dd3e31a9.png';
+import asset02 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_02_635a7db1bc7c.png';
+import religiousHero from '@/assets/foundation/religious.jpg';
+import downloadCharDham from '@/assets/foundation/download (4).jpg';
+import asset21 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_21_be605dba59fa.png';
+import bigWishLogo from '@/assets/Big Wish LOGO.png';
 
 export default function About() {
   return (
-    <div className="w-full bg-background pt-32 pb-24">
+    <div className="w-full bg-[#FAF6EC] pt-32 pb-24 text-[#141F42]">
       {/* Hero Section */}
       <section className="text-center px-6 max-w-6xl mx-auto mb-20">
         <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-widest uppercase mb-4 border border-primary/20">
-          ARG Calendars
+          Paper Plus™ Calendars
         </span>
         <Typography variant="h1" className="text-navy text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           Crafting Legacy With <span className="text-primary italic">Paper Plus</span>
         </Typography>
-        <Typography variant="lead" className="max-w-3xl mx-auto mb-12">
-          Passing down 85+ years of generational mastery to shape the calendar manufacturing industry with world-class printing innovations.
+        <Typography variant="lead" className="max-w-3xl mx-auto mb-12 text-[#5C6478]">
+          Passing down 85+ years of generational mastery to shape the calendar manufacturing industry with world-class printing innovations, bespoke desk memo boxes, and devotional wall panchang art.
         </Typography>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="bg-white border border-surface-hover rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div className="bg-white border border-[#E8E1D0] rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">1935</div>
-            <div className="text-muted font-semibold">Year Established</div>
+            <div className="text-[#5C6478] font-semibold">Year Established</div>
           </div>
-          <div className="bg-white border border-surface-hover rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div className="bg-white border border-[#E8E1D0] rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">85+</div>
-            <div className="text-muted font-semibold">Years of Mastery</div>
+            <div className="text-[#5C6478] font-semibold">Years of Mastery</div>
           </div>
-          <div className="bg-white border border-surface-hover rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+          <div className="bg-white border border-[#E8E1D0] rounded-2xl p-8 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="text-4xl md:text-5xl font-bold text-primary mb-2">100%</div>
-            <div className="text-muted font-semibold">Unique Annual Designs</div>
+            <div className="text-[#5C6478] font-semibold">Unique Annual Designs</div>
           </div>
         </div>
       </section>
 
-      {/* Story Sections */}
+      {/* Story Sections with Authentic Product Imagery */}
       <section className="py-16 max-w-6xl mx-auto px-6">
-        {/* Row 1 */}
+        {/* Row 1: Printing Technology & Desk Calendar Craftsmanship */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
           <div>
-            <Typography variant="h2" className="text-navy mb-6">
-              Pioneering Advanced Printing Technology
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#DA2030] mb-3">
+              <Sparkles className="w-4 h-4" /> Precision Engineering
+            </div>
+            <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl font-extrabold mb-6 leading-tight">
+              Pioneering Advanced Printing &amp; Desk Craftsmanship
             </Typography>
-            <Typography variant="p" className="text-muted text-lg mb-4">
-              With over 85 years of experience passed down through generations, ARG Calendars publishes high-grade calendars under the flagship brand name <strong className="text-navy font-semibold">Paper Plus</strong>.
+            <Typography variant="p" className="text-[#5C6478] text-base sm:text-lg mb-4 leading-relaxed">
+              With over 85 years of experience passed down through generations, we manufacture high-grade calendars and bespoke corporate desk sets under our premier brand <strong className="text-[#141F42] font-bold">Paper Plus</strong>.
             </Typography>
-            <Typography variant="p" className="text-muted text-lg">
-              Each year, our leadership team travels across the globe to learn and bring home cutting-edge printing technology. This allows us to boast some of the industry's highest precision equipment so our clients always enjoy state-of-the-art results without delay.
+            <Typography variant="p" className="text-[#5C6478] text-base sm:text-lg mb-6 leading-relaxed">
+              From our flagship 2027 Flip Calendar Memo Boxes to precision thermal lamination, gold foil embossing, and heavy-gauge wire binding, every unit is engineered for daily desk utility all 365 days of the year.
             </Typography>
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ 400-Sheet Memo Cube
+              </span>
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ Twin-Wire Spiral Hinges
+              </span>
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ Metallic Gold Foil Stamping
+              </span>
+            </div>
           </div>
-          <div className="rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-500">
+          <div className="bg-white border border-[#E8E1D0] rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 flex items-center justify-center relative overflow-hidden group">
+            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-lg border border-[#E8E1D0] shadow-sm z-10">
+              <img src={bigWishLogo} alt="Big Wish" className="h-4 w-auto object-contain" />
+            </div>
             <img 
-              src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" 
-              alt="Advanced Offset Printing Machinery" 
-              className="w-full h-[400px] object-cover"
+              src={asset01} 
+              alt="Paper Plus 2027 Flip Calendar Memo Box" 
+              className="w-full h-[360px] object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xl"
             />
           </div>
         </div>
 
-        {/* Row 2 */}
+        {/* Row 2: 100% Original Devotional & Wall Calendars */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1 rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-500">
+          <div className="order-2 md:order-1 bg-white border border-[#E8E1D0] rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 flex items-center justify-center relative overflow-hidden group">
+            <div className="absolute top-4 left-4 bg-[#DA2030] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
+              2027 Original Edition
+            </div>
             <img 
-              src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=800&q=80" 
-              alt="Paper Design & Crafting" 
-              className="w-full h-[400px] object-cover"
+              src={religiousHero} 
+              alt="Paper Plus 750 Pratham Ganesh 2027 Wall Calendar" 
+              className="w-full h-[380px] object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md rounded-xl"
             />
           </div>
           <div className="order-1 md:order-2">
-            <Typography variant="h2" className="text-navy mb-6">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#DA2030] mb-3">
+              <Award className="w-4 h-4" /> 100% Original Portfolio
+            </div>
+            <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl font-extrabold mb-6 leading-tight">
               100% Originality, Every Single Year
             </Typography>
-            <Typography variant="p" className="text-muted text-lg mb-4">
-              Paper Plus adheres to a strict policy: <strong className="text-navy font-semibold">we never repeat a design</strong> next year. Every single season, our creative team completely revamps our entire portfolio.
+            <Typography variant="p" className="text-[#5C6478] text-base sm:text-lg mb-4 leading-relaxed">
+              Paper Plus adheres to a strict policy: <strong className="text-[#141F42] font-bold">we never repeat a design</strong> next year. Every single season, our creative team completely revamps our entire devotional and decorative portfolio from scratch.
             </Typography>
-            <Typography variant="p" className="text-muted text-lg">
-              We eliminate mundane, repetitive imagery, providing end-users with fresh, vibrant visual concepts that elevate homes and offices year after year.
+            <Typography variant="p" className="text-[#5C6478] text-base sm:text-lg mb-6 leading-relaxed">
+              We eliminate mundane, repetitive imagery, providing homes, corporate offices, and institutions with fresh, vibrant Vedic shloka artwork, gold foil panchang grids, and timeless hanging loops.
             </Typography>
+            <div className="flex flex-wrap gap-3">
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ Top Tin Rim &amp; Loop
+              </span>
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ 100+ Devotional Themes
+              </span>
+              <span className="px-3.5 py-1.5 bg-white border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                ✓ Individual Envelope Packaging
+              </span>
+            </div>
           </div>
         </div>
       </section>
