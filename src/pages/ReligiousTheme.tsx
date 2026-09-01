@@ -176,70 +176,17 @@ const WALL_CALENDAR_COLLECTION = [
     img: download15,
     badge: 'BESTSELLER',
   },
-  {
-    id: 'rel-18',
-    title: 'P-101 • M-2101',
-    category: 'Ganesh',
-    desc: 'Ganesh Ji 12-Month Panchang Wall Calendar Series.',
-    number: 'P-101',
-    img: download16,
-  },
-  {
-    id: 'rel-19',
-    title: 'P-102 • M-2102',
-    category: 'Ganesh',
-    desc: 'Shree Ganesh Siddhivinayak Wall Calendar.',
-    number: 'P-102',
-    img: download17,
-  },
-  {
-    id: 'rel-20',
-    title: 'P-103',
-    category: 'Aarti',
-    desc: 'Maa Saraswati Hans Vahini Wall Calendar.',
-    number: 'P-103',
-    img: download18,
-  },
-  {
-    id: 'rel-21',
-    title: 'P-104 • M-2104',
-    category: 'Durga',
-    desc: 'Maha Laxmi & Ganesh Wall Calendar.',
-    number: 'P-104',
-    img: download19,
-  },
-  {
-    id: 'rel-22',
-    title: 'P-105 • M-2105',
-    category: 'Durga',
-    desc: 'Maha Laxmi, Saraswati & Ganesh Wall Calendar.',
-    number: 'P-105',
-    img: download20,
-  },
-  {
-    id: 'rel-23',
-    title: 'P-106 • M-2106',
-    category: 'Durga',
-    desc: 'Shree Laxmi Ji Ki Aarti Wall Calendar.',
-    number: 'P-106',
-    img: download21,
-  },
-  {
-    id: 'rel-24',
-    title: 'P-107 • M-2107',
-    category: 'Durga',
-    desc: 'Nav Durga Mata Wall Calendar Series.',
-    number: 'P-107',
-    img: download22,
-  },
-  {
-    id: 'rel-25',
-    title: 'P-108 • M-2108',
-    category: 'Durga',
-    desc: 'Nav Durga Maa Sherawali Wall Calendar.',
-    number: 'P-108',
-    img: download23,
-  },
+];
+
+const NEW_CALENDAR_COLLECTION = [
+  { id: 'new-01', code: 'P-101 • M-2101', title: 'P-101 • M-2101', desc: '12-Month Panchang Ganesh Edition', img: download16 },
+  { id: 'new-02', code: 'P-102 • M-2102', title: 'P-102 • M-2102', desc: '12-Month Panchang Ganesh Edition', img: download17 },
+  { id: 'new-03', code: 'P-103', title: 'P-103', desc: '12-Month Saraswati Mata Edition', img: download18 },
+  { id: 'new-04', code: 'P-104 • M-2104', title: 'P-104 • M-2104', desc: '12-Month Mahalakshmi Edition', img: download19 },
+  { id: 'new-05', code: 'P-105 • M-2105', title: 'P-105 • M-2105', desc: '12-Month Mahalakshmi & Ganesh Edition', img: download20 },
+  { id: 'new-06', code: 'P-106 • M-2106', title: 'P-106 • M-2106', desc: '12-Month Lakshmi Ji Ki Aarti Edition', img: download21 },
+  { id: 'new-07', code: 'P-107 • M-2107', title: 'P-107 • M-2107', desc: '12-Month Nav Durga Edition', img: download22 },
+  { id: 'new-08', code: 'P-108 • M-2108', title: 'P-108 • M-2108', desc: '12-Month Nav Durga Sherawali Edition', img: download23 },
 ];
 
 export default function ReligiousTheme() {
@@ -426,14 +373,35 @@ export default function ReligiousTheme() {
             New Calendar Collection
           </Typography>
           <p className="text-[#68738b] text-sm">
-            Explore the latest 12-month devotional wall calendar editions.
+            Explore the latest 12-month devotional wall calendar numbered editions.
           </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          {[download16, download17, download18, download19, download20, download21, download22, download23].map((imgSrc, idx) => (
-            <div key={idx} className="bg-white p-3 rounded-2xl border border-[#e8dfd0] shadow-sm hover:shadow-lg transition-all cursor-pointer group" onClick={() => setLightboxData({ img: imgSrc, title: `2027 New Calendar Edition #${idx + 1}` })}>
-              <img src={imgSrc} alt={`2027 Calendar Preview ${idx + 1}`} className="w-full h-auto object-contain rounded-xl group-hover:scale-105 transition-transform duration-300" />
+          {NEW_CALENDAR_COLLECTION.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white p-3 rounded-2xl border border-[#e8dfd0] shadow-sm hover:shadow-lg transition-all cursor-pointer group flex flex-col justify-between"
+              onClick={() => setLightboxData({ img: item.img, title: item.title })}
+            >
+              <div className="aspect-[3/4] bg-white overflow-hidden relative flex items-center justify-center rounded-xl">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                />
+                <span className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 shadow flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#14244a]" />
+                </span>
+              </div>
+              <div className="mt-3 text-center border-t border-[#e8dfd0] pt-2">
+                <h4 className="text-sm font-bold text-[#14244a] group-hover:text-[#e5232e] transition-colors">
+                  {item.title}
+                </h4>
+                <p className="text-[11px] text-[#68738b] mt-0.5">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
