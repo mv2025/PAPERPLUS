@@ -51,6 +51,7 @@ import asset42 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_42_7
 import asset43 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_43_cef8d754fd60.jpg';
 import asset44 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_44_11c03e7f3028.jpg';
 import asset45 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_45_251cd5d74bd2.jpg';
+import bigWishLogo from '@/assets/Big Wish LOGO.png';
 
 const DESIGNS = [
   {
@@ -145,6 +146,13 @@ export default function DeskCalendar() {
       <section className="relative px-6 max-w-7xl mx-auto mb-16 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
+            <div className="mb-4">
+              <img 
+                src={bigWishLogo} 
+                alt="Big Wish Desk Accessories" 
+                className="h-10 sm:h-12 w-auto object-contain" 
+              />
+            </div>
             <span className="font-sans text-xs font-bold tracking-widest uppercase text-[#DA2030] mb-2 block">
               2027 Corporate Gifting Collection
             </span>

@@ -16,6 +16,7 @@ import desk02 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_02_63
 import desk21 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_21_be605dba59fa.png';
 import desk27 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_27_38fa2c68b07a.jpg';
 import desk31 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_31_9872eb025040.jpg';
+import bigWishLogo from '@/assets/Big Wish LOGO.png';
 
 const CATEGORIES = [
   { id: 'wall', title: 'WALL', subtitle: 'Wall Calendars' },
@@ -59,7 +60,8 @@ const PRODUCTS = [
     id: 'desk-1',
     categoryId: 'desk',
     title: 'Corporate Table Calendar',
-    subtitle: 'Desk Accessories',
+    subtitle: 'DESK ACCESSORIES',
+    brandLogo: bigWishLogo,
     specs: ['Twin Flip Stand', 'Custom Foil Logo', 'Gold Edges', 'MOQ 150+'],
     productImage: desk01,
     link: '/desk-calendar',
@@ -68,7 +70,8 @@ const PRODUCTS = [
     id: 'desk-2',
     categoryId: 'desk',
     title: 'Executive Table Calendar',
-    subtitle: 'Desk Accessories',
+    subtitle: 'DESK ACCESSORIES',
+    brandLogo: bigWishLogo,
     specs: ['Velvet Hard Stand', 'Gold Foil Embossed', 'Compact Planner', 'MOQ 100+'],
     productImage: desk02,
     link: '/desk-calendar',
@@ -202,6 +205,11 @@ export const ProductUniverseSection = () => {
                   <span className="absolute top-3 left-3 bg-[#e5232e] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
                     {prod.subtitle}
                   </span>
+                  {prod.brandLogo && (
+                    <div className="absolute top-3 right-3 bg-white/95 backdrop-blur px-2.5 py-1 rounded-lg border border-[#e8dfd0] shadow-sm">
+                      <img src={prod.brandLogo} alt="Big Wish" className="h-4 sm:h-5 w-auto object-contain" />
+                    </div>
+                  )}
                 </div>
 
                 {/* Details Container */}

@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography } from '../ui/Typography';
 import { Globe, Camera, MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
 
+import paperPlusLogo from '@/assets/Paper Plus LOGO.png';
+
 const FOOTER_SECTIONS = [
   {
     title: "Company",
@@ -35,15 +37,12 @@ export const Footer = () => {
           
           {/* Brand Column */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            <a href="/" className="flex items-center group">
-              <div className="flex flex-col">
-                <span className="font-serif text-3xl font-black tracking-tight text-white group-hover:text-primary transition-colors">
-                  PAPER <span className="text-[#e5232e]">PLUS</span>
-                </span>
-                <span className="text-[10px] font-sans font-extrabold uppercase tracking-[0.3em] text-sky/70">
-                  CALENDARS &amp; PRINT
-                </span>
-              </div>
+            <a href="/" className="inline-flex items-center group bg-white/95 backdrop-blur px-4 py-2 rounded-xl w-fit shadow-md">
+              <img 
+                src={paperPlusLogo} 
+                alt="Paper Plus Premium Calendars" 
+                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              />
             </a>
             <Typography variant="muted" className="text-sky/70 pr-4">
               Premium calendar manufacturing and corporate gifting solutions. Delivering quality across India with precision and care.

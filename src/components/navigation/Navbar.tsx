@@ -7,6 +7,8 @@ import { Heart, ArrowRightLeft, ShoppingBag } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { cn } from '@/utils/cn';
 
+import paperPlusLogo from '@/assets/Paper Plus LOGO.png';
+
 export const Navbar = () => {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,21 +27,18 @@ export const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "relative w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-surface-hover shadow-sm py-3.5"
+        "relative w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-surface-hover shadow-sm py-3"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
         
-        {/* Paper Plus Typography Logo */}
-        <a href="/" className="flex-shrink-0 flex items-center gap-2 group">
-          <div className="flex flex-col">
-            <span className="font-serif text-2xl font-black tracking-tight text-[#14244a] group-hover:text-primary transition-colors">
-              PAPER <span className="text-[#e5232e]">PLUS</span>
-            </span>
-            <span className="text-[9px] font-sans font-extrabold uppercase tracking-[0.3em] text-[#68738b]">
-              CALENDARS &amp; PRINT
-            </span>
-          </div>
+        {/* Paper Plus Brand Logo Image */}
+        <a href="/" className="flex-shrink-0 flex items-center group">
+          <img 
+            src={paperPlusLogo} 
+            alt="Paper Plus Premium Calendars" 
+            className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
         </a>
 
         {/* Desktop Navigation */}
