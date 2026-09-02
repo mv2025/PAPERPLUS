@@ -5,7 +5,7 @@ import { Lock, Mail, ArrowRight, ShieldCheck, Loader2, AlertCircle, CheckCircle2
 import paperPlusLogo from '@/assets/Paper Plus LOGO.png';
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('mridulverma7676@gmail.com');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
@@ -48,7 +48,7 @@ export default function AdminLogin() {
         if (error) {
           setErrorMsg(
             error.message.includes('Invalid login credentials')
-              ? 'Incorrect password or unconfirmed user. You can reset your password below or set it directly in your Supabase dashboard.'
+              ? 'Invalid email or password. Please check your credentials.'
               : error.message
           );
         } else {
@@ -201,18 +201,6 @@ export default function AdminLogin() {
             </button>
           </div>
         )}
-
-        {/* Helpful Troubleshooting Box for Supabase Dashboard */}
-        <div className="mt-8 p-4 bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl">
-          <div className="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-wider text-[#141F42] mb-1">
-            <KeyRound className="w-3.5 h-3.5 text-[#DA2030]" /> How to set password in Supabase:
-          </div>
-          <ol className="text-[11px] text-[#5C6478] space-y-1 list-decimal list-inside leading-relaxed">
-            <li>In Supabase Dashboard → <strong>Authentication</strong> → <strong>Users</strong></li>
-            <li>Click the <strong>3 dots (...)</strong> next to your email</li>
-            <li>Select <strong>"Reset Password"</strong> or <strong>"Edit User"</strong> to type a new password.</li>
-          </ol>
-        </div>
 
       </div>
     </div>
