@@ -100,7 +100,7 @@ export const ProductDetails = () => {
             </motion.div>
 
             <motion.div variants={fadeUp} initial="hidden" animate="visible" className="flex flex-col gap-4 border-y border-surface-hover py-6">
-              <Typography variant="h3" className="text-primary">Starting from ₹{product.price} / unit</Typography>
+              <Typography variant="h3" className="text-primary font-bold">Bulk B2B Quote Pricing</Typography>
               <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm mt-2">
                 <div>
                   <span className="text-muted block mb-1">MOQ</span>

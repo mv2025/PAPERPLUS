@@ -15,11 +15,36 @@ export const Products = () => {
   const categoryFilter = searchParams.get('category');
   const materialFilter = searchParams.get('material');
 
+  const CATEGORIES_LIST = [
+    { id: 'c1', label: 'Wall Calendars', aliases: ['c1', 'wall', 'wall-calendars', 'wall calendars'] },
+    { id: 'c2', label: 'Desk Calendars', aliases: ['c2', 'desk', 'desk-calendars', 'desk calendars'] },
+    { id: 'c3', label: 'Corporate Series', aliases: ['c3', 'corporate', 'corporate-calendars', 'corporate calendars'] },
+    { id: 'c4', label: 'Religious Devotional', aliases: ['c4', 'religious', 'religious-calendars', 'religious calendars'] },
+  ];
+
   const filteredProducts = useMemo(() => {
     if (!products) return [];
     return products.filter(p => {
-      if (categoryFilter && p.categoryId !== categoryFilter) return false;
-      if (materialFilter && p.material !== materialFilter) return false;
+      if (categoryFilter) {
+        const query = categoryFilter.toLowerCase().trim();
+        const catObj = CATEGORIES_LIST.find(
+          c => c.id === query || c.label.toLowerCase() === query || c.aliases.includes(query)
+        );
+        const pCat = p.categoryId.toLowerCase().trim();
+
+        if (catObj) {
+          const match = catObj.aliases.includes(pCat);
+          if (!match) return false;
+        } else {
+          if (!pCat.includes(query)) return false;
+        }
+      }
+
+      if (materialFilter) {
+        const mat = materialFilter.toLowerCase().trim();
+        if (!p.material.toLowerCase().includes(mat)) return false;
+      }
+
       return true;
     });
   }, [products, categoryFilter, materialFilter]);
@@ -34,6 +59,13 @@ export const Products = () => {
     setSearchParams(new URLSearchParams());
   };
 
+  const activeCategoryLabel = useMemo(() => {
+    if (!categoryFilter) return '';
+    const q = categoryFilter.toLowerCase().trim();
+    const found = CATEGORIES_LIST.find(c => c.id === q || c.label.toLowerCase() === q || c.aliases.includes(q));
+    return found ? found.label : categoryFilter;
+  }, [categoryFilter]);
+
   return (
     <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 flex flex-col md:flex-row gap-8 w-full min-h-screen">
       
@@ -43,24 +75,28 @@ export const Products = () => {
           <SlidersHorizontal className="w-4 h-4" /> Filters
         </Typography>
         
-        {/* Mock Filter Groups */}
+        {/* Category Filter Group */}
         <div className="mb-6">
           <Typography variant="small" className="text-foreground font-bold mb-3 uppercase tracking-wider">Category</Typography>
           <div className="flex flex-col gap-2">
-            {['wall', 'desk', 'corporate'].map(cat => (
-              <label key={cat} className="flex items-center gap-2 text-sm text-muted hover:text-primary cursor-pointer transition-colors">
+            {CATEGORIES_LIST.map(cat => (
+              <label key={cat.id} className="flex items-center gap-2 text-sm text-muted hover:text-primary cursor-pointer transition-colors">
                 <input 
                   type="radio" 
                   name="category" 
-                  checked={categoryFilter === cat}
+                  checked={
+                    categoryFilter === cat.id || 
+                    categoryFilter?.toLowerCase() === cat.label.toLowerCase() ||
+                    cat.aliases.includes(categoryFilter?.toLowerCase() || '')
+                  }
                   onChange={() => {
                     const params = new URLSearchParams(searchParams);
-                    params.set('category', cat);
+                    params.set('category', cat.id);
                     setSearchParams(params);
                   }}
                   className="accent-primary"
                 />
-                <span className="capitalize">{cat} Calendars</span>
+                <span>{cat.label}</span>
               </label>
             ))}
           </div>
@@ -108,7 +144,7 @@ export const Products = () => {
               
               {categoryFilter && (
                 <div className="flex items-center gap-1 bg-surface px-3 py-1 rounded-full border border-surface-hover text-sm">
-                  <span className="capitalize">{categoryFilter} Calendars</span>
+                  <span>{activeCategoryLabel}</span>
                   <button onClick={() => removeFilter('category')} className="text-muted hover:text-foreground"><X className="w-3 h-3" /></button>
                 </div>
               )}

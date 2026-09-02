@@ -38,9 +38,14 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
             <Typography variant="muted" className="mt-1">SKU: {product.sku}</Typography>
           </div>
 
-          <Typography variant="h4" className="text-primary">
-            Starting from ₹{product.price}
-          </Typography>
+          <div className="flex items-center gap-3">
+            <span className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-xs font-bold uppercase tracking-wider">
+              Quote Based Pricing
+            </span>
+            <Typography variant="small" className="text-muted font-bold">
+              Minimum Order: {product.moq} units
+            </Typography>
+          </div>
 
           <Typography variant="p" className="text-sm">
             {product.description}

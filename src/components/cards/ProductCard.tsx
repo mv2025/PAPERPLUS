@@ -100,11 +100,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, 
         </div>
         
         <div className="mt-auto pt-3 border-t border-surface-hover flex items-center justify-between">
-          <Typography variant="h4" className="text-primary">
-            ₹{product.price}
-          </Typography>
-          <Typography variant="small" className="text-muted">
-            MOQ: {product.moq}
+          <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">
+            Bulk Pricing
+          </span>
+          <Typography variant="small" className="text-muted font-semibold">
+            MOQ: {product.moq} pcs
           </Typography>
         </div>
       </div>
