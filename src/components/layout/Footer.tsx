@@ -85,7 +85,7 @@ export const Footer = () => {
             <div className="flex flex-col gap-4 text-sm text-sky/70">
               <p className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>Paper Plus (ARG Calendars Pvt. Ltd.), <br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</span>
+                <span>Paper Plus Calendars Pvt. Ltd., <br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</span>
               </p>
               <p className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
@@ -101,7 +101,7 @@ export const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <Typography variant="small" className="text-sky/50 text-xs">
-            © {new Date().getFullYear()} ARG Calendars Pvt. Ltd. All rights reserved.
+            © {new Date().getFullYear()} Paper Plus Calendars Pvt. Ltd. All rights reserved.
           </Typography>
           <div className="flex items-center gap-6 text-xs text-sky/50">
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>

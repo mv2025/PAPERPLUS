@@ -275,9 +275,12 @@ export default function DeskCalendar() {
           </div>
 
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-wider text-[#5C6478] block mb-1">
-              {currentColor.name}
-            </span>
+            <div className="flex items-center justify-between mb-3">
+              <img src={bigWishLogo} alt="Big Wish Desk Accessories" className="h-7 sm:h-8 w-auto object-contain" />
+              <span className="text-xs font-extrabold uppercase tracking-wider text-[#5C6478]">
+                {currentColor.name}
+              </span>
+            </div>
             <h3 className="text-2xl font-extrabold text-[#141F42] mb-3">{currentDesign.name}</h3>
             <p className="text-[#5C6478] text-sm mb-6 leading-relaxed">{currentDesign.tagline}</p>
 

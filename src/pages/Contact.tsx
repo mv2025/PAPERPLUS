@@ -84,7 +84,7 @@ export const Contact = () => {
                 <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
                 <div>
                   <Typography variant="h4" className="text-white mb-1">Headquarters &amp; Showroom</Typography>
-                  <Typography variant="p" className="text-sky/70 text-sm">Paper Plus (ARG Calendars Pvt. Ltd.),<br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</Typography>
+                  <Typography variant="p" className="text-sky/70 text-sm">Paper Plus Calendars Pvt. Ltd.,<br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</Typography>
                 </div>
               </div>
               <div className="flex gap-4">

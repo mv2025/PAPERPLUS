@@ -54,7 +54,7 @@ export const Corporate = () => {
             </motion.div>
             <motion.div variants={fadeUp}>
               <Typography variant="lead" className="text-muted max-w-2xl mx-auto">
-                We handle high-volume custom manufacturing for India's largest brands. From procurement to Pan-India dispatch, ARG Enterprises is your trusted calendar partner.
+                We handle high-volume custom manufacturing for India's largest brands. From procurement to Pan-India dispatch, Paper Plus is your trusted calendar partner.
               </Typography>
             </motion.div>
             <motion.div variants={fadeUp} className="mt-8">

@@ -29,7 +29,7 @@ export const TrustCtaSection = () => {
             <span className="italic font-light">Your Vision.</span>
           </Typography>
           <Typography variant="p" className="text-sky/70 text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            From the initial paper selection to the final gold foil stamp, experience manufacturing excellence with ARG Enterprises.
+            From the initial paper selection to the final gold foil stamp, experience manufacturing excellence with Paper Plus.
           </Typography>
         </motion.div>
 

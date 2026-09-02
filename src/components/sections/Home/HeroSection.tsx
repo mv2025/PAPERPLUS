@@ -117,7 +117,7 @@ export const HeroSection = () => {
           {/* Subtle Ambient Circle Ring */}
           <div className="absolute w-[380px] h-[380px] sm:w-[460px] sm:h-[460px] rounded-full border border-[#e5232e]/20 bg-white/40 backdrop-blur-sm" />
           
-          {/* Card 1: Ganesha Panchram (Main Featured Floating Card) */}
+          {/* Card 1: Ganesha Pratham (Main Featured Floating Card) */}
           <motion.div 
             style={{ y: yCardsLeft }}
             animate={{ y: [0, -10, 0] }}
@@ -126,13 +126,13 @@ export const HeroSection = () => {
             onClick={() => window.location.href = '/religious-theme'}
           >
             <div className="relative aspect-[3/4] bg-white overflow-hidden rounded-xl">
-              <img src={religiousHero} alt="2027 Panchram Ganesha Wall Calendar" className="w-full h-full object-contain" />
+              <img src={religiousHero} alt="2027 Pratham Ganesh Wall Calendar" className="w-full h-full object-contain" />
               <span className="absolute top-2 left-2 bg-[#e5232e] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
                 2027 HOT
               </span>
             </div>
             <div className="mt-3 px-1 text-left">
-              <h4 className="text-xs font-extrabold text-[#14244a]">Panchram Ganesh 2027</h4>
+              <h4 className="text-xs font-extrabold text-[#14244a]">Pratham Ganesh 2027</h4>
               <p className="text-[10px] text-[#68738b]">Gold Foil Panchang Wall Edition</p>
             </div>
           </motion.div>

@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer } from '@/animations/stagger';
 import { Quote } from 'lucide-react';
 
 const TESTIMONIALS = [
-  { name: "Rahul Sharma", company: "HDFC Bank", role: "Procurement Head", rating: 5, text: "ARG Enterprises delivered 50,000 premium desk calendars on time. The quality of the paper and gold foiling was exceptional." },
+  { name: "Rahul Sharma", company: "HDFC Bank", role: "Procurement Head", rating: 5, text: "Paper Plus delivered 50,000 premium desk calendars on time. The quality of the paper and gold foiling was exceptional." },
   { name: "Priya Desai", company: "Tata Motors", role: "Marketing Director", rating: 5, text: "Our dealers loved the corporate wall calendars this year. The custom packaging made distributing them across India effortless." },
   { name: "Anand Verma", company: "Apollo Hospitals", role: "Admin Lead", rating: 5, text: "Flawless execution. We required very specific religious dates to be highlighted and they accommodated every detail perfectly." }
 ];

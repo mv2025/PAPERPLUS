@@ -47,8 +47,8 @@ export default function About() {
         {/* Row 1: Printing Technology & Desk Calendar Craftsmanship */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 lg:mb-20">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#DA2030] mb-3">
-              <Sparkles className="w-4 h-4" /> Precision Engineering
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DA2030]/10 border border-[#DA2030]/20 text-xs font-extrabold uppercase tracking-widest text-[#DA2030] mb-4">
+              <Sparkles className="w-3.5 h-3.5" /> Precision Engineering
             </div>
             <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl font-extrabold mb-6 leading-tight">
               Pioneering Advanced Printing &amp; Desk Craftsmanship
@@ -96,8 +96,8 @@ export default function About() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#DA2030] mb-3">
-              <Award className="w-4 h-4" /> 100% Original Portfolio
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DA2030]/10 border border-[#DA2030]/20 text-xs font-extrabold uppercase tracking-widest text-[#DA2030] mb-4">
+              <Award className="w-3.5 h-3.5" /> 100% Original Portfolio
             </div>
             <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl font-extrabold mb-6 leading-tight">
               100% Originality, Every Single Year
@@ -141,7 +141,7 @@ export default function About() {
             <div className="bg-white rounded-3xl overflow-hidden border border-surface-hover shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
               <div className="h-48 bg-gradient-to-br from-[#14244a] to-[#1e3466] flex flex-col items-center justify-center relative p-6 border-b border-[#e8dfd0]">
                 <div className="w-20 h-20 rounded-full bg-[#faf6ec] border-2 border-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                  <span className="font-serif font-black text-2xl text-[#14244a]">ARG</span>
+                  <span className="font-serif font-black text-xl text-[#14244a]">PP</span>
                 </div>
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary mt-3">FOUNDER • 1935</span>
               </div>
@@ -149,7 +149,7 @@ export default function About() {
                 <div>
                   <div className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Founder</div>
                   <Typography variant="h3" className="text-navy mb-4 text-2xl">Late Mr. Anant Ram Gupta</Typography>
-                  <Typography variant="small" className="text-muted">Founded ARG Calendars in 1935. Dedicated his entire life to building the company's legacy and standardizing operations with timeless integrity.</Typography>
+                  <Typography variant="small" className="text-muted">Founded Paper Plus Calendars in 1935. Dedicated his entire life to building the company's legacy and standardizing operations with timeless integrity.</Typography>
                 </div>
                 <div className="mt-6 self-start px-4 py-1.5 bg-surface rounded-full text-[11px] uppercase tracking-wider font-bold text-muted border border-surface-hover">Legacy Founder</div>
               </div>
@@ -232,12 +232,12 @@ const HorizontalProcess = () => {
       specs: [
         { label: 'Press Technology', value: 'German 6-Color Offset' },
         { label: 'Resolution', value: '2400 DPI Ultra HD' },
-        { label: 'Ink Type', value: 'Eco-Friendly Soy Inks' },
+        { label: 'Ink Type', value: 'Fade-Resistant Lightfast Inks' },
         { label: 'Color Accuracy', value: '99.8% Delta-E Match' },
       ],
       highlights: [
         'German Heidelberg precision cylinders eliminate double-image blurring.',
-        'Food-grade, non-toxic soy inks produce rich, deep jewel tones.',
+        'High-density, fade-resistant lightfast inks produce rich, deep jewel tones.',
         'Automated spectrophotometer checks every 200th print sheet for color drift.'
       ]
     },

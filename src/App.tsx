@@ -15,6 +15,8 @@ import Contact from '@/pages/Contact';
 import About from '@/pages/About';
 import ReligiousTheme from '@/pages/ReligiousTheme';
 import DeskCalendar from '@/pages/DeskCalendar';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsOfService from '@/pages/TermsOfService';
 import AdminLogin from '@/pages/admin/AdminLogin';
 import AdminDashboard from '@/pages/admin/AdminDashboard';
 
@@ -45,6 +47,8 @@ function App() {
             <Route path="/products/:slug" element={<ProductDetails />} />
             <Route path="/religious-theme" element={<ReligiousTheme />} />
             <Route path="/desk-calendar" element={<DeskCalendar />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             
             {/* Admin Authentication & Management Routes */}
             <Route path="/admin/login" element={<AdminLogin />} />

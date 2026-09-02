@@ -179,8 +179,8 @@ const WALL_CALENDAR_COLLECTION = [
 ];
 
 const NEW_CALENDAR_COLLECTION = [
-  { id: 'new-01', code: 'P-101 • M-2101', title: 'P-101 • M-2101', desc: '12-Month Panchang Ganesh Edition', img: download16 },
-  { id: 'new-02', code: 'P-102 • M-2102', title: 'P-102 • M-2102', desc: '12-Month Panchang Ganesh Edition', img: download17 },
+  { id: 'new-01', code: 'P-101 • M-2101', title: 'P-101 • M-2101', desc: '12-Month Pratham Ganesh Edition', img: download16 },
+  { id: 'new-02', code: 'P-102 • M-2102', title: 'P-102 • M-2102', desc: '12-Month Mangal Ganesh Edition', img: download17 },
   { id: 'new-03', code: 'P-103', title: 'P-103', desc: '12-Month Saraswati Mata Edition', img: download18 },
   { id: 'new-04', code: 'P-104 • M-2104', title: 'P-104 • M-2104', desc: '12-Month Mahalakshmi Edition', img: download19 },
   { id: 'new-05', code: 'P-105 • M-2105', title: 'P-105 • M-2105', desc: '12-Month Mahalakshmi & Ganesh Edition', img: download20 },
@@ -247,7 +247,7 @@ export default function ReligiousTheme() {
             <div className="relative z-10 w-full max-w-md bg-white p-4 rounded-2xl shadow-2xl border-4 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
               <img 
                 src={religiousHero} 
-                alt="2027 Panchram Ganesh Wall Calendar" 
+                alt="2027 Pratham Ganesh Wall Calendar" 
                 className="w-full h-auto object-contain rounded-xl"
               />
               <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-[#e8dfd0] text-xs font-bold text-[#14244a]">

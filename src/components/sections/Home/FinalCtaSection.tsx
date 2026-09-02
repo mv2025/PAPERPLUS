@@ -34,7 +34,7 @@ export const FinalCtaSection = () => {
           </Typography>
           
           <Typography variant="lead" className="text-gray-300 max-w-2xl mx-auto">
-            Partner with ARG Calendars Pvt. Ltd. for uncompromising quality, bulk manufacturing capabilities, and seamless nationwide logistics. Let's build your next corporate gift.
+            Partner with Paper Plus Calendars Pvt. Ltd. for uncompromising quality, bulk manufacturing capabilities, and seamless nationwide logistics. Let's build your next corporate gift.
           </Typography>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
