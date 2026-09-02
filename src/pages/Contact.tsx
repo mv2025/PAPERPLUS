@@ -30,7 +30,9 @@ export const Contact = () => {
         {/* Interactive Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.a 
-            href="#"
+            href="https://wa.me/919810001279"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="bg-white p-8 rounded-3xl border border-surface-hover shadow-sm hover:shadow-md hover:border-emerald/30 transition-all group flex flex-col items-center text-center gap-4"
           >
@@ -43,7 +45,7 @@ export const Contact = () => {
           </motion.a>
 
           <motion.a 
-            href="tel:+918860477341"
+            href="tel:+919810001279"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="bg-white p-8 rounded-3xl border border-surface-hover shadow-sm hover:shadow-md hover:border-navy/30 transition-all group flex flex-col items-center text-center gap-4"
           >
@@ -52,7 +54,7 @@ export const Contact = () => {
             </div>
             <Typography variant="h3" className="text-navy mt-2">Call Us</Typography>
             <Typography variant="p" className="text-muted text-sm">Speak directly with our B2B manufacturing consultants.</Typography>
-            <span className="text-navy font-bold mt-2">+91 88604 77341</span>
+            <span className="text-navy font-bold mt-2">+91 98100 01279</span>
           </motion.a>
 
           <motion.a 
@@ -81,8 +83,8 @@ export const Contact = () => {
               <div className="flex gap-4">
                 <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
                 <div>
-                  <Typography variant="h4" className="text-white mb-1">Headquarters &amp; Manufacturing</Typography>
-                  <Typography variant="p" className="text-sky/70 text-sm">ARG Calendars Pvt. Ltd.,<br/>Industrial Area, New Delhi, India 110020</Typography>
+                  <Typography variant="h4" className="text-white mb-1">Headquarters &amp; Showroom</Typography>
+                  <Typography variant="p" className="text-sky/70 text-sm">Paper Plus (ARG Calendars Pvt. Ltd.),<br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</Typography>
                 </div>
               </div>
               <div className="flex gap-4">

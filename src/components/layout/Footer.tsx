@@ -85,11 +85,11 @@ export const Footer = () => {
             <div className="flex flex-col gap-4 text-sm text-sky/70">
               <p className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>ARG Calendars Pvt. Ltd., <br/>Industrial Area, New Delhi, India 110020</span>
+                <span>Paper Plus (ARG Calendars Pvt. Ltd.), <br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</span>
               </p>
               <p className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+918860477341">+91 88604 77341</a>
+                <a href="tel:+919810001279">+91 98100 01279</a>
               </p>
               <p className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
