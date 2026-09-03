@@ -55,7 +55,7 @@ export const ProductShowcaseSection = () => {
 
   return (
     <>
-    <section ref={containerRef} className="relative w-full bg-[#0A0D14] h-[320vh] text-white">
+    <section ref={containerRef} className="relative w-full bg-[#0A0D14] h-[200vh] md:h-[320vh] text-white">
       
       {/* STICKY STAGE */}
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -67,7 +67,7 @@ export const ProductShowcaseSection = () => {
         </div>
 
         {/* Section Header */}
-        <div className="absolute top-28 md:top-36 left-0 w-full px-4 md:px-6 z-40 text-center pointer-events-none">
+        <div className="absolute top-16 md:top-36 left-0 w-full px-4 md:px-6 z-40 text-center pointer-events-none">
           <motion.div variants={editorialReveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <Typography variant="small" className="text-primary font-bold tracking-[0.3em] uppercase mb-2 md:mb-4 block drop-shadow-md">
               03. The Finished Object
@@ -79,13 +79,13 @@ export const ProductShowcaseSection = () => {
         </div>
 
         {/* Layer 4: The Product Stage */}
-        <motion.div style={{ scale: stageScale }} className="relative z-20 w-full max-w-4xl aspect-[4/3] md:aspect-[16/9] flex items-center justify-center perspective-1000 mt-24 md:mt-20">
+        <motion.div style={{ scale: stageScale }} className="relative z-20 w-full max-w-4xl flex items-center justify-center perspective-1000 mt-12 md:mt-20 px-4">
           
           {/* Shadow */}
           <div className="absolute bottom-[-10%] w-[80%] h-[20%] bg-white/5 blur-[40px] rounded-[100%] transform scale-y-50" />
 
           {/* THE CALENDAR OBJECT */}
-          <div className="relative w-[320px] md:w-[500px] lg:w-[620px] aspect-[16/11] transform-style-3d shadow-2xl shadow-black/60 mt-10 md:mt-0 bg-[#faf8f5] rounded-xl overflow-hidden border border-black/10">
+          <div className="relative w-[290px] sm:w-[380px] md:w-[500px] lg:w-[620px] aspect-[16/11] transform-style-3d shadow-2xl shadow-black/60 bg-[#faf8f5] rounded-xl overflow-hidden border border-black/10">
             
             {/* March Page (Bottom Layer - Final Destination) */}
             <div className="absolute inset-0 bg-[#faf8f5] rounded-xl overflow-hidden flex flex-col z-0">
@@ -227,8 +227,8 @@ export const ProductShowcaseSection = () => {
       </section>
 
       {/* LIFESTYLE SHOT: Real Executive Desk Calendar Artwork */}
-      <section className="relative w-full bg-[#0A0D14] z-30 pb-32">
-        <div className="max-w-7xl mx-auto px-6 pt-32">
+      <section className="relative w-full bg-[#0A0D14] z-30 pb-12 md:pb-32">
+        <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-32">
           
           <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl group border border-white/10 bg-white/5 flex items-center justify-center">
             <img 

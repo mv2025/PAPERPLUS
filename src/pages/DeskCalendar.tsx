@@ -128,6 +128,20 @@ export default function DeskCalendar() {
   const [enquiryList, setEnquiryList] = useState<Array<{ title: string; subtitle: string; img: string }>>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // Preload all colorway images for 0ms lag swatch response
+  React.useEffect(() => {
+    DESIGNS.forEach(design => {
+      if (design.inside) {
+        const img = new Image();
+        img.src = design.inside;
+      }
+      design.colors.forEach(c => {
+        const img = new Image();
+        img.src = c.img;
+      });
+    });
+  }, []);
+
   const currentDesign = DESIGNS[activeDesignIndex];
   const currentColor = currentDesign.colors[activeColorIndex] || currentDesign.colors[0];
 
@@ -264,7 +278,7 @@ export default function DeskCalendar() {
             <img 
               src={showingInside ? currentDesign.inside : currentColor.img} 
               alt={`${currentDesign.name} in ${currentColor.name}`} 
-              className="max-h-80 object-contain drop-shadow-2xl transition-all duration-300 mb-6" 
+              className="max-h-80 object-contain drop-shadow-2xl mb-6" 
             />
             <button
               onClick={() => setShowingInside(!showingInside)}

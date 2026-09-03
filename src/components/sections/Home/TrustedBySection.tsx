@@ -33,21 +33,21 @@ export const CraftsmanshipSection = () => {
         
         {/* Editorial Imagery Collage (Asymmetrical) */}
         <div className="w-full md:w-1/2 relative h-[300px] sm:h-[400px] lg:h-[500px]">
-          {/* Decorative Layers */}
-          <PaperLayer className="w-[80%] h-[90%] -left-4 top-10 rotate-[-2deg] bg-white shadow-xl shadow-navy/5" />
-          <PaperLayer className="w-[85%] h-[95%] left-4 top-4 rotate-[1deg] bg-white shadow-xl shadow-navy/5" />
+          {/* Decorative Layers - hidden on mobile to prevent white block overlays */}
+          <PaperLayer className="hidden sm:block w-[80%] h-[90%] -left-4 top-10 rotate-[-2deg] bg-[#FAF6EC] shadow-xl shadow-navy/5" />
+          <PaperLayer className="hidden sm:block w-[85%] h-[95%] left-4 top-4 rotate-[1deg] bg-[#FAF6EC] shadow-xl shadow-navy/5" />
           
           <motion.div 
-            initial={{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
-            whileInView={{ opacity: 1, clipPath: 'inset(0% 0 0 0)' }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 bg-white shadow-2xl shadow-navy/10 z-10 p-2 sm:p-3 flex"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0 bg-[#FAF6EC] rounded-2xl shadow-xl shadow-navy/10 z-10 p-2 sm:p-3 flex overflow-hidden border border-[#E8DFD0]"
           >
             <div className="w-full h-full grid grid-cols-2 grid-rows-3 gap-2 sm:gap-3">
               
               {/* Large Macro Paper */}
-              <div className="col-span-2 row-span-2 relative overflow-hidden bg-surface-hover rounded-sm group">
+              <div className="col-span-2 row-span-2 relative overflow-hidden bg-[#F5EEDC] rounded-lg group">
                 <img 
                   src={PAPER_TEXTURES[0].src} 
                   alt="Large Macro Paper" 
@@ -61,7 +61,7 @@ export const CraftsmanshipSection = () => {
               </div>
 
               {/* Cotton Texture */}
-              <div className="col-span-1 row-span-1 relative overflow-hidden bg-surface-hover rounded-sm group">
+              <div className="col-span-1 row-span-1 relative overflow-hidden bg-[#F5EEDC] rounded-lg group">
                 <img 
                   src={PAPER_TEXTURES[1].src} 
                   alt="Cotton Texture" 
@@ -71,7 +71,7 @@ export const CraftsmanshipSection = () => {
               </div>
 
               {/* Paper Layers */}
-              <div className="col-span-1 row-span-1 relative overflow-hidden bg-surface-hover rounded-sm group">
+              <div className="col-span-1 row-span-1 relative overflow-hidden bg-[#F5EEDC] rounded-lg group">
                 <img 
                   src={PAPER_TEXTURES[2].src} 
                   alt="Paper Layers" 
