@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronRight, Search, FileText } from 'lucide-react';
+import { Menu, X, ChevronRight, FileText } from 'lucide-react';
 import { Typography } from '../ui/Typography';
 import { Button } from '../ui/Button';
 
@@ -9,138 +9,211 @@ export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<'main' | 'products'>('main');
 
-  // Prevent scroll when open
-  React.useEffect(() => {
+  // Prevent scroll when open and clean up on unmount/close
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen]);
 
-  const slideVariants = {
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.2 } },
+    exit: { opacity: 0, transition: { duration: 0.2 } }
+  };
+
+  const drawerVariants = {
     hidden: { x: '100%' },
-    visible: { x: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 30 } },
-    exit: { x: '100%', transition: { type: 'spring' as const, stiffness: 300, damping: 30 } }
+    visible: { x: 0, transition: { type: 'spring' as const, stiffness: 350, damping: 35 } },
+    exit: { x: '100%', transition: { type: 'spring' as const, stiffness: 350, damping: 35 } }
   };
 
   return (
     <div className="lg:hidden">
+      {/* Hamburger Trigger Button */}
       <button 
         onClick={() => setIsOpen(true)}
-        className="p-2 text-foreground hover:text-primary transition-colors focus:outline-none"
+        className="p-2 text-[#14244a] hover:text-[#e5232e] transition-colors focus:outline-none rounded-lg border border-[#e8dfd0] bg-white shadow-sm"
         aria-label="Open Mobile Menu"
       >
         <Menu className="w-6 h-6" />
       </button>
 
-      <AnimatePresence>
-        {isOpen && typeof document !== 'undefined' && createPortal(
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm"
-          >
+      {/* Render Mobile Drawer in document.body via Portal to prevent any CSS transform clipping */}
+      {typeof document !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              variants={slideVariants}
+              variants={overlayVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="absolute right-0 top-0 bottom-0 w-[85vw] max-w-sm bg-surface border-l border-surface-hover shadow-2xl flex flex-col overflow-hidden"
+              className="fixed inset-0 z-[99999] flex justify-end bg-black/60 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
             >
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-surface-hover">
-                <Typography variant="large" className="text-primary font-heading font-extrabold">
-                  {activeMenu === 'main' ? 'Menu' : 'Products'}
-                </Typography>
-                <div className="flex items-center gap-2">
-                  {activeMenu === 'products' && (
-                    <button 
-                      onClick={() => setActiveMenu('main')}
-                      className="p-2 text-muted hover:text-foreground transition-colors text-sm font-semibold"
-                    >
-                      Back
-                    </button>
-                  )}
-                  <button 
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 text-muted hover:text-foreground transition-colors bg-background rounded-md"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 overflow-y-auto relative">
-                <AnimatePresence mode="wait">
-                  {activeMenu === 'main' && (
-                    <motion.div
-                      key="main"
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: -20, opacity: 0 }}
-                      className="flex flex-col p-4 gap-2"
-                    >
+              {/* Drawer Container (stops event propagation so clicking inside doesn't close) */}
+              <motion.div
+                variants={drawerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                onClick={(e) => e.stopPropagation()}
+                className="w-[85vw] max-w-sm h-full bg-[#FAF6EC] border-l border-[#E8DFD0] shadow-2xl flex flex-col overflow-hidden"
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-[#E8DFD0] bg-white">
+                  <span className="font-extrabold text-[#14244a] text-lg">
+                    {activeMenu === 'main' ? 'Menu' : 'Products & Collections'}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {activeMenu === 'products' && (
                       <button 
-                        onClick={() => setActiveMenu('products')}
-                        className="flex items-center justify-between p-4 bg-background rounded-xl text-left hover:border-primary border border-transparent transition-colors"
+                        onClick={() => setActiveMenu('main')}
+                        className="px-2.5 py-1 text-xs font-bold text-[#E5232E] hover:underline"
                       >
-                        <span className="font-semibold text-foreground">Products &amp; Collections</span>
-                        <ChevronRight className="w-5 h-5 text-muted" />
+                        ← Back
                       </button>
-                      <a href="/" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">Home</a>
-                      <a href="/about" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">About Us</a>
-                      <a href="/religious-theme" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">Wall &amp; Religious 2027</a>
-                      <a href="/desk-calendar" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">Desk Calendar Memo Box</a>
-                      <a href="/corporate" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">Corporate Solutions</a>
-                      <a href="/products" className="p-4 rounded-xl text-left hover:bg-background transition-colors font-medium text-foreground">All Catalogue Products</a>
-                    </motion.div>
-                  )}
-
-                  {activeMenu === 'products' && (
-                    <motion.div
-                      key="products"
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: 20, opacity: 0 }}
-                      className="flex flex-col p-4 gap-2"
+                    )}
+                    <button 
+                      onClick={() => setIsOpen(false)}
+                      className="p-2 text-[#14244a] hover:bg-[#FAF6EC] rounded-full border border-[#E8DFD0] transition-colors"
+                      aria-label="Close Menu"
                     >
-                      <a href="/religious-theme" className="p-4 bg-background rounded-xl text-left hover:border-primary border border-transparent transition-colors">
-                        <span className="font-bold text-foreground block">Wall &amp; Religious 2027</span>
-                        <span className="text-xs text-muted">Devotional, landscape &amp; floral themes</span>
-                      </a>
-                      <a href="/desk-calendar" className="p-4 bg-background rounded-xl text-left hover:border-primary border border-transparent transition-colors">
-                        <span className="font-bold text-foreground block">Desk Calendar Memo Box</span>
-                        <span className="text-xs text-muted">Executive desk sets &amp; colorways</span>
-                      </a>
-                      <a href="/corporate" className="p-4 bg-background rounded-xl text-left hover:border-primary border border-transparent transition-colors">
-                        <span className="font-bold text-primary block">Corporate Branding</span>
-                        <span className="text-xs text-muted">Custom logo &amp; bulk gifting</span>
-                      </a>
-                      <a href="/products" className="p-4 bg-background rounded-xl text-left hover:border-primary border border-transparent transition-colors">
-                        <span className="font-bold text-foreground block">Browse All Products</span>
-                        <span className="text-xs text-muted">Full catalog with filters</span>
-                      </a>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
 
-              {/* Bottom Actions */}
-              <div className="p-4 border-t border-surface-hover flex flex-col gap-3 bg-surface z-10">
-                <a href="/quote" className="w-full">
-                  <Button fullWidth leftIcon={<FileText className="w-4 h-4" />}>
-                    Request Bulk Quote
-                  </Button>
-                </a>
-              </div>
+                {/* Navigation Links Content */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+                  <AnimatePresence mode="wait">
+                    {activeMenu === 'main' ? (
+                      <motion.div
+                        key="main"
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -20, opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                        className="space-y-2.5"
+                      >
+                        <button 
+                          onClick={() => setActiveMenu('products')}
+                          className="w-full flex items-center justify-between p-4 bg-white rounded-xl border border-[#E8DFD0] text-left shadow-sm hover:border-[#E5232E] transition-colors"
+                        >
+                          <span className="font-extrabold text-[#14244a]">Products &amp; Collections</span>
+                          <ChevronRight className="w-5 h-5 text-[#E5232E]" />
+                        </button>
+
+                        <a 
+                          href="/" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          Home
+                        </a>
+                        <a 
+                          href="/about" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          About Us
+                        </a>
+                        <a 
+                          href="/religious-theme" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          Wall &amp; Religious 2027
+                        </a>
+                        <a 
+                          href="/desk-calendar" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          Desk Calendar Memo Box
+                        </a>
+                        <a 
+                          href="/corporate" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          Corporate Solutions
+                        </a>
+                        <a 
+                          href="/products" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] font-semibold text-[#14244a] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          All Catalogue Products
+                        </a>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="products"
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: 20, opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                        className="space-y-2.5"
+                      >
+                        <a 
+                          href="/religious-theme" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block">Wall &amp; Religious 2027</span>
+                          <span className="text-xs text-[#68738b]">Devotional, landscape &amp; floral themes</span>
+                        </a>
+                        <a 
+                          href="/desk-calendar" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block">Desk Calendar Memo Box</span>
+                          <span className="text-xs text-[#68738b]">Executive desk sets &amp; colorways</span>
+                        </a>
+                        <a 
+                          href="/corporate" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#E5232E] block">Corporate Branding</span>
+                          <span className="text-xs text-[#68738b]">Custom logo &amp; bulk gifting</span>
+                        </a>
+                        <a 
+                          href="/products" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block">Browse All Products</span>
+                          <span className="text-xs text-[#68738b]">Full catalog with filters</span>
+                        </a>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Bottom Action */}
+                <div className="p-4 border-t border-[#E8DFD0] bg-white">
+                  <a href="/quote" onClick={() => setIsOpen(false)} className="block w-full">
+                    <Button fullWidth leftIcon={<FileText className="w-4 h-4" />}>
+                      Request Bulk Quote
+                    </Button>
+                  </a>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 };
+
+export default MobileNav;
