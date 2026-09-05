@@ -204,6 +204,7 @@ const HorizontalProcess = () => {
     {
       id: 0,
       stage: 'STAGE 01',
+      tabTitle: 'Paper Stock & Gold Foil',
       title: 'Heavyweight Paper Stock & Gold Foil',
       subtitle: 'Raw Stock Selection',
       desc: 'We select heavy 250 GSM imported art card and textured virgin kraft. Engineered with zero curl memory, holding deep saturated inks and withstanding 140°C hot-stamp metallic gold foil without wrinkling.',
@@ -224,6 +225,7 @@ const HorizontalProcess = () => {
     {
       id: 1,
       stage: 'STAGE 02',
+      tabTitle: '6-Color Offset Printing',
       title: 'High-Definition 6-Color Offset Printing',
       subtitle: 'Micro-Screen Calibration',
       desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every feather of Saraswati and every jewel of Ganpati.',
@@ -244,6 +246,7 @@ const HorizontalProcess = () => {
     {
       id: 2,
       stage: 'STAGE 03',
+      tabTitle: 'Velvet Film & UV Shield',
       title: 'Velvet Thermal Film & Protective UV Shield',
       subtitle: 'Surface Protection',
       desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, oil, and atmospheric humidity throughout the entire calendar year.',
@@ -264,6 +267,7 @@ const HorizontalProcess = () => {
     {
       id: 3,
       stage: 'STAGE 04',
+      tabTitle: 'Twin-Wire & Tin Binding',
       title: 'Twin-Wire Hinges & Tin Rim Top Binding',
       subtitle: 'Assembly & Finishing',
       desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet precision memo blocks.',
@@ -302,30 +306,30 @@ const HorizontalProcess = () => {
           </Typography>
         </div>
 
-        {/* Interactive Step Switcher Tabs (Matches SS styling) */}
+        {/* Interactive Step Switcher Tabs (No Text Truncation) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
           {PROCESS_STEPS.map((step, idx) => (
             <button
               key={step.id}
               onClick={() => setActiveStep(idx)}
-              className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between active:scale-95 touch-manipulation cursor-pointer ${
+              className={`p-3.5 sm:p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between active:scale-95 touch-manipulation cursor-pointer min-h-[105px] sm:min-h-[120px] ${
                 activeStep === idx
                   ? 'bg-[#141F42] text-white border-[#141F42] shadow-2xl shadow-[#141F42]/30 scale-[1.02] ring-2 ring-[#DA2030]/40'
                   : 'bg-white text-[#141F42] border-[#E8E1D0] hover:border-[#DA2030]/50 hover:bg-white/95 shadow-sm'
               }`}
             >
-              <div className="flex items-center justify-between w-full mb-3">
-                <span className={`text-[11px] font-extrabold uppercase tracking-widest ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
+              <div className="flex items-center justify-between w-full mb-2 sm:mb-3">
+                <span className={`text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
                   {step.stage}
                 </span>
-                <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                <span className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs font-black transition-all ${
                   activeStep === idx ? 'bg-[#DA2030] text-white shadow-md' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
                 }`}>
                   0{idx + 1}
                 </span>
               </div>
-              <h4 className={`text-sm sm:text-base font-extrabold leading-snug line-clamp-2 ${activeStep === idx ? 'text-white' : 'text-[#141F42]'}`}>
-                {step.title}
+              <h4 className={`text-xs sm:text-sm font-extrabold leading-snug ${activeStep === idx ? 'text-white' : 'text-[#141F42]'}`}>
+                {step.tabTitle}
               </h4>
             </button>
           ))}
