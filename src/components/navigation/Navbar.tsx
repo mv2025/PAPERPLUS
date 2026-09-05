@@ -3,7 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { SearchOverlay } from '../ui/SearchOverlay';
 import { MegaMenu } from './MegaMenu';
 import { MobileNav } from './MobileNav';
-import { Heart, ArrowRightLeft, ShoppingBag } from 'lucide-react';
+import { Heart, ArrowRightLeft, ShoppingBag, Search } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { cn } from '@/utils/cn';
 
@@ -65,8 +65,18 @@ export const Navbar = () => {
           <Button size="sm" className="ml-2">Request Quote</Button>
         </div>
 
-        {/* Mobile Navigation Trigger */}
-        <MobileNav />
+        {/* Mobile Actions: Search Icon + Menu Drawer */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <SearchOverlay trigger={
+            <button 
+              className="p-2 text-[#14244a] hover:text-[#DA2030] transition-colors rounded-lg border border-[#e8dfd0] bg-white shadow-sm cursor-pointer"
+              aria-label="Open Search"
+            >
+              <Search className="w-5 h-5 text-[#DA2030]" />
+            </button>
+          } />
+          <MobileNav />
+        </div>
         
       </div>
     </motion.div>

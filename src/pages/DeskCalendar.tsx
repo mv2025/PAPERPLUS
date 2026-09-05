@@ -274,17 +274,41 @@ export default function DeskCalendar() {
         </div>
 
         <div className="bg-white border border-[#E8E1D0] rounded-3xl p-8 lg:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="bg-gradient-to-b from-white to-[#f4efe2] rounded-2xl p-8 flex flex-col items-center justify-center min-h-[380px] border border-[#E8E1D0]">
-            <img 
-              src={showingInside ? currentDesign.inside : currentColor.img} 
-              alt={`${currentDesign.name} in ${currentColor.name}`} 
-              className="max-h-80 object-contain drop-shadow-2xl mb-6 transition-none transform-gpu" 
-              loading="eager"
-              fetchPriority="high"
-            />
+          <div className="bg-gradient-to-b from-white to-[#f4efe2] rounded-2xl p-8 flex flex-col items-center justify-center min-h-[420px] border border-[#E8E1D0] relative overflow-hidden">
+            
+            {/* Pre-rendered instant colorway image stack (0ms lag swap) */}
+            <div className="relative w-full h-80 flex items-center justify-center mb-6">
+              {currentDesign.colors.map((c, idx) => {
+                const isActive = !showingInside && activeColorIndex === idx;
+                return (
+                  <img 
+                    key={c.name}
+                    src={c.img} 
+                    alt={`${currentDesign.name} in ${c.name}`} 
+                    className={`absolute inset-0 m-auto max-h-80 object-contain drop-shadow-2xl transition-all duration-200 transform-gpu ${
+                      isActive ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0 pointer-events-none'
+                    }`} 
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                );
+              })}
+              {currentDesign.inside && (
+                <img 
+                  src={currentDesign.inside} 
+                  alt={`${currentDesign.name} inside layout`} 
+                  className={`absolute inset-0 m-auto max-h-80 object-contain drop-shadow-2xl transition-all duration-200 transform-gpu ${
+                    showingInside ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0 pointer-events-none'
+                  }`} 
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              )}
+            </div>
+
             <button
               onClick={() => setShowingInside(!showingInside)}
-              className="px-5 py-2 rounded-full border-2 border-[#1B2A56] text-[#1B2A56] text-xs font-bold hover:bg-[#1B2A56] hover:text-white transition-colors"
+              className="relative z-20 px-5 py-2.5 rounded-full border-2 border-[#1B2A56] text-[#1B2A56] text-xs font-bold hover:bg-[#1B2A56] hover:text-white transition-colors cursor-pointer active:scale-95 shadow-sm"
             >
               {showingInside ? 'Back to cover' : 'See inside — January layout'}
             </button>
@@ -293,7 +317,7 @@ export default function DeskCalendar() {
           <div>
             <div className="flex items-center justify-between mb-3">
               <img src={bigWishLogo} alt="Big Wish Desk Accessories" className="h-7 sm:h-8 w-auto object-contain" />
-              <span className="text-xs font-extrabold uppercase tracking-wider text-[#5C6478]">
+              <span className="text-xs font-black uppercase tracking-widest px-3 py-1 bg-[#FAF6EC] border border-[#E8E1D0] rounded-full text-[#DA2030]">
                 {currentColor.name}
               </span>
             </div>
@@ -301,19 +325,26 @@ export default function DeskCalendar() {
             <p className="text-[#5C6478] text-sm mb-6 leading-relaxed">{currentDesign.tagline}</p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {currentDesign.colors.map((c, idx) => (
-                <button
-                  key={c.name}
-                  onClick={() => {
-                    setActiveColorIndex(idx);
-                    setShowingInside(false);
-                  }}
-                  className={`w-10 h-10 rounded-full border-2 transition-transform active:scale-95 touch-manipulation cursor-pointer ${activeColorIndex === idx ? 'scale-110 border-[#141F42] shadow-md ring-2 ring-[#141F42]/20' : 'border-transparent hover:scale-105'}`}
-                  style={{ backgroundColor: c.hex }}
-                  title={c.name}
-                  aria-label={`Select ${c.name} colorway`}
-                />
-              ))}
+              {currentDesign.colors.map((c, idx) => {
+                const isSelected = activeColorIndex === idx;
+                return (
+                  <button
+                    key={c.name}
+                    onClick={() => {
+                      setActiveColorIndex(idx);
+                      setShowingInside(false);
+                    }}
+                    className={`w-10 h-10 rounded-full border-2 transition-all active:scale-90 touch-manipulation cursor-pointer ${
+                      isSelected 
+                        ? 'scale-110 border-[#DA2030] shadow-lg ring-4 ring-[#DA2030]/30' 
+                        : 'border-white hover:scale-105 opacity-90 hover:opacity-100 shadow-sm'
+                    }`}
+                    style={{ backgroundColor: c.hex }}
+                    title={c.name}
+                    aria-label={`Select ${c.name} colorway`}
+                  />
+                );
+              })}
             </div>
 
             <dl className="border-t border-b border-[#E8E1D0] divide-y divide-[#E8E1D0] mb-8 text-sm">

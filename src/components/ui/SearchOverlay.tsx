@@ -9,64 +9,86 @@ import asset04 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_04_d
 import asset21 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_21_be605dba59fa.png';
 import wallGanesh from '@/assets/foundation/religious.jpg';
 
+interface SearchOverlayProps {
+  trigger?: React.ReactNode;
+}
+
 const SEARCH_DATABASE = [
   {
     id: 'pratham-ganesh',
-    title: 'Pratham Ganesh 2027',
+    title: 'Pratham Ganesh 2027 Wall Calendar',
     category: 'Wall & Religious 2027',
     description: 'Gold Foil Panchang Wall Edition with daily tithi & auspicious dates.',
     link: '/religious-theme',
     img: wallGanesh,
-    keywords: ['wall', 'religious', 'ganesh', 'pratham', 'panchang', '2027', 'gold foil']
+    keywords: ['wall calendars 2027', 'wall', 'religious', 'ganesh', 'pratham', 'panchang', '2027', 'gold foil']
   },
   {
     id: 'mangal-ganesh',
-    title: 'Mangal Ganesh 2027',
+    title: 'Mangal Ganesh 2027 Devotional Panchang',
     category: 'Wall & Religious 2027',
-    description: 'Devotional Panchang calendar with premium lightfast color printing.',
+    description: 'Devotional Panchang wall calendar with premium lightfast 6-color offset printing.',
     link: '/religious-theme',
     img: wallGanesh,
-    keywords: ['wall', 'mangal', 'ganesh', 'devotional', 'panchang', '2027']
+    keywords: ['wall calendars 2027', 'wall', 'mangal', 'ganesh', 'devotional', 'panchang', '2027']
   },
   {
     id: 'happy-new-year-classic',
     title: 'Happy New Year Classic Memo Box',
     category: 'Desk Calendar Memo Box',
-    description: 'Hand-lettered script with split-color 2027 numerals & 400 cream memo sheets.',
-    link: '/desk-calendar',
+    description: 'Hand-lettered script with split-color 2027 numerals & 400 cream memo sheets in 9 fabric colorways.',
+    link: '/desk-calendar#configurator',
     img: asset04,
-    keywords: ['desk', 'calendar', 'memo box', 'happy new year', 'executive', 'classic']
+    keywords: ['desk calendar memo box', 'desk', 'calendar', 'memo box', 'happy new year', 'executive', 'classic', '9 colorways', 'colors']
+  },
+  {
+    id: 'windmill-getaway',
+    title: 'Windmill Getaway Desk Flip Calendar',
+    category: 'Desk Calendar Memo Box',
+    description: 'Travel landscape collection framed in fine geometric border with 400-sheet memo cube.',
+    link: '/desk-calendar#configurator',
+    img: asset01,
+    keywords: ['desk calendar memo box', 'windmill', 'getaway', 'travel', 'desk', 'memo box']
   },
   {
     id: 'executive-navy-set',
-    title: 'Navy Executive Memo Box',
+    title: 'Navy Executive Desk Memo Box',
     category: 'Desk Calendar Memo Box',
     description: 'Textured leatherette navy desk organizer set with gold foil accents.',
     link: '/desk-calendar',
     img: asset01,
-    keywords: ['desk', 'navy', 'leatherette', 'executive', 'memo box', 'blue']
+    keywords: ['desk calendar memo box', 'desk', 'navy', 'leatherette', 'executive', 'memo box', 'blue']
   },
   {
     id: 'corporate-branding-series',
     title: 'Corporate Custom Branding 2027',
     category: 'Corporate Solutions',
-    description: 'Bulk corporate calendar gifting with custom gold foil logo printing.',
+    description: 'Bulk corporate calendar gifting with custom gold foil logo printing & corporate customization.',
     link: '/corporate',
     img: asset21,
-    keywords: ['corporate', 'branding', 'custom', 'logo', 'bulk', 'diaries', 'gifting']
+    keywords: ['corporate branding', 'corporate', 'branding', 'custom', 'logo', 'bulk', 'diaries', 'gifting']
   },
   {
     id: 'gold-foil-specs',
-    title: 'Custom Gold Foil & Embossing Tech',
+    title: 'Gold Foiling & Precision Embossing Tech',
     category: 'Precision Manufacturing',
-    description: 'Micron-level registration rollers and precision foil stamping for executive orders.',
+    description: '140°C hot-stamp gold foil technology and 2400 DPI micro-screen calibration.',
     link: '/about',
     img: asset21,
-    keywords: ['gold foil', 'embossing', 'precision', 'manufacturing', 'materials']
+    keywords: ['gold foiling', 'gold foil', 'embossing', 'precision', 'manufacturing', 'materials', 'craftsmanship']
+  },
+  {
+    id: 'all-catalogue-products',
+    title: 'Browse All 2027 Catalogue Products',
+    category: 'Catalogue',
+    description: 'Full product line of wall calendars, desk memo boxes, and corporate custom gifts.',
+    link: '/products',
+    img: asset04,
+    keywords: ['all', 'products', 'catalogue', 'collection', 'wall calendars 2027']
   }
 ];
 
-export const SearchOverlay = () => {
+export const SearchOverlay: React.FC<SearchOverlayProps> = ({ trigger }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
 
@@ -82,28 +104,31 @@ export const SearchOverlay = () => {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  const filteredResults = query.trim() === ''
+  const cleanQuery = query.trim().toLowerCase();
+
+  const filteredResults = cleanQuery === ''
     ? []
     : SEARCH_DATABASE.filter(item => {
-        const q = query.toLowerCase();
         return (
-          item.title.toLowerCase().includes(q) ||
-          item.category.toLowerCase().includes(q) ||
-          item.description.toLowerCase().includes(q) ||
-          item.keywords.some(k => k.toLowerCase().includes(q))
+          item.title.toLowerCase().includes(cleanQuery) ||
+          item.category.toLowerCase().includes(cleanQuery) ||
+          item.description.toLowerCase().includes(cleanQuery) ||
+          item.keywords.some(k => k.toLowerCase().includes(cleanQuery) || cleanQuery.includes(k.toLowerCase()))
         );
       });
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button className="flex items-center gap-2 px-3 py-2 text-sm text-muted rounded-md bg-surface hover:bg-surface-hover transition-colors border border-surface-hover w-64">
-          <Search className="w-4 h-4" />
-          <span className="flex-1 text-left">Search...</span>
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 font-mono text-[10px] font-medium rounded border border-muted/20 bg-background text-muted">
-            <Command className="w-3 h-3" /> K
-          </kbd>
-        </button>
+        {trigger || (
+          <button className="flex items-center gap-2 px-3 py-2 text-sm text-muted rounded-md bg-surface hover:bg-surface-hover transition-colors border border-surface-hover w-64 cursor-pointer">
+            <Search className="w-4 h-4" />
+            <span className="flex-1 text-left">Search...</span>
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-1.5 font-mono text-[10px] font-medium rounded border border-muted/20 bg-background text-muted">
+              <Command className="w-3 h-3" /> K
+            </kbd>
+          </button>
+        )}
       </Dialog.Trigger>
 
       <AnimatePresence>
@@ -124,12 +149,12 @@ export const SearchOverlay = () => {
                 exit={{ opacity: 0, scale: 0.95, y: -20 }}
                 transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "fixed z-[100000] left-[50%] top-[15%] sm:top-[20%] translate-x-[-50%]",
+                  "fixed z-[100000] left-[50%] top-[10%] sm:top-[20%] translate-x-[-50%]",
                   "w-[92vw] max-w-2xl bg-white border border-[#E8DFD0] shadow-2xl rounded-2xl overflow-hidden"
                 )}
               >
                 <div className="flex items-center border-b border-[#E8DFD0] px-4 bg-[#FAF6EC]">
-                  <Search className="w-5 h-5 text-[#E5232E]" />
+                  <Search className="w-5 h-5 text-[#DA2030]" />
                   <input
                     className="flex-1 h-14 bg-transparent border-none outline-none px-4 text-[#14244a] font-medium placeholder:text-[#68738b] text-base"
                     placeholder="Search calendars, desk boxes, corporate gifting..."
@@ -143,7 +168,7 @@ export const SearchOverlay = () => {
                     </button>
                   )}
                   <Dialog.Close asChild>
-                    <button className="p-1.5 rounded-full text-[#14244a] hover:bg-white border border-[#E8DFD0] transition-colors" aria-label="Close search">
+                    <button className="p-1.5 rounded-full text-[#14244a] hover:bg-white border border-[#E8DFD0] transition-colors cursor-pointer" aria-label="Close search">
                       <X className="w-5 h-5" />
                     </button>
                   </Dialog.Close>
@@ -157,7 +182,8 @@ export const SearchOverlay = () => {
                         {['Wall Calendars 2027', 'Desk Calendar Memo Box', 'Corporate Branding', 'Gold Foiling'].map(term => (
                           <button 
                             key={term} 
-                            className="px-3.5 py-2 bg-white rounded-xl border border-[#E8DFD0] text-left text-sm font-semibold text-[#14244a] hover:border-[#E5232E] hover:text-[#E5232E] transition-colors shadow-sm" 
+                            type="button"
+                            className="px-3.5 py-2 bg-white rounded-xl border border-[#E8DFD0] text-left text-sm font-semibold text-[#14244a] hover:border-[#DA2030] hover:text-[#DA2030] transition-colors shadow-sm cursor-pointer active:scale-95" 
                             onClick={() => setQuery(term)}
                           >
                             🔍 {term}
@@ -172,21 +198,21 @@ export const SearchOverlay = () => {
                           key={item.id} 
                           href={item.link} 
                           onClick={() => setOpen(false)}
-                          className="flex items-center gap-4 p-3 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-all group shadow-sm"
+                          className="flex items-center gap-4 p-3 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#DA2030] transition-all group shadow-sm cursor-pointer"
                         >
                           <div className="w-14 h-14 rounded-lg bg-[#FAF6EC] overflow-hidden border border-[#E8DFD0] flex-shrink-0 p-1 flex items-center justify-center">
                             <img src={item.img} alt={item.title} className="w-full h-full object-contain" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#E5232E] block mb-0.5">
+                            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#DA2030] block mb-0.5">
                               {item.category}
                             </span>
-                            <h5 className="font-bold text-[#14244a] text-sm truncate group-hover:text-[#E5232E] transition-colors">
+                            <h5 className="font-bold text-[#14244a] text-sm truncate group-hover:text-[#DA2030] transition-colors">
                               {item.title}
                             </h5>
                             <p className="text-xs text-[#68738b] truncate">{item.description}</p>
                           </div>
-                          <ChevronRight className="w-5 h-5 text-[#68738b] group-hover:text-[#E5232E] transition-colors flex-shrink-0" />
+                          <ChevronRight className="w-5 h-5 text-[#68738b] group-hover:text-[#DA2030] transition-colors flex-shrink-0" />
                         </a>
                       ))}
                     </div>
@@ -194,7 +220,7 @@ export const SearchOverlay = () => {
                     <div className="flex flex-col items-center justify-center py-8 text-center">
                       <span className="text-3xl mb-2">🔍</span>
                       <p className="text-sm font-bold text-[#14244a] mb-1">No products found for "{query}"</p>
-                      <p className="text-xs text-[#68738b]">Try searching for "Wall", "Desk", "Ganesh", or "Corporate".</p>
+                      <p className="text-xs text-[#68738b]">Try searching for "Wall", "Desk", "Ganesh", "Gold", or "Corporate".</p>
                     </div>
                   )}
                 </div>
@@ -206,3 +232,4 @@ export const SearchOverlay = () => {
     </Dialog.Root>
   );
 };
+
