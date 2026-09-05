@@ -76,10 +76,13 @@ function getLocalProducts(): Product[] {
     if (saved) {
       const parsed: Product[] = JSON.parse(saved);
       // Validate that stored thumbnails are not legacy broken string paths
-      if (parsed.length > 0 && parsed[0].thumbnail && !parsed[0].thumbnail.startsWith('/assets/products/')) {
+      if (parsed.length > 0 && parsed[0].thumbnail && typeof parsed[0].thumbnail === 'string' && !parsed[0].thumbnail.includes('/assets/products/')) {
         return parsed;
       }
     }
+  } catch {}
+  try {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
   } catch {}
   return initialProducts;
 }

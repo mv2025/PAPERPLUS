@@ -49,19 +49,6 @@ export const Navbar = () => {
         {/* Desktop Actions */}
         <div className="hidden lg:flex items-center gap-3">
           <SearchOverlay />
-          
-          <div className="flex items-center gap-1 border-l border-surface-hover pl-3">
-            <button className="p-2 text-muted hover:text-primary transition-colors relative" aria-label="Wishlist">
-              <Heart className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-muted hover:text-primary transition-colors relative" aria-label="Compare">
-              <ArrowRightLeft className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-muted hover:text-primary transition-colors relative" aria-label="Cart">
-              <ShoppingBag className="w-5 h-5" />
-            </button>
-          </div>
-
           <Button size="sm" className="ml-2">Request Quote</Button>
         </div>
 
