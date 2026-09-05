@@ -150,28 +150,28 @@ export const ProductUniverseSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-amber-100/40 via-transparent to-transparent pointer-events-none" />
 
       {/* Section Header */}
-      <div className="text-center max-w-3xl mb-12 relative z-10">
-        <span className="text-xs font-extrabold uppercase tracking-widest text-[#e5232e] block mb-2">
+      <div className="text-center max-w-3xl mb-12 relative z-10 mx-auto flex flex-col items-center">
+        <span className="text-xs font-extrabold uppercase tracking-widest text-[#DA2030] block mb-2 text-center">
           EXPLORE OUR CATALOGUE
         </span>
-        <Typography variant="h2" className="text-[#14244a] text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+        <Typography align="center" variant="h2" className="text-[#14244a] text-4xl sm:text-5xl font-extrabold leading-tight mb-4 text-center">
           Product Collection
         </Typography>
-        <Typography variant="muted" className="text-base text-[#68738b]">
+        <Typography align="center" variant="muted" className="text-base text-[#68738b] text-center max-w-xl mx-auto">
           Discover our 2027 wall calendars, executive desk series, and devotional artwork collections.
         </Typography>
       </div>
 
       {/* Category Pills Header */}
-      <div className="flex gap-2 mb-12 overflow-x-auto max-w-full pb-2 relative z-10 scrollbar-none">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mb-12 overflow-x-auto max-w-full p-3 relative z-10 scrollbar-none">
         {CATEGORIES.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setActiveCategoryId(cat.id)}
-            className={`px-6 py-2.5 rounded-full text-xs font-extrabold tracking-wider transition-all uppercase whitespace-nowrap ${
+            className={`px-6 py-2.5 rounded-full text-xs font-extrabold tracking-wider transition-all uppercase whitespace-nowrap cursor-pointer active:scale-95 ${
               activeCategoryId === cat.id
-                ? 'bg-[#14244a] text-white shadow-lg scale-105'
-                : 'bg-white border border-[#e8dfd0] text-[#14244a] hover:border-[#e5232e]'
+                ? 'bg-[#14244a] text-white shadow-lg ring-2 ring-[#14244a]/20 scale-105'
+                : 'bg-white border border-[#e8dfd0] text-[#14244a] hover:border-[#DA2030]'
             }`}
           >
             {cat.title}
