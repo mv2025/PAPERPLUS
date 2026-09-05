@@ -6,7 +6,6 @@ import { PrintingPrecisionSection } from '@/components/sections/Home/CategoriesS
 import { ProductShowcaseSection } from '@/components/sections/Home/ProductShowcaseSection';
 import { CorporateSuccessSection } from '@/components/sections/Home/CorporateSuccessSection';
 import { JourneySection } from '@/components/sections/Home/JourneySection';
-import { ThreeDZoomGallery } from '@/components/sections/ThreeDZoomGallery';
 import { TestimonialsSection } from '@/components/sections/Home/TestimonialsSection';
 import { FinalCtaSection } from '@/components/sections/Home/FinalCtaSection';
 
@@ -20,7 +19,6 @@ export const Home = () => {
       <ProductShowcaseSection />
       <CorporateSuccessSection />
       <JourneySection />
-      <ThreeDZoomGallery />
       <TestimonialsSection />
       <FinalCtaSection />
     </div>
