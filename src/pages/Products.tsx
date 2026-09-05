@@ -13,7 +13,6 @@ export const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categoryFilter = searchParams.get('category');
-  const materialFilter = searchParams.get('material');
 
   const CATEGORIES_LIST = [
     { id: 'c1', label: 'Wall Calendars', aliases: ['c1', 'wall', 'wall-calendars', 'wall calendars'] },
@@ -39,15 +38,9 @@ export const Products = () => {
           if (!pCat.includes(query)) return false;
         }
       }
-
-      if (materialFilter) {
-        const mat = materialFilter.toLowerCase().trim();
-        if (!p.material.toLowerCase().includes(mat)) return false;
-      }
-
       return true;
     });
-  }, [products, categoryFilter, materialFilter]);
+  }, [products, categoryFilter]);
 
   const removeFilter = (key: string) => {
     const newParams = new URLSearchParams(searchParams);
@@ -101,28 +94,6 @@ export const Products = () => {
             ))}
           </div>
         </div>
-
-        <div className="mb-6">
-          <Typography variant="small" className="text-foreground font-bold mb-3 uppercase tracking-wider">Material</Typography>
-          <div className="flex flex-col gap-2">
-            {['Premium Art Paper', 'Recycled Kraft', 'Metallic Foil'].map(mat => (
-              <label key={mat} className="flex items-center gap-2 text-sm text-muted hover:text-primary cursor-pointer transition-colors">
-                <input 
-                  type="radio" 
-                  name="material" 
-                  checked={materialFilter === mat}
-                  onChange={() => {
-                    const params = new URLSearchParams(searchParams);
-                    params.set('material', mat);
-                    setSearchParams(params);
-                  }}
-                  className="accent-primary"
-                />
-                <span>{mat}</span>
-              </label>
-            ))}
-          </div>
-        </div>
       </aside>
 
       {/* Main Content */}
@@ -138,26 +109,17 @@ export const Products = () => {
           </div>
           
           {/* Active Chips */}
-          {(categoryFilter || materialFilter) && (
+          {categoryFilter && (
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs text-muted mr-2">Active:</span>
               
-              {categoryFilter && (
-                <div className="flex items-center gap-1 bg-surface px-3 py-1 rounded-full border border-surface-hover text-sm">
-                  <span>{activeCategoryLabel}</span>
-                  <button onClick={() => removeFilter('category')} className="text-muted hover:text-foreground"><X className="w-3 h-3" /></button>
-                </div>
-              )}
-              
-              {materialFilter && (
-                <div className="flex items-center gap-1 bg-surface px-3 py-1 rounded-full border border-surface-hover text-sm">
-                  <span>{materialFilter}</span>
-                  <button onClick={() => removeFilter('material')} className="text-muted hover:text-foreground"><X className="w-3 h-3" /></button>
-                </div>
-              )}
+              <div className="flex items-center gap-1 bg-surface px-3 py-1 rounded-full border border-surface-hover text-sm">
+                <span>{activeCategoryLabel}</span>
+                <button onClick={() => removeFilter('category')} className="text-muted hover:text-foreground"><X className="w-3 h-3" /></button>
+              </div>
               
               <button onClick={clearAllFilters} className="text-xs text-primary hover:underline ml-2">
-                Clear All
+                Clear Filter
               </button>
             </div>
           )}

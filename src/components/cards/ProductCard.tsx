@@ -76,12 +76,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, 
       </AnimatePresence>
 
       {/* Image Container */}
-      <div className="relative aspect-[4/5] bg-background overflow-hidden cursor-pointer" onClick={() => onQuickView?.(product)}>
+      <div className="relative h-64 sm:h-72 bg-[#FAF6EC] border-b border-surface-hover p-3 flex items-center justify-center overflow-hidden cursor-pointer" onClick={() => onQuickView?.(product)}>
         <img
           src={product.thumbnail}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-          loading="lazy"
+          className="max-h-full max-w-full object-contain drop-shadow-md transition-transform duration-500 ease-out group-hover:scale-105"
+          loading="eager"
+          onError={(e) => {
+            // Fallback image if local storage has broken legacy image path
+            (e.target as HTMLImageElement).src = '/assets/foundation/religious.jpg';
+          }}
         />
       </div>
 

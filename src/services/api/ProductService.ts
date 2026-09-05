@@ -73,7 +73,13 @@ const LOCAL_STORAGE_KEY = 'paperplus_local_products';
 function getLocalProducts(): Product[] {
   try {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const parsed: Product[] = JSON.parse(saved);
+      // Validate that stored thumbnails are not legacy broken string paths
+      if (parsed.length > 0 && parsed[0].thumbnail && !parsed[0].thumbnail.startsWith('/assets/products/')) {
+        return parsed;
+      }
+    }
   } catch {}
   return initialProducts;
 }
