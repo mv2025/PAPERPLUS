@@ -31,8 +31,39 @@ export const CraftsmanshipSection = () => {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-8 lg:gap-16">
         
-        {/* Editorial Imagery Collage (Asymmetrical) */}
-        <div className="w-full md:w-1/2 relative h-[300px] sm:h-[400px] lg:h-[500px]">
+        {/* Content (First on Mobile for Immediate Readability) */}
+        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-8">
+          <GoldRule className="w-16" />
+          
+          <motion.div variants={editorialReveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Typography variant="small" className="text-primary font-bold tracking-[0.2em] uppercase mb-4 block">
+              01. The Foundation
+            </Typography>
+            <Typography variant="h2" className="text-navy text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
+              It begins with the <br />
+              <span className="italic font-light">perfect paper.</span>
+            </Typography>
+            <Typography variant="p" className="text-muted text-base sm:text-lg leading-relaxed mb-6">
+              We source only the finest uncoated, gloss, and specialty textured papers globally. The tactile feel of a calendar is the first point of contact with your brand, and we ensure it communicates absolute quality.
+            </Typography>
+            <Typography variant="p" className="text-muted text-base sm:text-lg leading-relaxed">
+              Every batch undergoes strict humidity and tension testing before it ever sees a drop of ink, ensuring flawless registration and zero warp throughout the year.
+            </Typography>
+          </motion.div>
+
+          {/* Micro interaction link */}
+          <motion.a 
+            href="/products" 
+            variants={editorialReveal} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="inline-flex items-center gap-4 text-navy font-bold uppercase tracking-widest text-sm group mt-2 w-fit"
+          >
+            <span className="group-hover:text-primary transition-colors">Explore Materials</span>
+            <div className="w-8 h-[1px] bg-navy group-hover:w-12 group-hover:bg-primary transition-all duration-300" />
+          </motion.a>
+        </div>
+
+        {/* Editorial Imagery Collage (Second on Mobile) */}
+        <div className="w-full md:w-1/2 relative h-[240px] sm:h-[360px] lg:h-[500px]">
           {/* Decorative Layers - hidden on mobile to prevent white block overlays */}
           <PaperLayer className="hidden sm:block w-[80%] h-[90%] -left-4 top-10 rotate-[-2deg] bg-[#FAF6EC] shadow-xl shadow-navy/5" />
           <PaperLayer className="hidden sm:block w-[85%] h-[95%] left-4 top-4 rotate-[1deg] bg-[#FAF6EC] shadow-xl shadow-navy/5" />
@@ -82,37 +113,6 @@ export const CraftsmanshipSection = () => {
 
             </div>
           </motion.div>
-        </div>
-
-        {/* Content */}
-        <div className="w-full md:w-1/2 flex flex-col gap-8">
-          <GoldRule className="w-16" />
-          
-          <motion.div variants={editorialReveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <Typography variant="small" className="text-primary font-bold tracking-[0.2em] uppercase mb-4 block">
-              01. The Foundation
-            </Typography>
-            <Typography variant="h2" className="text-navy text-4xl lg:text-5xl leading-tight mb-6">
-              It begins with the <br />
-              <span className="italic font-light">perfect paper.</span>
-            </Typography>
-            <Typography variant="p" className="text-muted text-lg leading-relaxed mb-6">
-              We source only the finest uncoated, gloss, and specialty textured papers globally. The tactile feel of a calendar is the first point of contact with your brand, and we ensure it communicates absolute quality.
-            </Typography>
-            <Typography variant="p" className="text-muted text-lg leading-relaxed">
-              Every batch undergoes strict humidity and tension testing before it ever sees a drop of ink, ensuring flawless registration and zero warp throughout the year.
-            </Typography>
-          </motion.div>
-
-          {/* Micro interaction link */}
-          <motion.a 
-            href="/manufacturing" 
-            variants={editorialReveal} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="inline-flex items-center gap-4 text-navy font-bold uppercase tracking-widest text-sm group mt-4 w-fit"
-          >
-            <span className="group-hover:text-primary transition-colors">Explore Materials</span>
-            <div className="w-8 h-[1px] bg-navy group-hover:w-12 group-hover:bg-primary transition-all duration-300" />
-          </motion.a>
         </div>
 
       </div>

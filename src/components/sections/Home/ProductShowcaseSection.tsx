@@ -55,10 +55,38 @@ export const ProductShowcaseSection = () => {
 
   return (
     <>
-    <section ref={containerRef} className="relative w-full bg-[#0A0D14] h-[200vh] md:h-[320vh] text-white">
-      
-      {/* STICKY STAGE */}
-      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* MOBILE DISPLAY (Clean, Compact, Zero Vertical Gaps on Mobile Screens) */}
+      <section className="md:hidden relative w-full bg-[#0A0D14] py-12 px-6 text-white border-t border-white/10">
+        <div className="max-w-md mx-auto text-center flex flex-col items-center">
+          <span className="text-[#e5232e] font-bold tracking-[0.25em] uppercase text-xs mb-2 block">
+            03. The Finished Object
+          </span>
+          <Typography variant="h2" className="text-white text-3xl font-extrabold mb-6">
+            Executive Desk Series
+          </Typography>
+
+          <div className="relative w-full aspect-[16/11] shadow-2xl rounded-2xl overflow-hidden border border-white/15 bg-[#faf8f5] mb-6">
+            <img 
+              src={desk25} 
+              alt="2027 Corporate Executive Desk Edition" 
+              className="w-full h-full object-cover p-2 rounded-xl"
+            />
+            <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur px-3 py-1 rounded-md border border-[#e8dfd0] shadow-sm">
+              <span className="text-[#14244a] text-xs font-bold">2027 Corporate Executive Edition</span>
+            </div>
+          </div>
+
+          <a href="/desk-calendar" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#e5232e] text-white text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-[#e5232e]/30">
+            Explore Desk Series
+          </a>
+        </div>
+      </section>
+
+      {/* DESKTOP DISPLAY (3D Sticky Scroll Showcase for Desktop screens) */}
+      <section ref={containerRef} className="hidden md:block relative w-full bg-[#0A0D14] h-[320vh] text-white">
+        
+        {/* STICKY STAGE */}
+        <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         
         {/* Layer 1: Atmospheric Glow */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
