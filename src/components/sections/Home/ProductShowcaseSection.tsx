@@ -255,26 +255,26 @@ export const ProductShowcaseSection = () => {
       </section>
 
       {/* LIFESTYLE SHOT: Real Executive Desk Calendar Artwork */}
-      <section className="relative w-full bg-[#0A0D14] z-30 pb-12 md:pb-32">
-        <div className="max-w-7xl mx-auto px-6 pt-8 md:pt-32">
+      <section className="relative w-full bg-[#0A0D14] z-30 pb-12 md:pb-24 pt-8 md:pt-16">
+        <div className="max-w-7xl mx-auto px-6">
           
-          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl group border border-white/10 bg-white/5 flex items-center justify-center">
+          {/* Section Header (Above Image for Zero Overlap) */}
+          <div className="mb-6 md:mb-8">
+            <Typography variant="small" className="text-[#e5232e] font-bold tracking-[0.3em] uppercase mb-2 block drop-shadow-md">
+              The Environment
+            </Typography>
+            <Typography variant="h2" className="text-white text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
+              Crafted for the <span className="italic font-normal text-white/90">executive desk.</span>
+            </Typography>
+          </div>
+
+          {/* Clean Artwork Image Showcase (Unobstructed View) */}
+          <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-[#121622] p-4 sm:p-6 md:p-8 flex items-center justify-center shadow-2xl">
             <img 
               src={desk27} 
               alt="Executive Corporate Calendar Series 2027" 
-              className="w-full h-full object-contain transition-transform duration-[5s] group-hover:scale-105 p-6"
-              style={{ clipPath: 'inset(11% 0 0 0)' }}
+              className="w-full h-auto max-h-[520px] object-contain rounded-xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 pointer-events-none" />
-            
-            <div className="absolute bottom-10 left-10 md:bottom-20 md:left-20 z-10">
-              <Typography variant="small" className="text-[#e5232e] font-bold tracking-[0.3em] uppercase mb-4 block drop-shadow-md">
-                The Environment
-              </Typography>
-              <Typography variant="h2" className="text-white text-3xl md:text-5xl font-light max-w-xl leading-tight">
-                Crafted for the <br />executive desk.
-              </Typography>
-            </div>
           </div>
 
         </div>
