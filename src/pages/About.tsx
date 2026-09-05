@@ -198,103 +198,55 @@ export default function About() {
 }
 
 const HorizontalProcess = () => {
-  const [activeStep, setActiveStep] = useState(0);
-
   const PROCESS_STEPS = [
     {
       id: 0,
       stage: 'STAGE 01',
-      tabTitle: 'Paper Stock & Gold Foil',
       title: 'Heavyweight Paper Stock & Gold Foil',
       subtitle: 'Raw Stock Selection',
       desc: 'We select heavy 250 GSM imported art card and textured virgin kraft. Engineered with zero curl memory, holding deep saturated inks and withstanding 140°C hot-stamp metallic gold foil without wrinkling.',
       img: religiousHero,
       badge: '250 GSM Art Stock',
-      specs: [
-        { label: 'Stock Weight', value: '250 GSM Premium' },
-        { label: 'Foil Temperature', value: '140°C Hot Stamped' },
-        { label: 'Surface Finish', value: 'Vedic Shloka Gold Accent' },
-        { label: 'Durability', value: '365-Day Zero Curl' },
-      ],
-      highlights: [
-        'Pure virgin pulp ensures uniform ink absorption across every page.',
-        'High-pressure gold foil embossing creates raised tactile deity shlokas.',
-        'UV barrier coating prevents yellowing from natural room sunlight.'
-      ]
+      specs: ['250 GSM Premium', '140°C Hot Stamped', '365-Day Zero Curl']
     },
     {
       id: 1,
       stage: 'STAGE 02',
-      tabTitle: '6-Color Offset Printing',
       title: 'High-Definition 6-Color Offset Printing',
       subtitle: 'Micro-Screen Calibration',
-      desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every feather of Saraswati and every jewel of Ganpati.',
+      desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every detail.',
       img: asset21,
       badge: '2400 DPI Micro-Screen',
-      specs: [
-        { label: 'Press Technology', value: 'German 6-Color Offset' },
-        { label: 'Resolution', value: '2400 DPI Ultra HD' },
-        { label: 'Ink Type', value: 'Fade-Resistant Lightfast Inks' },
-        { label: 'Color Accuracy', value: '99.8% Delta-E Match' },
-      ],
-      highlights: [
-        'German Heidelberg precision cylinders eliminate double-image blurring.',
-        'High-density, fade-resistant lightfast inks produce rich, deep jewel tones.',
-        'Automated spectrophotometer checks every 200th print sheet for color drift.'
-      ]
+      specs: ['German 6-Color Press', '2400 DPI Ultra HD', 'Fade-Resistant Inks']
     },
     {
       id: 2,
       stage: 'STAGE 03',
-      tabTitle: 'Velvet Film & UV Shield',
       title: 'Velvet Thermal Film & Protective UV Shield',
       subtitle: 'Surface Protection',
-      desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, oil, and atmospheric humidity throughout the entire calendar year.',
+      desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, and humidity throughout the year.',
       img: asset02,
       badge: 'Velvet Anti-Scratch',
-      specs: [
-        { label: 'Film Type', value: 'Velvet Soft-Touch' },
-        { label: 'Bonding Method', value: 'Thermal Heat Fusion' },
-        { label: 'Resistance', value: 'Water & Fingerprint Proof' },
-        { label: 'Texture', value: 'Silk Matte Finish' },
-      ],
-      highlights: [
-        'Thermal heat fusion bonds film permanently with zero air-bubble trapping.',
-        'Matte glare reduction makes date grids legible from any viewing angle.',
-        'Scratch-resistant barrier keeps desk boxes looking brand-new in December.'
-      ]
+      specs: ['Velvet Soft-Touch', 'Thermal Heat Fusion', 'Water & Oil Proof']
     },
     {
       id: 3,
       stage: 'STAGE 04',
-      tabTitle: 'Twin-Wire & Tin Binding',
       title: 'Twin-Wire Hinges & Tin Rim Top Binding',
       subtitle: 'Assembly & Finishing',
-      desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet precision memo blocks.',
+      desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet memo blocks.',
       img: asset01,
       badge: 'Reinforced Steel Wire-O',
-      specs: [
-        { label: 'Wall Rim', value: 'Tin Plated Steel' },
-        { label: 'Wire Spiral', value: 'Twin-Loop Wire-O 3:1' },
-        { label: 'Memo Block', value: '400 Sheets Pre-Loaded' },
-        { label: 'Packaging', value: 'Individual Envelope Box' },
-      ],
-      highlights: [
-        'Tin rim top holds calendar flat against the wall without bottom sagging.',
-        'Precision 360-degree flip hinge turns smoothly without page tearing.',
-        'Every unit is hand-inspected before inserting into its custom gift sleeve.'
-      ]
+      specs: ['Tin Plated Steel Rim', 'Twin-Loop Wire-O', '400 Sheets Pre-Loaded']
     }
   ];
-
-  const current = PROCESS_STEPS[activeStep];
 
   return (
     <section className="py-16 sm:py-20 bg-[#FAF6EC] border-t border-[#E8E1D0] text-[#141F42]">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DA2030]/10 text-[#DA2030] text-xs font-extrabold uppercase tracking-widest mb-3 border border-[#DA2030]/20 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" /> Craftsmanship Masterclass
           </span>
@@ -306,130 +258,54 @@ const HorizontalProcess = () => {
           </Typography>
         </div>
 
-        {/* Interactive Step Switcher Tabs (No Text Truncation) */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
-          {PROCESS_STEPS.map((step, idx) => (
-            <button
+        {/* 4 Clean Self-Contained Stage Cards (No Tab Switcher Boxes) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {PROCESS_STEPS.map((step) => (
+            <div 
               key={step.id}
-              onClick={() => setActiveStep(idx)}
-              className={`p-3.5 sm:p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between active:scale-95 touch-manipulation cursor-pointer min-h-[105px] sm:min-h-[120px] ${
-                activeStep === idx
-                  ? 'bg-[#141F42] text-white border-[#141F42] shadow-2xl shadow-[#141F42]/30 scale-[1.02] ring-2 ring-[#DA2030]/40'
-                  : 'bg-white text-[#141F42] border-[#E8E1D0] hover:border-[#DA2030]/50 hover:bg-white/95 shadow-sm'
-              }`}
+              className="bg-white border border-[#E8E1D0] rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="flex items-center justify-between w-full mb-2 sm:mb-3">
-                <span className={`text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
-                  {step.stage}
-                </span>
-                <span className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs font-black transition-all ${
-                  activeStep === idx ? 'bg-[#DA2030] text-white shadow-md' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
-                }`}>
-                  0{idx + 1}
-                </span>
-              </div>
-              <h4 className={`text-xs sm:text-sm font-extrabold leading-snug ${activeStep === idx ? 'text-white' : 'text-[#141F42]'}`}>
-                {step.tabTitle}
-              </h4>
-            </button>
-          ))}
-        </div>
-
-        {/* Active Stage Interactive Showcase Card */}
-        <div className="bg-white border border-[#E8E1D0] rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Info Column (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center justify-between gap-3 mb-4">
                   <span className="px-3.5 py-1 rounded-full bg-[#DA2030] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm">
-                    {current.stage}
+                    {step.stage}
                   </span>
                   <span className="text-xs font-extrabold uppercase tracking-widest text-[#5C6478]">
-                    {current.subtitle}
+                    {step.subtitle}
                   </span>
                 </div>
 
-                <Typography variant="h3" className="text-2xl sm:text-3xl font-extrabold text-[#141F42] mb-4 leading-snug">
-                  {current.title}
+                <Typography variant="h3" className="text-xl sm:text-2xl font-extrabold text-[#141F42] mb-3 leading-snug">
+                  {step.title}
                 </Typography>
 
-                <p className="text-[#5C6478] text-base leading-relaxed mb-6">
-                  {current.desc}
+                <p className="text-[#5C6478] text-sm sm:text-base leading-relaxed mb-6">
+                  {step.desc}
                 </p>
 
-                {/* Highlights List */}
-                <div className="space-y-3 mb-6">
-                  {current.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#FAF6EC] border border-[#E8E1D0] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#DA2030]">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-sm font-semibold text-[#141F42] leading-snug">
-                        {h}
-                      </span>
-                    </div>
+                {/* Specs Pill Badges */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {step.specs.map((spec, i) => (
+                    <span key={i} className="px-3 py-1 bg-[#FAF6EC] border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                      ✓ {spec}
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Technical Specifications Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#E8E1D0]">
-                {current.specs.map((spec, i) => (
-                  <div key={i} className="bg-[#FAF6EC] border border-[#E8E1D0] p-3 rounded-xl shadow-xs">
-                    <span className="text-[10px] uppercase font-bold text-[#8D96A8] block mb-0.5">
-                      {spec.label}
-                    </span>
-                    <span className="text-xs font-extrabold text-[#141F42] block truncate">
-                      {spec.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Visual Column (5 Cols) */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full bg-gradient-to-b from-white to-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-6 relative overflow-hidden shadow-inner flex items-center justify-center min-h-[280px] sm:min-h-[320px] group">
+              {/* Product Thumbnail Artwork Container */}
+              <div className="bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-4 flex items-center justify-center relative overflow-hidden h-[200px] sm:h-[230px]">
                 <span className="absolute top-3 left-3 bg-[#141F42] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
-                  {current.badge}
+                  {step.badge}
                 </span>
                 <img 
-                  src={current.img} 
-                  alt={current.title} 
-                  className="w-full max-h-[260px] sm:max-h-[290px] object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-500 rounded-xl"
+                  src={step.img} 
+                  alt={step.title} 
+                  className="w-full h-full object-contain drop-shadow-md rounded-lg group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-
-              {/* Step Navigation Controls */}
-              <div className="flex items-center justify-between w-full mt-6 px-2">
-                <button
-                  onClick={() => setActiveStep(prev => (prev > 0 ? prev - 1 : PROCESS_STEPS.length - 1))}
-                  className="px-4 py-2 rounded-xl bg-white border border-[#E8E1D0] text-xs font-bold text-[#141F42] hover:border-[#DA2030] hover:text-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm active:scale-95 touch-manipulation"
-                >
-                  ← Previous Stage
-                </button>
-                <div className="flex gap-1.5">
-                  {PROCESS_STEPS.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveStep(i)}
-                      className={`h-2 rounded-full transition-all ${activeStep === i ? 'w-6 bg-[#DA2030]' : 'w-2 bg-[#E8E1D0]'}`}
-                      aria-label={`Go to step ${i + 1}`}
-                    />
-                  ))}
-                </div>
-                <button
-                  onClick={() => setActiveStep(prev => (prev < PROCESS_STEPS.length - 1 ? prev + 1 : 0))}
-                  className="px-4 py-2 rounded-xl bg-[#141F42] text-white text-xs font-bold hover:bg-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm active:scale-95 touch-manipulation"
-                >
-                  Next Stage →
-                </button>
-              </div>
             </div>
-
-          </div>
+          ))}
         </div>
 
       </div>
