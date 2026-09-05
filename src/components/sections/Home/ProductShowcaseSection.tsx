@@ -121,7 +121,7 @@ export const ProductShowcaseSection = () => {
                 <img 
                   src={desk25} 
                   alt="March 2027 Corporate Executive Edition" 
-                  className="w-full h-full object-cover rounded-lg shadow-sm"
+                  className="w-full h-full object-contain p-2 rounded-lg shadow-sm"
                 />
               </div>
               <div className="absolute bottom-3 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md border border-[#e8dfd0]">
@@ -198,7 +198,7 @@ export const ProductShowcaseSection = () => {
                   <img 
                     src={desk22} 
                     alt="January 2027 Shree Ganesha Edition" 
-                    className="w-full h-full object-cover rounded-lg shadow-sm"
+                    className="w-full h-full object-contain p-2 rounded-lg shadow-sm"
                   />
                   <div className="absolute bottom-3 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md border border-[#e8dfd0]">
                     <span className="text-[#14244a] text-xs font-bold">January 2027 • Shree Ganesha Edition</span>
@@ -224,15 +224,15 @@ export const ProductShowcaseSection = () => {
                 style={{ opacity: coverFrontOpacity }}
               >
                 <motion.div style={{ opacity: cover1Opacity }} className="absolute inset-0 flex items-center justify-center p-2 bg-[#faf8f5]">
-                  <img src={desk21} alt="Maha Ganpati 2027 Executive Cover" className="w-full h-full object-cover rounded-lg shadow-sm" />
+                  <img src={desk21} alt="Maha Ganpati 2027 Executive Cover" className="w-full h-full object-contain p-2 rounded-lg shadow-sm" />
                 </motion.div>
                 
                 <motion.div style={{ opacity: cover2Opacity }} className="absolute inset-0 bg-[#faf8f5] flex items-center justify-center p-2">
-                  <img src={desk04} alt="Golden Temple Vista Executive Cover" className="w-full h-full object-cover rounded-lg shadow-sm" />
+                  <img src={desk04} alt="Golden Temple Vista Executive Cover" className="w-full h-full object-contain p-2 rounded-lg shadow-sm" />
                 </motion.div>
                 
                 <motion.div style={{ opacity: cover3Opacity }} className="absolute inset-0 bg-[#faf8f5] flex items-center justify-center p-2">
-                  <img src={desk24} alt="Devotional Harmony Executive Cover" className="w-full h-full object-cover rounded-lg shadow-sm" />
+                  <img src={desk24} alt="Devotional Harmony Executive Cover" className="w-full h-full object-contain p-2 rounded-lg shadow-sm" />
                 </motion.div>
 
                 <motion.div 

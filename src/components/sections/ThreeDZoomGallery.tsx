@@ -89,12 +89,15 @@ export const ThreeDZoomGallery: React.FC = () => {
 
             const rotateY = config.x > 0 ? -12 : 12;
 
+            const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 640;
+            const responsiveX = isMobileScreen ? config.x * 0.3 : config.x;
+
             return (
               <div
                 key={idx}
-                className="absolute top-1/2 left-1/2 w-[280px] sm:w-[320px] h-[380px] sm:h-[420px] -mt-[160px] sm:-mt-[180px] -ml-[140px] sm:-ml-[160px] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900 transition-opacity duration-75 will-change-transform"
+                className="absolute top-1/2 left-1/2 w-[240px] sm:w-[320px] h-[340px] sm:h-[420px] -mt-[170px] sm:-mt-[210px] -ml-[120px] sm:-ml-[160px] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-slate-900 transition-opacity duration-75 will-change-transform"
                 style={{
-                  transform: `translate3d(${config.x}px, ${config.y}px, ${currentZ}px) rotateY(${rotateY}deg)`,
+                  transform: `translate3d(${responsiveX}px, ${config.y}px, ${currentZ}px) rotateY(${rotateY}deg)`,
                   opacity: opacity,
                 }}
               >
