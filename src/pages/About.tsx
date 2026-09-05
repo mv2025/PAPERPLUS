@@ -295,23 +295,23 @@ const HorizontalProcess = () => {
                 {/* Accordion Stage Bar (Tap to toggle) */}
                 <button
                   onClick={() => setExpandedStage(isExpanded ? null : step.id)}
-                  className={`w-full p-4 sm:p-6 text-left flex items-center justify-between transition-colors cursor-pointer active:scale-98 touch-manipulation ${
+                  className={`w-full min-h-[80px] p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 transition-colors cursor-pointer active:scale-98 touch-manipulation ${
                     isExpanded ? 'bg-[#141F42] text-white' : 'bg-white text-[#141F42] hover:bg-[#FAF6EC]/60'
                   }`}
                   aria-expanded={isExpanded}
                 >
-                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 pr-2">
-                    <span className={`px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider flex-shrink-0 ${
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <span className={`px-2.5 py-1 sm:px-3 sm:py-1 rounded-full text-[11px] sm:text-xs font-extrabold uppercase tracking-wider flex-shrink-0 whitespace-nowrap ${
                       isExpanded ? 'bg-[#DA2030] text-white' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
                     }`}>
                       {step.stage}
                     </span>
-                    <span className={`text-base sm:text-xl font-extrabold truncate ${isExpanded ? 'text-white' : 'text-[#141F42]'}`}>
+                    <span className={`text-sm sm:text-lg font-extrabold whitespace-normal break-words leading-snug flex-1 ${isExpanded ? 'text-white' : 'text-[#141F42]'}`}>
                       {step.title}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 flex-shrink-0">
+                  <div className="flex items-center gap-2 flex-shrink-0 ml-1">
                     <span className={`text-xs font-bold hidden sm:inline-block ${isExpanded ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
                       {isExpanded ? 'Collapse' : 'Tap to expand'}
                     </span>
