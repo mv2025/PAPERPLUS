@@ -203,7 +203,7 @@ const HorizontalProcess = () => {
   const PROCESS_STEPS = [
     {
       id: 0,
-      stage: 'Stage 01',
+      stage: 'STAGE 01',
       title: 'Heavyweight Paper Stock & Gold Foil',
       subtitle: 'Raw Stock Selection',
       desc: 'We select heavy 250 GSM imported art card and textured virgin kraft. Engineered with zero curl memory, holding deep saturated inks and withstanding 140°C hot-stamp metallic gold foil without wrinkling.',
@@ -223,7 +223,7 @@ const HorizontalProcess = () => {
     },
     {
       id: 1,
-      stage: 'Stage 02',
+      stage: 'STAGE 02',
       title: 'High-Definition 6-Color Offset Printing',
       subtitle: 'Micro-Screen Calibration',
       desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every feather of Saraswati and every jewel of Ganpati.',
@@ -243,7 +243,7 @@ const HorizontalProcess = () => {
     },
     {
       id: 2,
-      stage: 'Stage 03',
+      stage: 'STAGE 03',
       title: 'Velvet Thermal Film & Protective UV Shield',
       subtitle: 'Surface Protection',
       desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, oil, and atmospheric humidity throughout the entire calendar year.',
@@ -263,7 +263,7 @@ const HorizontalProcess = () => {
     },
     {
       id: 3,
-      stage: 'Stage 04',
+      stage: 'STAGE 04',
       title: 'Twin-Wire Hinges & Tin Rim Top Binding',
       subtitle: 'Assembly & Finishing',
       desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet precision memo blocks.',
@@ -289,9 +289,9 @@ const HorizontalProcess = () => {
     <section className="py-16 sm:py-20 bg-[#FAF6EC] border-t border-[#E8E1D0] text-[#141F42]">
       <div className="max-w-6xl mx-auto px-6">
         
-        {/* Section Header (Standard Website Heading Size) */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DA2030]/10 text-[#DA2030] text-xs font-extrabold uppercase tracking-widest mb-3 border border-[#DA2030]/20">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DA2030]/10 text-[#DA2030] text-xs font-extrabold uppercase tracking-widest mb-3 border border-[#DA2030]/20 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" /> Craftsmanship Masterclass
           </span>
           <Typography variant="h2" className="text-[#141F42] text-3xl sm:text-4xl font-extrabold mb-3 leading-tight">
@@ -302,27 +302,29 @@ const HorizontalProcess = () => {
           </Typography>
         </div>
 
-        {/* Interactive Step Switcher Tabs */}
+        {/* Interactive Step Switcher Tabs (Matches SS styling) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
           {PROCESS_STEPS.map((step, idx) => (
             <button
               key={step.id}
               onClick={() => setActiveStep(idx)}
-              className={`p-4 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between ${
+              className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between active:scale-95 touch-manipulation cursor-pointer ${
                 activeStep === idx
-                  ? 'bg-[#141F42] text-white border-[#141F42] shadow-xl scale-[1.01]'
-                  : 'bg-white text-[#141F42] border-[#E8E1D0] hover:border-[#DA2030]/50 hover:bg-white/95'
+                  ? 'bg-[#141F42] text-white border-[#141F42] shadow-2xl shadow-[#141F42]/30 scale-[1.02] ring-2 ring-[#DA2030]/40'
+                  : 'bg-white text-[#141F42] border-[#E8E1D0] hover:border-[#DA2030]/50 hover:bg-white/95 shadow-sm'
               }`}
             >
-              <div className="flex items-center justify-between w-full mb-2">
-                <span className={`text-[11px] font-extrabold uppercase tracking-wider ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
+              <div className="flex items-center justify-between w-full mb-3">
+                <span className={`text-[11px] font-extrabold uppercase tracking-widest ${activeStep === idx ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
                   {step.stage}
                 </span>
-                <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${activeStep === idx ? 'bg-[#DA2030] text-white' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'}`}>
+                <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                  activeStep === idx ? 'bg-[#DA2030] text-white shadow-md' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
+                }`}>
                   0{idx + 1}
                 </span>
               </div>
-              <h4 className="text-sm font-bold leading-snug line-clamp-2">
+              <h4 className={`text-sm sm:text-base font-extrabold leading-snug line-clamp-2 ${activeStep === idx ? 'text-white' : 'text-[#141F42]'}`}>
                 {step.title}
               </h4>
             </button>
@@ -330,17 +332,17 @@ const HorizontalProcess = () => {
         </div>
 
         {/* Active Stage Interactive Showcase Card */}
-        <div className="bg-white border border-[#E8E1D0] rounded-3xl p-6 sm:p-10 shadow-xl">
+        <div className="bg-white border border-[#E8E1D0] rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Info Column (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 rounded-full bg-[#DA2030] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm">
+                  <span className="px-3.5 py-1 rounded-full bg-[#DA2030] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm">
                     {current.stage}
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#5C6478]">
+                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#5C6478]">
                     {current.subtitle}
                   </span>
                 </div>
@@ -354,13 +356,13 @@ const HorizontalProcess = () => {
                 </p>
 
                 {/* Highlights List */}
-                <div className="space-y-2.5 mb-6">
+                <div className="space-y-3 mb-6">
                   {current.highlights.map((h, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#FAF6EC] border border-[#E8E1D0] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#DA2030]">
                         <CheckCircle2 className="w-3.5 h-3.5" />
                       </div>
-                      <span className="text-sm font-medium text-[#141F42] leading-snug">
+                      <span className="text-sm font-semibold text-[#141F42] leading-snug">
                         {h}
                       </span>
                     </div>
@@ -371,11 +373,11 @@ const HorizontalProcess = () => {
               {/* Technical Specifications Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#E8E1D0]">
                 {current.specs.map((spec, i) => (
-                  <div key={i} className="bg-[#FAF6EC] border border-[#E8E1D0] p-3 rounded-xl">
-                    <span className="text-[10px] uppercase font-bold text-[#8D96A8] block">
+                  <div key={i} className="bg-[#FAF6EC] border border-[#E8E1D0] p-3 rounded-xl shadow-xs">
+                    <span className="text-[10px] uppercase font-bold text-[#8D96A8] block mb-0.5">
                       {spec.label}
                     </span>
-                    <span className="text-xs font-extrabold text-[#141F42] block truncate mt-0.5">
+                    <span className="text-xs font-extrabold text-[#141F42] block truncate">
                       {spec.value}
                     </span>
                   </div>
@@ -385,7 +387,7 @@ const HorizontalProcess = () => {
 
             {/* Right Visual Column (5 Cols) */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-6 relative overflow-hidden shadow-inner flex items-center justify-center min-h-[280px] sm:min-h-[320px] group">
+              <div className="w-full bg-gradient-to-b from-white to-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-6 relative overflow-hidden shadow-inner flex items-center justify-center min-h-[280px] sm:min-h-[320px] group">
                 <span className="absolute top-3 left-3 bg-[#141F42] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
                   {current.badge}
                 </span>
@@ -400,7 +402,7 @@ const HorizontalProcess = () => {
               <div className="flex items-center justify-between w-full mt-6 px-2">
                 <button
                   onClick={() => setActiveStep(prev => (prev > 0 ? prev - 1 : PROCESS_STEPS.length - 1))}
-                  className="px-4 py-2 rounded-xl bg-white border border-[#E8E1D0] text-xs font-bold text-[#141F42] hover:border-[#DA2030] hover:text-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="px-4 py-2 rounded-xl bg-white border border-[#E8E1D0] text-xs font-bold text-[#141F42] hover:border-[#DA2030] hover:text-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm active:scale-95 touch-manipulation"
                 >
                   ← Previous Stage
                 </button>
@@ -416,7 +418,7 @@ const HorizontalProcess = () => {
                 </div>
                 <button
                   onClick={() => setActiveStep(prev => (prev < PROCESS_STEPS.length - 1 ? prev + 1 : 0))}
-                  className="px-4 py-2 rounded-xl bg-[#141F42] text-white text-xs font-bold hover:bg-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="px-4 py-2 rounded-xl bg-[#141F42] text-white text-xs font-bold hover:bg-[#DA2030] transition-colors flex items-center gap-1.5 shadow-sm active:scale-95 touch-manipulation"
                 >
                   Next Stage →
                 </button>
