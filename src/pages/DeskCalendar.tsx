@@ -278,7 +278,9 @@ export default function DeskCalendar() {
             <img 
               src={showingInside ? currentDesign.inside : currentColor.img} 
               alt={`${currentDesign.name} in ${currentColor.name}`} 
-              className="max-h-80 object-contain drop-shadow-2xl mb-6" 
+              className="max-h-80 object-contain drop-shadow-2xl mb-6 transition-none transform-gpu" 
+              loading="eager"
+              fetchPriority="high"
             />
             <button
               onClick={() => setShowingInside(!showingInside)}
@@ -306,9 +308,10 @@ export default function DeskCalendar() {
                     setActiveColorIndex(idx);
                     setShowingInside(false);
                   }}
-                  className={`w-10 h-10 rounded-full border-2 transition-transform ${activeColorIndex === idx ? 'scale-110 border-[#141F42] shadow-md' : 'border-transparent hover:scale-105'}`}
+                  className={`w-10 h-10 rounded-full border-2 transition-transform active:scale-95 touch-manipulation cursor-pointer ${activeColorIndex === idx ? 'scale-110 border-[#141F42] shadow-md ring-2 ring-[#141F42]/20' : 'border-transparent hover:scale-105'}`}
                   style={{ backgroundColor: c.hex }}
                   title={c.name}
+                  aria-label={`Select ${c.name} colorway`}
                 />
               ))}
             </div>
@@ -488,6 +491,13 @@ export default function DeskCalendar() {
           </div>
         </div>
       )}
+
+      {/* Hidden preloader for instant zero-lag swatch decoding on mobile devices */}
+      <div className="hidden pointer-events-none" aria-hidden="true">
+        {DESIGNS.flatMap(d => [...d.colors.map(c => c.img), d.inside]).map((imgSrc, i) => (
+          <img key={i} src={imgSrc} alt="" loading="eager" />
+        ))}
+      </div>
     </div>
   );
 }
