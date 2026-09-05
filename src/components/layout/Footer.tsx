@@ -93,24 +93,49 @@ export const Footer = () => {
           ))}
 
           {/* Contact Column */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
-            <Typography variant="small" className="text-white font-bold mb-2 uppercase tracking-wider">
+          <div className="lg:col-span-4 flex flex-col">
+            <Typography variant="small" className="text-white font-bold mb-6 uppercase tracking-wider">
               Contact Us
             </Typography>
-            <div className="flex flex-col gap-4 text-sm text-sky/70">
-              <p className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span>Paper Plus Calendars Pvt. Ltd., <br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</span>
-              </p>
-              <p className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+919810001279">+91 98100 01279</a>
-              </p>
-              <p className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:sales@paperplus.online">sales@paperplus.online</a>
-              </p>
-            </div>
+            <ul className="flex flex-col gap-4 text-sm text-sky/70">
+              <li className="flex items-start gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-[#E5232E] flex-shrink-0 group-hover:bg-[#E5232E] group-hover:text-white transition-colors mt-0.5 shadow-sm">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Headquarters</span>
+                  <span className="leading-relaxed">
+                    Paper Plus Calendars Pvt. Ltd., <br />
+                    4094, Nai Sarak, Old Delhi, Dai Wara, <br />
+                    Chandni Chowk, Delhi, 110006
+                  </span>
+                </div>
+              </li>
+              
+              <li className="flex items-center gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-[#E5232E] flex-shrink-0 group-hover:bg-[#E5232E] group-hover:text-white transition-colors shadow-sm">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Phone Support</span>
+                  <a href="tel:+919810001279" className="hover:text-white transition-colors font-medium">
+                    +91 98100 01279
+                  </a>
+                </div>
+              </li>
+
+              <li className="flex items-center gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-[#E5232E] flex-shrink-0 group-hover:bg-[#E5232E] group-hover:text-white transition-colors shadow-sm">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Email Inquiry</span>
+                  <a href="mailto:sales@paperplus.online" className="hover:text-white transition-colors font-medium">
+                    sales@paperplus.online
+                  </a>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
