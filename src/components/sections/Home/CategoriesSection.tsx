@@ -115,35 +115,35 @@ export const PrintingPrecisionSection = () => {
 
               {/* Engineering Label - German Offset Unit (Top Left Blur Box) */}
               <motion.div 
-                className="absolute top-14 left-4 sm:left-6"
+                className="absolute top-12 left-3 sm:top-14 sm:left-6 max-w-[48%] sm:max-w-none"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 shadow-lg">
-                  <Typography variant="small" className="text-primary font-bold tracking-[0.2em] uppercase block text-[10px] mb-0.5">
+                <div className="backdrop-blur-md bg-navy/80 sm:bg-white/5 border border-white/20 sm:border-white/10 rounded-lg p-2 sm:p-3 shadow-lg">
+                  <Typography variant="small" className="text-primary font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase block text-[9px] sm:text-[10px] mb-0.5">
                     German Offset Unit
                   </Typography>
-                  <Typography variant="h4" className="text-white text-xs sm:text-sm font-bold font-mono">
+                  <Typography variant="h4" className="text-white text-[11px] sm:text-sm font-bold font-mono leading-tight">
                     Heidelberg Precision Tech
                   </Typography>
                 </div>
               </motion.div>
 
-              {/* Engineering Label - Registration Rollers (Top Right Blur Box) */}
+              {/* Engineering Label - Registration Rollers (Bottom Right on Mobile, Top Right on Desktop) */}
               <motion.div 
-                className="absolute top-14 right-4 sm:right-6 text-right"
+                className="absolute bottom-3 right-3 sm:bottom-auto sm:top-14 sm:right-6 text-right max-w-[48%] sm:max-w-none"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 shadow-lg">
-                  <Typography variant="small" className="text-primary font-bold tracking-[0.2em] uppercase block text-[10px] mb-0.5">
+                <div className="backdrop-blur-md bg-navy/80 sm:bg-white/5 border border-white/20 sm:border-white/10 rounded-lg p-2 sm:p-3 shadow-lg">
+                  <Typography variant="small" className="text-primary font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase block text-[9px] sm:text-[10px] mb-0.5">
                     Registration Rollers
                   </Typography>
-                  <Typography variant="h4" className="text-white text-xs sm:text-sm font-bold font-mono">
+                  <Typography variant="h4" className="text-white text-[11px] sm:text-sm font-bold font-mono leading-tight">
                     Micron-level Alignment
                   </Typography>
                 </div>
