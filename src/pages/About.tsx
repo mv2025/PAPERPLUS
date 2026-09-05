@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Typography } from '../components/ui/Typography';
-import { Sparkles, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Award, ShieldCheck, CheckCircle2, ChevronDown } from 'lucide-react';
 
 // Real Product Assets
 import asset01 from '@/assets/Desk_Calender_Premium_All_Assets/assets/asset_01_1035dd3e31a9.png';
@@ -198,6 +199,8 @@ export default function About() {
 }
 
 const HorizontalProcess = () => {
+  const [expandedStage, setExpandedStage] = useState<number | null>(0); // Stage 01 expanded by default
+
   const PROCESS_STEPS = [
     {
       id: 0,
@@ -207,46 +210,66 @@ const HorizontalProcess = () => {
       desc: 'We select heavy 250 GSM imported art card and textured virgin kraft. Engineered with zero curl memory, holding deep saturated inks and withstanding 140°C hot-stamp metallic gold foil without wrinkling.',
       img: religiousHero,
       badge: '250 GSM Art Stock',
-      specs: ['250 GSM Premium', '140°C Hot Stamped', '365-Day Zero Curl']
+      specs: ['250 GSM Premium', '140°C Hot Stamped', '365-Day Zero Curl'],
+      highlights: [
+        'Pure virgin pulp ensures uniform ink absorption across every page.',
+        'High-pressure gold foil embossing creates raised tactile deity shlokas.',
+        'UV barrier coating prevents yellowing from natural room sunlight.'
+      ]
     },
     {
       id: 1,
       stage: 'STAGE 02',
       title: 'High-Definition 6-Color Offset Printing',
       subtitle: 'Micro-Screen Calibration',
-      desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every detail.',
+      desc: 'Each production run is executed on German 6-color industrial offset presses. Running CMYK plus 2 custom Pantone metallics at 2400 DPI micro-screening to capture every feather of Saraswati and every jewel of Ganpati.',
       img: asset21,
       badge: '2400 DPI Micro-Screen',
-      specs: ['German 6-Color Press', '2400 DPI Ultra HD', 'Fade-Resistant Inks']
+      specs: ['German 6-Color Press', '2400 DPI Ultra HD', 'Fade-Resistant Inks'],
+      highlights: [
+        'German Heidelberg precision cylinders eliminate double-image blurring.',
+        'High-density, fade-resistant lightfast inks produce rich, deep jewel tones.',
+        'Automated spectrophotometer checks every 200th print sheet for color drift.'
+      ]
     },
     {
       id: 2,
       stage: 'STAGE 03',
       title: 'Velvet Thermal Film & Protective UV Shield',
       subtitle: 'Surface Protection',
-      desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, and humidity throughout the year.',
+      desc: 'A micro-thin, velvet-touch thermal lamination film is heat-bonded to the print surface. This shields the artwork from fingerprints, desk spills, oil, and atmospheric humidity throughout the entire calendar year.',
       img: asset02,
       badge: 'Velvet Anti-Scratch',
-      specs: ['Velvet Soft-Touch', 'Thermal Heat Fusion', 'Water & Oil Proof']
+      specs: ['Velvet Soft-Touch', 'Thermal Heat Fusion', 'Water & Oil Proof'],
+      highlights: [
+        'Thermal heat fusion bonds film permanently with zero air-bubble trapping.',
+        'Matte glare reduction makes date grids legible from any viewing angle.',
+        'Scratch-resistant barrier keeps desk boxes looking brand-new in December.'
+      ]
     },
     {
       id: 3,
       stage: 'STAGE 04',
       title: 'Twin-Wire Hinges & Tin Rim Top Binding',
       subtitle: 'Assembly & Finishing',
-      desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet memo blocks.',
+      desc: 'Wall editions receive machine-crimped steel top tin rims with integrated hanging loops. Desk editions are fitted with heavy-gauge steel Wire-O spiral bindings and paired with 400-sheet precision memo blocks.',
       img: asset01,
       badge: 'Reinforced Steel Wire-O',
-      specs: ['Tin Plated Steel Rim', 'Twin-Loop Wire-O', '400 Sheets Pre-Loaded']
+      specs: ['Tin Plated Steel Rim', 'Twin-Loop Wire-O', '400 Sheets Pre-Loaded'],
+      highlights: [
+        'Tin rim top holds calendar flat against the wall without bottom sagging.',
+        'Precision 360-degree flip hinge turns smoothly without page tearing.',
+        'Every unit is hand-inspected before inserting into its custom gift sleeve.'
+      ]
     }
   ];
 
   return (
     <section className="py-16 sm:py-20 bg-[#FAF6EC] border-t border-[#E8E1D0] text-[#141F42]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DA2030]/10 text-[#DA2030] text-xs font-extrabold uppercase tracking-widest mb-3 border border-[#DA2030]/20 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" /> Craftsmanship Masterclass
           </span>
@@ -258,54 +281,98 @@ const HorizontalProcess = () => {
           </Typography>
         </div>
 
-        {/* 4 Clean Self-Contained Stage Cards (No Tab Switcher Boxes) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {PROCESS_STEPS.map((step) => (
-            <div 
-              key={step.id}
-              className="bg-white border border-[#E8E1D0] rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="px-3.5 py-1 rounded-full bg-[#DA2030] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm">
-                    {step.stage}
-                  </span>
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-[#5C6478]">
-                    {step.subtitle}
-                  </span>
-                </div>
-
-                <Typography variant="h3" className="text-xl sm:text-2xl font-extrabold text-[#141F42] mb-3 leading-snug">
-                  {step.title}
-                </Typography>
-
-                <p className="text-[#5C6478] text-sm sm:text-base leading-relaxed mb-6">
-                  {step.desc}
-                </p>
-
-                {/* Specs Pill Badges */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {step.specs.map((spec, i) => (
-                    <span key={i} className="px-3 py-1 bg-[#FAF6EC] border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
-                      ✓ {spec}
+        {/* Expandable Accordion Stage List */}
+        <div className="space-y-4">
+          {PROCESS_STEPS.map((step) => {
+            const isExpanded = expandedStage === step.id;
+            return (
+              <div 
+                key={step.id}
+                className={`bg-white border rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 shadow-md ${
+                  isExpanded ? 'border-[#DA2030]/60 ring-2 ring-[#DA2030]/20 shadow-xl' : 'border-[#E8E1D0] hover:border-[#141F42]/40'
+                }`}
+              >
+                {/* Accordion Stage Bar (Tap to toggle) */}
+                <button
+                  onClick={() => setExpandedStage(isExpanded ? null : step.id)}
+                  className={`w-full p-4 sm:p-6 text-left flex items-center justify-between transition-colors cursor-pointer active:scale-98 touch-manipulation ${
+                    isExpanded ? 'bg-[#141F42] text-white' : 'bg-white text-[#141F42] hover:bg-[#FAF6EC]/60'
+                  }`}
+                  aria-expanded={isExpanded}
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 pr-2">
+                    <span className={`px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider flex-shrink-0 ${
+                      isExpanded ? 'bg-[#DA2030] text-white' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
+                    }`}>
+                      {step.stage}
                     </span>
-                  ))}
-                </div>
-              </div>
+                    <span className={`text-base sm:text-xl font-extrabold truncate ${isExpanded ? 'text-white' : 'text-[#141F42]'}`}>
+                      {step.title}
+                    </span>
+                  </div>
 
-              {/* Product Thumbnail Artwork Container */}
-              <div className="bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-4 flex items-center justify-center relative overflow-hidden h-[200px] sm:h-[230px]">
-                <span className="absolute top-3 left-3 bg-[#141F42] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
-                  {step.badge}
-                </span>
-                <img 
-                  src={step.img} 
-                  alt={step.title} 
-                  className="w-full h-full object-contain drop-shadow-md rounded-lg group-hover:scale-105 transition-transform duration-500"
-                />
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className={`text-xs font-bold hidden sm:inline-block ${isExpanded ? 'text-[#DA2030]' : 'text-[#8D96A8]'}`}>
+                      {isExpanded ? 'Collapse' : 'Tap to expand'}
+                    </span>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-300 ${
+                      isExpanded ? 'bg-[#DA2030] text-white rotate-180 shadow-md' : 'bg-[#FAF6EC] text-[#141F42] border border-[#E8E1D0]'
+                    }`}>
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </div>
+                </button>
+
+                {/* Expandable Panel */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-5 sm:p-8 bg-white border-t border-[#E8E1D0] grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                        <div className="lg:col-span-7">
+                          <span className="text-xs font-extrabold uppercase tracking-widest text-[#DA2030] block mb-2">
+                            {step.subtitle}
+                          </span>
+                          <p className="text-[#5C6478] text-sm sm:text-base leading-relaxed mb-5">
+                            {step.desc}
+                          </p>
+
+                          <div className="space-y-2 mb-5">
+                            {step.highlights.map((h, i) => (
+                              <div key={i} className="flex items-start gap-2.5">
+                                <CheckCircle2 className="w-4 h-4 text-[#DA2030] flex-shrink-0 mt-0.5" />
+                                <span className="text-xs sm:text-sm font-semibold text-[#141F42]">{h}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            {step.specs.map((spec, i) => (
+                              <span key={i} className="px-3 py-1 bg-[#FAF6EC] border border-[#E8E1D0] rounded-full text-xs font-bold text-[#141F42]">
+                                ✓ {spec}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="lg:col-span-5 bg-[#FAF6EC] border border-[#E8E1D0] rounded-2xl p-4 flex items-center justify-center relative h-[200px] sm:h-[220px]">
+                          <span className="absolute top-3 left-3 bg-[#141F42] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow z-10">
+                            {step.badge}
+                          </span>
+                          <img src={step.img} alt={step.title} className="w-full h-full object-contain drop-shadow-md rounded-lg" />
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
