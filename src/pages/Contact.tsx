@@ -54,11 +54,11 @@ export const Contact = () => {
             </div>
             <Typography variant="h3" className="text-navy mt-2">Call Us</Typography>
             <Typography variant="p" className="text-muted text-sm">Speak directly with our B2B manufacturing consultants.</Typography>
-            <span className="text-navy font-bold mt-2">+91 98100 01279</span>
+            <span className="text-navy font-bold mt-2 text-xs sm:text-sm">+91 98100 01279 / +91 98993 22422</span>
           </motion.a>
 
           <motion.a 
-            href="mailto:sales@paperplus.online"
+            href="mailto:paperplus@gmail.com"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
             className="bg-white p-8 rounded-3xl border border-surface-hover shadow-sm hover:shadow-md hover:border-primary/30 transition-all group flex flex-col items-center text-center gap-4"
           >
@@ -67,7 +67,10 @@ export const Contact = () => {
             </div>
             <Typography variant="h3" className="text-navy mt-2">Email</Typography>
             <Typography variant="p" className="text-muted text-sm">Send us your detailed RFQs and custom artwork requirements.</Typography>
-            <span className="text-primary font-bold mt-2">sales@paperplus.online</span>
+            <div className="flex flex-col items-center text-primary font-bold mt-2 text-xs sm:text-sm">
+              <span>paperplus@gmail.com</span>
+              <span>paperplus@mail.com</span>
+            </div>
           </motion.a>
         </div>
 
@@ -75,7 +78,7 @@ export const Contact = () => {
         <div className="w-full bg-navy rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-2xl">
           <div className="w-full lg:w-1/2 p-12 lg:p-20 flex flex-col gap-10 justify-center">
             <div>
-              <Typography variant="h2" className="text-white mb-2">Corporate Office</Typography>
+              <Typography variant="h2" className="text-white mb-2">Corporate Office &amp; Factory</Typography>
               <Typography variant="p" className="text-sky/70">Visit us to see paper swatches and physical samples.</Typography>
             </div>
             
@@ -83,22 +86,31 @@ export const Contact = () => {
               <div className="flex gap-4">
                 <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
                 <div>
-                  <Typography variant="h4" className="text-white mb-1">Headquarters &amp; Showroom</Typography>
-                  <Typography variant="p" className="text-sky/70 text-sm">Paper Plus Calendars Pvt. Ltd.,<br/>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi, 110006</Typography>
+                  <Typography variant="h4" className="text-white mb-1">Head Office</Typography>
+                  <Typography variant="p" className="text-sky/70 text-sm">
+                    ARG CALENDARS PRIVATE LIMITED / Paper Plus<br/>
+                    4094, NAI SARAK, DELHI-110006 (India)
+                  </Typography>
                 </div>
               </div>
+
+              <div className="flex gap-4">
+                <Building className="w-6 h-6 text-primary flex-shrink-0" />
+                <div>
+                  <Typography variant="h4" className="text-white mb-1">Factory Address</Typography>
+                  <Typography variant="p" className="text-sky/70 text-sm">
+                    49/45, Site IV, Sahibabad Indl. Area,<br/>
+                    Ghaziabad-201301 (U.P)<br/>
+                    Phone: +91 98999 91832
+                  </Typography>
+                </div>
+              </div>
+
               <div className="flex gap-4">
                 <Clock className="w-6 h-6 text-primary flex-shrink-0" />
                 <div>
                   <Typography variant="h4" className="text-white mb-1">Business Hours</Typography>
                   <Typography variant="p" className="text-sky/70 text-sm">Monday - Saturday: 9:00 AM - 7:00 PM<br/>Sunday: Closed</Typography>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <Building className="w-6 h-6 text-primary flex-shrink-0" />
-                <div>
-                  <Typography variant="h4" className="text-white mb-1">Logistics Coverage</Typography>
-                  <Typography variant="p" className="text-sky/70 text-sm">Pan-India delivery via road and air freight partners.</Typography>
                 </div>
               </div>
             </div>

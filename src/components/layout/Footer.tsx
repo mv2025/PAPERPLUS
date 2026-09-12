@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '../ui/Typography';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Building } from 'lucide-react';
 
 import paperPlusLogo from '@/assets/Paper Plus LOGO.png';
 
@@ -103,11 +103,23 @@ export const Footer = () => {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Headquarters</span>
+                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Head Office</span>
                   <span className="leading-relaxed">
-                    Paper Plus Calendars Pvt. Ltd., <br />
-                    4094, Nai Sarak, Old Delhi, Dai Wara, <br />
-                    Chandni Chowk, Delhi, 110006
+                    ARG CALENDARS PRIVATE LIMITED / Paper Plus <br />
+                    4094, NAI SARAK, DELHI-110006 (India)
+                  </span>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-3 group">
+                <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-[#E5232E] flex-shrink-0 group-hover:bg-[#E5232E] group-hover:text-white transition-colors mt-0.5 shadow-sm">
+                  <Building className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Factory Address</span>
+                  <span className="leading-relaxed">
+                    49/45, Site IV, Sahibabad Indl. Area, <br />
+                    Ghaziabad-201301 (U.P)
                   </span>
                 </div>
               </li>
@@ -118,9 +130,11 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Phone Support</span>
-                  <a href="tel:+919810001279" className="hover:text-white transition-colors font-medium">
-                    +91 98100 01279
-                  </a>
+                  <div className="flex flex-col font-medium">
+                    <a href="tel:+919810001279" className="hover:text-white transition-colors">+91 98100 01279</a>
+                    <a href="tel:+919899322422" className="hover:text-white transition-colors">+91 98993 22422</a>
+                    <a href="tel:+919899991832" className="hover:text-white transition-colors">+91 98999 91832 (Factory)</a>
+                  </div>
                 </div>
               </li>
 
@@ -130,9 +144,10 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-white text-[11px] uppercase tracking-wider mb-0.5">Email Inquiry</span>
-                  <a href="mailto:sales@paperplus.online" className="hover:text-white transition-colors font-medium">
-                    sales@paperplus.online
-                  </a>
+                  <div className="flex flex-col font-medium">
+                    <a href="mailto:paperplus@gmail.com" className="hover:text-white transition-colors">paperplus@gmail.com</a>
+                    <a href="mailto:paperplus@mail.com" className="hover:text-white transition-colors">paperplus@mail.com</a>
+                  </div>
                 </div>
               </li>
             </ul>

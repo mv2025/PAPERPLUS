@@ -69,10 +69,11 @@ export const TermsOfService = () => {
             <p>
               These terms are governed by and construed in accordance with the laws of India. Any legal proceedings arising from transactions shall be subject to the exclusive jurisdiction of the courts in Delhi, India.
             </p>
-            <div className="mt-4 p-4 bg-[#FAF6EC] rounded-2xl border border-[#E8E1D0] text-xs sm:text-sm text-[#141F42] font-semibold">
-              <p>Paper Plus Calendars Pvt. Ltd.</p>
-              <p>4094, Nai Sarak, Old Delhi, Dai Wara, Chandni Chowk, Delhi - 110006</p>
-              <p>Email: sales@paperplus.online | Phone: +91 98100 01279</p>
+            <div className="mt-4 p-4 bg-[#FAF6EC] rounded-2xl border border-[#E8E1D0] text-xs sm:text-sm text-[#141F42] font-semibold flex flex-col gap-1">
+              <p>ARG CALENDARS PRIVATE LIMITED / Paper Plus Calendars</p>
+              <p>Head Office: 4094, NAI SARAK, DELHI-110006 (India)</p>
+              <p>Factory: 49/45, Site IV, Sahibabad Indl. Area, Ghaziabad-201301 (U.P)</p>
+              <p>Email: paperplus@gmail.com | Phone: +91 98100 01279 / +91 98993 22422</p>
             </div>
           </section>
 

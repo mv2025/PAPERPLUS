@@ -321,8 +321,6 @@ export default function DeskCalendar() {
                 {currentColor.name}
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#141F42] mb-2 sm:mb-3">{currentDesign.name}</h3>
-            <p className="text-[#5C6478] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">{currentDesign.tagline}</p>
 
             <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
               {currentDesign.colors.map((c, idx) => {
