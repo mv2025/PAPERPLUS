@@ -2,22 +2,36 @@ import type { Product } from '@/types';
 import { products as initialProducts } from '@/mock/products';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
-// Helper to sanitize product image paths and ensure valid asset URLs
-function sanitizeProductImage(url: string | undefined, index: number): string {
-  const fallback = initialProducts[index % initialProducts.length]?.thumbnail || initialProducts[0].thumbnail;
+// Helper to lookup initial product thumbnail by ID or name
+function getInitialProduct(id: string, name?: string): Product | undefined {
+  return initialProducts.find(p => p.id === id || (name && p.name === name));
+}
+
+// Helper to sanitize product image paths and ensure valid asset URLs by ID lookup
+function sanitizeProductImage(url: string | undefined, id: string, name?: string): string {
+  const initialMatch = getInitialProduct(id, name);
+  const fallback = initialMatch?.thumbnail || initialProducts[0].thumbnail;
+
   if (!url || typeof url !== 'string') return fallback;
-  // If url is a legacy mock path like /assets/products/thumb-1.jpg or a dev /src/ path, replace with bundled asset
+
+  // If url is a legacy mock path string stored in cache or DB, replace with exact imported asset
   if (url.includes('/assets/products/') || url.includes('/src/assets/') || url.startsWith('/src/')) {
     return fallback;
   }
+
+  // If this product exists in our official catalog (initialProducts), ALWAYS use the bundled JS asset reference
+  if (initialMatch && initialMatch.thumbnail) {
+    return initialMatch.thumbnail;
+  }
+
   return url;
 }
 
-function sanitizeProduct(p: Product, index: number): Product {
-  const thumbnail = sanitizeProductImage(p.thumbnail, index);
-  const hoverImage = sanitizeProductImage(p.hoverImage || p.thumbnail, index);
+function sanitizeProduct(p: Product): Product {
+  const thumbnail = sanitizeProductImage(p.thumbnail, p.id, p.name);
+  const hoverImage = sanitizeProductImage(p.hoverImage || p.thumbnail, p.id, p.name);
   const gallery = Array.isArray(p.gallery) && p.gallery.length > 0
-    ? p.gallery.map(g => ({ ...g, url: sanitizeProductImage(g.url, index) }))
+    ? p.gallery.map(g => ({ ...g, url: sanitizeProductImage(g.url, p.id, p.name) }))
     : [{ url: thumbnail, alt: p.name }];
   return {
     ...p,
@@ -28,7 +42,7 @@ function sanitizeProduct(p: Product, index: number): Product {
 }
 
 // Helper to map DB snake_case record to TypeScript camelCase Product
-function mapDbToProduct(row: any, idx: number = 0): Product {
+function mapDbToProduct(row: any): Product {
   const p: Product = {
     id: row.id,
     slug: row.slug || row.id,
@@ -57,7 +71,7 @@ function mapDbToProduct(row: any, idx: number = 0): Product {
     specifications: row.specifications || {},
     price: Number(row.price) || 250,
   };
-  return sanitizeProduct(p, idx);
+  return sanitizeProduct(p);
 }
 
 // Helper to map Product to DB snake_case record
@@ -93,26 +107,25 @@ function mapProductToDb(p: Partial<Product>) {
   return row;
 }
 
-// Local cache fallback when table is syncing
-const LOCAL_STORAGE_KEY = 'paperplus_local_products';
+// Local cache fallback key (v5 to force fresh cache across builds)
+const LOCAL_STORAGE_KEY = 'paperplus_local_products_v5';
 
 function getLocalProducts(): Product[] {
   try {
+    // Clear old legacy keys if present
+    ['paperplus_local_products', 'paperplus_local_products_v2', 'paperplus_local_products_v3', 'paperplus_products'].forEach(key => {
+      try { localStorage.removeItem(key); } catch {}
+    });
+
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       const parsed: Product[] = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Check if cached data is using the old broken category scheme (e.g. 301 having categoryId !== 'corporate-desk')
-        const bhaktisam = parsed.find(p => p.name?.includes('301') || p.name?.includes('BHAKTI'));
-        if (bhaktisam && bhaktisam.categoryId !== 'corporate-desk') {
-          localStorage.removeItem(LOCAL_STORAGE_KEY);
-          return initialProducts.map((p, idx) => sanitizeProduct(p, idx));
-        }
-        return parsed.map((p, idx) => sanitizeProduct(p, idx));
+        return parsed.map(p => sanitizeProduct(p));
       }
     }
   } catch {}
-  return initialProducts.map((p, idx) => sanitizeProduct(p, idx));
+  return initialProducts.map(p => sanitizeProduct(p));
 }
 
 function saveLocalProducts(products: Product[]) {
@@ -143,7 +156,7 @@ export const ProductService = {
         return getLocalProducts();
       }
 
-      const mapped = data.map((row, idx) => mapDbToProduct(row, idx));
+      const mapped = data.map((row) => mapDbToProduct(row));
       saveLocalProducts(mapped);
       return mapped;
     } catch (err) {
