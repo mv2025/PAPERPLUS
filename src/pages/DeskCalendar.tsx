@@ -118,13 +118,39 @@ const CORP_ITEMS = [
   { code: '1519', name: 'WORLD MONUMENTS', cat: 'travel', catLabel: 'Travel & Heritage', img: asset45 },
 ];
 
+const getColorFilter = (colorName: string): string => {
+  const name = (colorName || '').toLowerCase();
+  switch (name) {
+    case 'black':
+      return 'brightness(0.5) contrast(1.3) saturate(0.1)';
+    case 'red':
+      return 'hue-rotate(190deg) saturate(2.5) brightness(0.95)';
+    case 'teal':
+      return 'hue-rotate(30deg) saturate(1.4) brightness(0.95)';
+    case 'orange':
+      return 'hue-rotate(160deg) saturate(2.6) brightness(1.05)';
+    case 'green':
+      return 'hue-rotate(85deg) saturate(1.8) brightness(0.85)';
+    case 'grey':
+    case 'gray':
+      return 'grayscale(1) brightness(1.3) contrast(1.1)';
+    case 'yellow':
+      return 'hue-rotate(150deg) saturate(2.4) brightness(1.25)';
+    case 'aqua':
+      return 'hue-rotate(45deg) saturate(1.6) brightness(1.1)';
+    case 'navy':
+    default:
+      return 'none';
+  }
+};
+
 export default function DeskCalendar() {
   const [activeDesignIndex, setActiveDesignIndex] = useState(0);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
   const [showingInside, setShowingInside] = useState(false);
 
   const [corpFilter, setCorpFilter] = useState('all');
-  const [lightboxData, setLightboxData] = useState<{ img: string; caption: string } | null>(null);
+  const [lightboxData, setLightboxData] = useState<{ img: string; caption: string; filter?: string } | null>(null);
   const [enquiryList, setEnquiryList] = useState<Array<{ title: string; subtitle: string; img: string }>>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -281,7 +307,8 @@ export default function DeskCalendar() {
               className="relative w-full h-56 sm:h-72 flex items-center justify-center mb-4 sm:mb-6 cursor-pointer group/img"
               onClick={() => setLightboxData({
                 img: showingInside && currentDesign.inside ? currentDesign.inside : currentColor.img,
-                caption: `${currentDesign.name} — ${showingInside ? 'Inside Page Layout (January)' : currentColor.name + ' Fabric Cover'}`
+                caption: `${currentDesign.name} — ${showingInside ? `Inside Page Layout (${currentColor.name})` : currentColor.name + ' Fabric Cover'}`,
+                filter: showingInside ? getColorFilter(currentColor.name) : 'none'
               })}
             >
               {currentDesign.colors.map((c, idx) => {
@@ -303,9 +330,10 @@ export default function DeskCalendar() {
                 <img 
                   src={currentDesign.inside} 
                   alt={`${currentDesign.name} inside layout`} 
-                  className={`absolute inset-0 m-auto max-h-56 sm:max-h-72 object-contain drop-shadow-2xl transition-all duration-200 transform-gpu ${
+                  className={`absolute inset-0 m-auto max-h-56 sm:max-h-72 object-contain drop-shadow-2xl transition-all duration-300 transform-gpu ${
                     showingInside ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0 pointer-events-none'
                   }`} 
+                  style={{ filter: getColorFilter(currentColor.name) }}
                   loading="eager"
                   fetchPriority="high"
                 />
@@ -543,7 +571,12 @@ export default function DeskCalendar() {
             <button className="absolute -top-12 right-0 text-white p-2 rounded-full bg-white/20 hover:bg-white/40">
               <X className="w-6 h-6" />
             </button>
-            <img src={lightboxData.img} alt={lightboxData.caption} className="max-h-[80vh] rounded-xl shadow-2xl object-contain bg-white" />
+            <img 
+              src={lightboxData.img} 
+              alt={lightboxData.caption} 
+              className="max-h-[80vh] rounded-xl shadow-2xl object-contain bg-white transition-all duration-300" 
+              style={{ filter: lightboxData.filter || 'none' }}
+            />
             <p className="text-white text-center mt-3 font-semibold text-sm">{lightboxData.caption}</p>
           </div>
         </div>
