@@ -375,6 +375,12 @@ const HorizontalProcess = () => {
           })}
         </div>
 
+        <div className="mt-12 text-center">
+          <a href="/process" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#141F42] text-white font-bold hover:bg-[#DA2030] transition-colors shadow-lg">
+            Explore Full Manufacturing Process Page →
+          </a>
+        </div>
+
       </div>
     </section>
   );

@@ -24,6 +24,12 @@ export const MegaMenu = () => {
           </NavigationMenu.Link>
         </NavigationMenu.Item>
 
+        <NavigationMenu.Item>
+          <NavigationMenu.Link className="block select-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:text-primary hover:bg-primary/10 outline-none transition-all duration-300" href="/process">
+            Our Process
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+
         {/* Mega Menu Dropdown */}
         <NavigationMenu.Item className="relative">
           <NavigationMenu.Trigger className="group flex select-none whitespace-nowrap items-center justify-between gap-1 rounded-full px-4 py-2 text-sm font-semibold text-foreground hover:text-primary hover:bg-primary/10 outline-none transition-all duration-300">

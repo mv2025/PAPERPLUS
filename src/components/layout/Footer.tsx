@@ -9,7 +9,7 @@ const FOOTER_SECTIONS = [
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Manufacturing", href: "/products" },
+      { label: "Manufacturing Process", href: "/process" },
       { label: "Corporate Solutions", href: "/corporate" },
       { label: "Get Quote", href: "/quote" }
     ]

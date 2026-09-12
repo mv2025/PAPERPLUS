@@ -277,7 +277,13 @@ export default function DeskCalendar() {
           <div className="bg-gradient-to-b from-white to-[#f4efe2] rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center min-h-[280px] sm:min-h-[380px] border border-[#E8E1D0] relative overflow-hidden">
             
             {/* Pre-rendered instant colorway image stack (0ms lag swap) */}
-            <div className="relative w-full h-56 sm:h-72 flex items-center justify-center mb-4 sm:mb-6">
+            <div 
+              className="relative w-full h-56 sm:h-72 flex items-center justify-center mb-4 sm:mb-6 cursor-pointer group/img"
+              onClick={() => setLightboxData({
+                img: showingInside && currentDesign.inside ? currentDesign.inside : currentColor.img,
+                caption: `${currentDesign.name} — ${showingInside ? 'Inside Page Layout (January)' : currentColor.name + ' Fabric Cover'}`
+              })}
+            >
               {currentDesign.colors.map((c, idx) => {
                 const isActive = !showingInside && activeColorIndex === idx;
                 return (
@@ -304,14 +310,36 @@ export default function DeskCalendar() {
                   fetchPriority="high"
                 />
               )}
+
+              {/* Hover Zoom Overlay */}
+              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur p-2 rounded-full shadow border border-[#E8E1D0] opacity-0 group-hover/img:opacity-100 transition-opacity z-20">
+                <ZoomIn className="w-4 h-4 text-[#141F42]" />
+              </div>
             </div>
 
-            <button
-              onClick={() => setShowingInside(!showingInside)}
-              className="relative z-20 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full border-2 border-[#1B2A56] text-[#1B2A56] text-xs font-bold hover:bg-[#1B2A56] hover:text-white transition-colors cursor-pointer active:scale-95 shadow-sm"
-            >
-              {showingInside ? 'Back to cover' : 'See inside — January layout'}
-            </button>
+            {/* View Switcher Pill Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-2 relative z-20">
+              <button
+                onClick={() => setShowingInside(false)}
+                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
+                  !showingInside 
+                    ? 'bg-[#141F42] text-white shadow' 
+                    : 'bg-white border border-[#E8E1D0] text-[#141F42] hover:border-[#141F42]'
+                }`}
+              >
+                Cover View
+              </button>
+              <button
+                onClick={() => setShowingInside(true)}
+                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
+                  showingInside 
+                    ? 'bg-[#DA2030] text-white shadow' 
+                    : 'bg-white border border-[#E8E1D0] text-[#DA2030] hover:bg-[#DA2030]/10'
+                }`}
+              >
+                Product Inside Images →
+              </button>
+            </div>
           </div>
 
           <div className="pt-2 sm:pt-0">

@@ -13,6 +13,7 @@ import Catalogues from '@/pages/Catalogues';
 import Downloads from '@/pages/Downloads';
 import Contact from '@/pages/Contact';
 import About from '@/pages/About';
+import Process from '@/pages/Process';
 import ReligiousTheme from '@/pages/ReligiousTheme';
 import DeskCalendar from '@/pages/DeskCalendar';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
@@ -38,6 +39,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/process" element={<Process />} />
             <Route path="/corporate" element={<Corporate />} />
             <Route path="/quote" element={<QuoteWizard />} />
             <Route path="/catalogues" element={<Catalogues />} />
