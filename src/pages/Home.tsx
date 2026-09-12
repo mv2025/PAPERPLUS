@@ -1,7 +1,6 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/Home/HeroSection';
 import { ProductUniverseSection } from '@/components/sections/Home/ProductUniverseSection';
-import { CraftsmanshipSection } from '@/components/sections/Home/TrustedBySection';
 import { PrintingPrecisionSection } from '@/components/sections/Home/CategoriesSection';
 import { ProductShowcaseSection } from '@/components/sections/Home/ProductShowcaseSection';
 import { CorporateSuccessSection } from '@/components/sections/Home/CorporateSuccessSection';
@@ -14,7 +13,6 @@ export const Home = () => {
     <div className="w-full min-h-screen bg-background flex flex-col">
       <HeroSection />
       <ProductUniverseSection />
-      <CraftsmanshipSection />
       <PrintingPrecisionSection />
       <ProductShowcaseSection />
       <CorporateSuccessSection />
