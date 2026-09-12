@@ -37,64 +37,82 @@ export const MegaMenu = () => {
           </NavigationMenu.Trigger>
 
           <NavigationMenu.Content className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[620px] max-w-[90vw] bg-surface border border-surface-hover shadow-2xl rounded-2xl p-6 grid grid-cols-12 gap-6 z-50 animate-fadeIn">
-            <div className="col-span-5 border-r border-surface-hover pr-5">
+            <div className="col-span-6 border-r border-surface-hover pr-5">
               <Typography variant="h4" className="mb-3 text-sm font-extrabold uppercase tracking-wider text-primary">
                 Categories
               </Typography>
-              <ul className="flex flex-col gap-2.5 text-xs font-semibold text-foreground">
+              <ul className="flex flex-col gap-1.5 text-xs font-semibold text-foreground">
                 <li>
-                  <a href="/religious-theme" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
-                    <Calendar className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                    Wall &amp; Religious 2027
+                  <a href="/products?category=wall" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Calendar className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Wall Calendars
                   </a>
                 </li>
                 <li>
-                  <a href="/desk-calendar" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
-                    <Gift className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                    Desk Calendar Memo Box
+                  <a href="/products?category=corporate-desk" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Gift className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Corporate Desk Calendars
                   </a>
                 </li>
                 <li>
-                  <a href="/corporate" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
-                    <Bookmark className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                    Corporate Solutions
+                  <a href="/products?category=mini-desk" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Bookmark className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Mini Desk
                   </a>
                 </li>
                 <li>
-                  <a href="/religious-theme" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
-                    <Calendar className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                    Religious Themes
+                  <a href="/products?category=desk-accessories" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Gift className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Desk Accessories
+                  </a>
+                </li>
+                <li>
+                  <a href="/products?category=aarti-books" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Calendar className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Aarti Books
+                  </a>
+                </li>
+                <li>
+                  <a href="/products?category=jumbo-calendars" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Bookmark className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Jumbo Calendars
+                  </a>
+                </li>
+                <li>
+                  <a href="/products?category=shipping-calendars" className="flex items-center gap-2 py-1 hover:text-primary transition-colors group">
+                    <Calendar className="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" />
+                    Shipping Calendars
                   </a>
                 </li>
               </ul>
-              <a href="/products" className="mt-5 text-primary flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider group hover:text-primary-hover">
+              <a href="/products" className="mt-3 text-primary flex items-center gap-1 text-xs font-extrabold uppercase tracking-wider group hover:text-primary-hover">
                 View All Products <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
-            <div className="col-span-7">
+            <div className="col-span-6">
               <Typography variant="h4" className="mb-3 text-sm font-extrabold uppercase tracking-wider text-primary">
                 Featured Highlights
               </Typography>
               <div className="grid grid-cols-2 gap-3">
-                <a href="/religious-theme" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
+                <a href="/products?category=wall" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
                   <div className="w-full h-24 bg-surface rounded-lg mb-2 overflow-hidden flex items-center justify-center border border-surface-hover">
-                    <img src={religiousHero} alt="Wall Collection 2027" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img src={religiousHero} alt="Wall Calendars 2027" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <Typography variant="small" className="text-foreground text-xs font-bold group-hover:text-primary transition-colors">
                     Wall Collection 2027
                   </Typography>
-                  <span className="text-[10px] text-muted mt-0.5">Devotional &amp; scenery</span>
+                  <span className="text-[10px] text-muted mt-0.5">Single sheeter art paper</span>
                 </a>
 
-                <a href="/desk-calendar" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
+                <a href="/products?category=corporate-desk" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
                   <div className="w-full h-24 bg-surface rounded-lg mb-2 overflow-hidden flex items-center justify-center border border-surface-hover p-1">
-                    <img src={deskCalendarHero} alt="Executive Desktop Series" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+                    <img src={deskCalendarHero} alt="Corporate Desk Series" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <Typography variant="small" className="text-foreground text-xs font-bold group-hover:text-primary transition-colors">
-                    Executive Desktop
+                    Corporate Desk Series
                   </Typography>
-                  <span className="text-[10px] text-muted mt-0.5">Twin flip box set</span>
+                  <span className="text-[10px] text-muted mt-0.5">300-320 &amp; 1501-1519</span>
                 </a>
               </div>
             </div>

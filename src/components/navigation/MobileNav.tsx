@@ -162,36 +162,60 @@ export const MobileNav = () => {
                         className="space-y-2.5"
                       >
                         <a 
-                          href="/religious-theme" 
+                          href="/products?category=wall" 
                           onClick={() => setIsOpen(false)} 
-                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
                         >
-                          <span className="font-bold text-[#14244a] block">Wall &amp; Religious 2027</span>
-                          <span className="text-xs text-[#68738b]">Devotional, landscape &amp; floral themes</span>
+                          <span className="font-bold text-[#14244a] block text-sm">Wall Calendars</span>
+                          <span className="text-[11px] text-[#68738b]">Single sheeter art paper &amp; gold foil</span>
                         </a>
                         <a 
-                          href="/desk-calendar" 
+                          href="/products?category=corporate-desk" 
                           onClick={() => setIsOpen(false)} 
-                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
                         >
-                          <span className="font-bold text-[#14244a] block">Desk Calendar Memo Box</span>
-                          <span className="text-xs text-[#68738b]">Executive desk sets &amp; colorways</span>
+                          <span className="font-bold text-[#14244a] block text-sm">Corporate Desk Calendars</span>
+                          <span className="text-[11px] text-[#68738b]">Premium 300-320 &amp; 1501-1519 series</span>
                         </a>
                         <a 
-                          href="/corporate" 
+                          href="/products?category=mini-desk" 
                           onClick={() => setIsOpen(false)} 
-                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
                         >
-                          <span className="font-bold text-[#E5232E] block">Corporate Branding</span>
-                          <span className="text-xs text-[#68738b]">Custom logo &amp; bulk gifting</span>
+                          <span className="font-bold text-[#14244a] block text-sm">Mini Desk</span>
+                          <span className="text-[11px] text-[#68738b]">NM &amp; ML mini long series</span>
                         </a>
                         <a 
-                          href="/products" 
+                          href="/products?category=desk-accessories" 
                           onClick={() => setIsOpen(false)} 
-                          className="block p-4 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
                         >
-                          <span className="font-bold text-[#14244a] block">Browse All Products</span>
-                          <span className="text-xs text-[#68738b]">Full catalog with filters</span>
+                          <span className="font-bold text-[#14244a] block text-sm">Desk Accessories</span>
+                          <span className="text-[11px] text-[#68738b]">Corporate pad T.C. &amp; 400 sheet cubes</span>
+                        </a>
+                        <a 
+                          href="/products?category=aarti-books" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block text-sm">Aarti Books</span>
+                          <span className="text-[11px] text-[#68738b]">Devotional Aarti Sangrah collections</span>
+                        </a>
+                        <a 
+                          href="/products?category=jumbo-calendars" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block text-sm">Jumbo Calendars</span>
+                          <span className="text-[11px] text-[#68738b]">Series 3356 UV glitter with pipe &amp; box</span>
+                        </a>
+                        <a 
+                          href="/products?category=shipping-calendars" 
+                          onClick={() => setIsOpen(false)} 
+                          className="block p-3.5 bg-white rounded-xl border border-[#E8DFD0] hover:border-[#E5232E] transition-colors shadow-sm"
+                        >
+                          <span className="font-bold text-[#14244a] block text-sm">Shipping Calendars</span>
+                          <span className="text-[11px] text-[#68738b]">Commercial multi-month view</span>
                         </a>
                       </motion.div>
                     )}
