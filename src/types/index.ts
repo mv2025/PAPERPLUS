@@ -20,6 +20,7 @@ export interface Product {
   sku: string;
   name: string;
   categoryId: string;
+  series?: string;
   material: string;
   paperGsm: number;
   printingType: string;

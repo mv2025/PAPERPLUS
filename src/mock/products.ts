@@ -32,1861 +32,849 @@ import download13 from '@/assets/foundation/download (13).jpg';
 import download14 from '@/assets/foundation/download (14).jpg';
 import download15 from '@/assets/foundation/download (15).jpg';
 
-const REAL_IMAGES = [
-  asset01, asset02, asset21, asset22, asset23, asset24, asset25, asset26,
-  asset27, asset28, asset29, asset30, asset31, religiousHero, downloadImg,
-  download1, download2, download3, download4, download5, download6, download7,
-  download8, download9, download10, download11, download12, download13,
-  download14, download15
-];
+export const products: Product[] = [
+  // ==========================================
+  // CATEGORY 1: CORPORATE DESK CALENDARS (Items 8, 9, 10, 11)
+  // ==========================================
+  
+  // --- Item 8: Desk Calendars - PREMIUM SERIES (300 - 320) ---
+  {
+    id: "p-300",
+    slug: "300-maha-ganpati",
+    sku: "DESK-300",
+    name: "300 - MAHA GANPATI",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Uncoated Ivory 240 GSM",
+    paperGsm: 240,
+    printingType: "High-Pressure Gold Foil Stamping",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series", "religious"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 142,
+    thumbnail: asset01,
+    hoverImage: asset01,
+    gallery: [{ url: asset01, alt: "300 - MAHA GANPATI" }],
+    description: "Premium Series 300 Desk Calendar featuring Lord Ganesha artwork with raised gold foil stamping on 240 GSM uncoated ivory stock.",
+    specifications: { "Binding": "Twin-Loop Steel Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Custom Paper Sleeve" },
+    price: 185
+  },
+  {
+    id: "p-301",
+    slug: "301-bhakti-samarpan",
+    sku: "DESK-301",
+    name: "301 - BHAKTI SAMARPAN",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Textured Linen 250 GSM",
+    paperGsm: 250,
+    printingType: "6-Color Offset + Hot Foil",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series", "devotional"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 128,
+    thumbnail: asset02,
+    hoverImage: asset02,
+    gallery: [{ url: asset02, alt: "301 - BHAKTI SAMARPAN" }],
+    description: "Premium Series 301 Desk Calendar showcasing divine Bhakti motifs with textured linen feel and gold foil accents.",
+    specifications: { "Binding": "Steel Wire-O Hinge", "Pages": "12 Pages + Cover", "Packaging": "Shrink Wrapped" },
+    price: 190
+  },
+  {
+    id: "p-302",
+    slug: "302-aarti-sangrah",
+    sku: "DESK-302",
+    name: "302 - AARTI SANGRAH",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Premium Art Card 250 GSM",
+    paperGsm: 250,
+    printingType: "UV Velvet Lamination + Foil",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series"],
+    featured: false,
+    bestSeller: false,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.7,
+    reviewsCount: 95,
+    thumbnail: asset21,
+    hoverImage: asset21,
+    gallery: [{ url: asset21, alt: "302 - AARTI SANGRAH" }],
+    description: "Premium Series 302 Desk Calendar featuring complete monthly Aarti verses and sacred iconography.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Envelope Box" },
+    price: 185
+  },
+  {
+    id: "p-303",
+    slug: "303-radha-madhav",
+    sku: "DESK-303",
+    name: "303 - RADHA MADHAV",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Art Paper 250 GSM",
+    paperGsm: 250,
+    printingType: "6-Color Offset UV",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series"],
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 110,
+    thumbnail: asset22,
+    hoverImage: asset22,
+    gallery: [{ url: asset22, alt: "303 - RADHA MADHAV" }],
+    description: "Premium Series 303 Desk Calendar portraying Radha Krishna paintings in vivid high-density offset colors.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Box Pack" },
+    price: 185
+  },
+  {
+    id: "p-304",
+    slug: "304-sai-baba",
+    sku: "DESK-304",
+    name: "304 - SAI BABA",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Uncoated Ivory 240 GSM",
+    paperGsm: 240,
+    printingType: "Gold Foil Embossing",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series"],
+    featured: false,
+    bestSeller: false,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 88,
+    thumbnail: asset23,
+    hoverImage: asset23,
+    gallery: [{ url: asset23, alt: "304 - SAI BABA" }],
+    description: "Premium Series 304 Desk Calendar dedicated to Shirdi Sai Baba with golden quote highlights.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Paper Sleeve" },
+    price: 185
+  },
+  {
+    id: "p-305",
+    slug: "305-jai-jai-jagannath-prabhu",
+    sku: "DESK-305",
+    name: "305 - JAI JAI JAGANNATH PRABHU",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - PREMIUM SERIES 300-320",
+    material: "Textured Card 250 GSM",
+    paperGsm: 250,
+    printingType: "Velvet Touch + Foil",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["premium", "corporate-desk", "300-series"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 5.0,
+    reviewsCount: 156,
+    thumbnail: asset24,
+    hoverImage: asset24,
+    gallery: [{ url: asset24, alt: "305 - JAI JAI JAGANNATH PRABHU" }],
+    description: "Premium Series 305 Desk Calendar presenting Puri Jagannath Dham artwork with metallic gold borders.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Gift Sleeve" },
+    price: 195
+  },
 
-const rawProducts: Product[] = [
+  // --- Item 9: Desk Calendars - CORPORATE SERIES (1501 - 1519) ---
   {
-    "id": "p1",
-    "slug": "calendar-desk-calendars-model-1",
-    "sku": "CAL-DES-1001",
-    "name": "Premium Desk Calendars Model 1",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 170,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.7,
-    "reviewsCount": 126,
-    "thumbnail": "/assets/products/thumb-1.jpg",
-    "hoverImage": "/assets/products/hover-1.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-1.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-1.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 155
+    id: "p-1501",
+    slug: "1501-shree-ganeshaya-namaha",
+    sku: "DESK-1501",
+    name: "1501 - SHREE GANESHAYA NAMAHA",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - CORPORATE SERIES 1501-1519",
+    material: "Gloss Art Card 210 GSM",
+    paperGsm: 210,
+    printingType: "UV Coating Offset",
+    size: "8 x 5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["corporate", "corporate-desk", "1500-series"],
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.6,
+    reviewsCount: 104,
+    thumbnail: asset27,
+    hoverImage: asset27,
+    gallery: [{ url: asset27, alt: "1501 - SHREE GANESHAYA NAMAHA" }],
+    description: "Corporate Series 1501 Desk Calendar with custom space for corporate logo printing and Ganesh blessing artwork.",
+    specifications: { "Binding": "Steel Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Individual Sleeve" },
+    price: 150
   },
   {
-    "id": "p2",
-    "slug": "calendar-corporate-calendars-model-2",
-    "sku": "CAL-COR-1002",
-    "name": "Premium Corporate Calendars Model 2",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 210,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.5,
-    "reviewsCount": 127,
-    "thumbnail": "/assets/products/thumb-2.jpg",
-    "hoverImage": "/assets/products/hover-2.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-2.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-2.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 160
+    id: "p-1502",
+    slug: "1502-prabhu-aradhana",
+    sku: "DESK-1502",
+    name: "1502 - PRABHU ARADHANA",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - CORPORATE SERIES 1501-1519",
+    material: "Art Paper 210 GSM",
+    paperGsm: 210,
+    printingType: "Offset 6-Color",
+    size: "8 x 5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["corporate", "corporate-desk", "1500-series"],
+    featured: false,
+    bestSeller: false,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.5,
+    reviewsCount: 82,
+    thumbnail: asset28,
+    hoverImage: asset28,
+    gallery: [{ url: asset28, alt: "1502 - PRABHU ARADHANA" }],
+    description: "Corporate Series 1502 Desk Calendar tailored for corporate gifting with clean date grids.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Shrink Wrap" },
+    price: 150
   },
   {
-    "id": "p3",
-    "slug": "calendar-religious-calendars-model-3",
-    "sku": "CAL-REL-1003",
-    "name": "Premium Religious Calendars Model 3",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 250,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.5,
-    "reviewsCount": 33,
-    "thumbnail": "/assets/products/thumb-3.jpg",
-    "hoverImage": "/assets/products/hover-3.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-3.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-3.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 165
+    id: "p-1503",
+    slug: "1503-radha-krishna",
+    sku: "DESK-1503",
+    name: "1503 - RADHA KRISHNA",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - CORPORATE SERIES 1501-1519",
+    material: "Art Card 210 GSM",
+    paperGsm: 210,
+    printingType: "UV Offset",
+    size: "8 x 5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["corporate", "corporate-desk", "1500-series"],
+    featured: false,
+    bestSeller: false,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.7,
+    reviewsCount: 91,
+    thumbnail: asset29,
+    hoverImage: asset29,
+    gallery: [{ url: asset29, alt: "1503 - RADHA KRISHNA" }],
+    description: "Corporate Series 1503 Desk Calendar depicting classic Radha Krishna devotional art.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Sleeve" },
+    price: 150
   },
   {
-    "id": "p4",
-    "slug": "calendar-wall-calendars-model-4",
-    "sku": "CAL-WAL-1004",
-    "name": "Premium Wall Calendars Model 4",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 290,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.3,
-    "reviewsCount": 105,
-    "thumbnail": "/assets/products/thumb-4.jpg",
-    "hoverImage": "/assets/products/hover-4.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-4.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-4.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 170
+    id: "p-1504",
+    slug: "1504-sai-baba",
+    sku: "DESK-1504",
+    name: "1504 - SAI BABA",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - CORPORATE SERIES 1501-1519",
+    material: "Art Card 210 GSM",
+    paperGsm: 210,
+    printingType: "UV Matte Finish",
+    size: "8 x 5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["corporate", "corporate-desk", "1500-series"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 115,
+    thumbnail: asset30,
+    hoverImage: asset30,
+    gallery: [{ url: asset30, alt: "1504 - SAI BABA" }],
+    description: "Corporate Series 1504 Desk Calendar with peaceful Sai Baba artwork and high-readability date grid.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Envelope" },
+    price: 155
   },
   {
-    "id": "p5",
-    "slug": "calendar-desk-calendars-model-5",
-    "sku": "CAL-DES-1005",
-    "name": "Premium Desk Calendars Model 5",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 130,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.3,
-    "reviewsCount": 133,
-    "thumbnail": "/assets/products/thumb-5.jpg",
-    "hoverImage": "/assets/products/hover-5.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-5.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-5.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 175
+    id: "p-1505",
+    slug: "1505-go-green-breathe-clean",
+    sku: "DESK-1505",
+    name: "1505 - GO GREEN - Breathe Clean",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - CORPORATE SERIES 1501-1519",
+    material: "Recycled Art Paper 210 GSM",
+    paperGsm: 210,
+    printingType: "Eco Inks Offset",
+    size: "8 x 5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["corporate", "corporate-desk", "eco-friendly"],
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 78,
+    thumbnail: asset31,
+    hoverImage: asset31,
+    gallery: [{ url: asset31, alt: "1505 - GO GREEN" }],
+    description: "Corporate Series 1505 Desk Calendar focusing on eco-sustainability themes and corporate green initiatives.",
+    specifications: { "Binding": "Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Paper Pack" },
+    price: 160
+  },
+
+  // --- Item 10: Desk Calendars - NEW CORPORATE SERIES (1601 - 1603) ---
+  {
+    id: "p-1601",
+    slug: "1601-executive-vision-2027",
+    sku: "DESK-1601",
+    name: "1601 - EXECUTIVE VISION 2027",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - NEW CORPORATE SERIES 1601-1603",
+    material: "Art Card 250 GSM",
+    paperGsm: 250,
+    printingType: "Velvet Touch + Metallic Spot",
+    size: "9 x 6 inches",
+    orientation: "Landscape",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["new-corporate", "corporate-desk"],
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 64,
+    thumbnail: asset25,
+    hoverImage: asset25,
+    gallery: [{ url: asset25, alt: "1601 - EXECUTIVE VISION" }],
+    description: "New Corporate Series 1601 Desk Calendar designed specifically for modern executive desks with sleek typography.",
+    specifications: { "Binding": "Heavy Wire-O", "Pages": "12 Pages + Cover", "Packaging": "Custom Box" },
+    price: 195
+  },
+
+  // --- Item 11: Desk Calendars - 5D SERIES (501 - 509) ---
+  {
+    id: "p-501",
+    slug: "501-5d-divine-darshan",
+    sku: "DESK-501",
+    name: "501 - 5D DIVINE DARSHAN",
+    categoryId: "corporate-desk",
+    series: "Desk Calendars - 5D 501-509",
+    material: "5D Lenticular Cardstock 300 GSM",
+    paperGsm: 300,
+    printingType: "5D Lenticular Motion Print",
+    size: "8.5 x 5.5 inches",
+    orientation: "Landscape",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["5d-series", "corporate-desk", "lenticular"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 5.0,
+    reviewsCount: 180,
+    thumbnail: asset26,
+    hoverImage: asset26,
+    gallery: [{ url: asset26, alt: "501 - 5D DIVINE DARSHAN" }],
+    description: "Desk Calendars 5D Series featuring stereoscopic 3D depth effect when viewed from different angles.",
+    specifications: { "Binding": "Steel Wire-O", "Pages": "12 Pages 5D + Cover", "Packaging": "Gift Box" },
+    price: 240
+  },
+
+  // ==========================================
+  // CATEGORY 2: MINI DESK CALENDARS (Items 12, 13, 14, 15)
+  // ==========================================
+  
+  // --- Item 12: NEW MINI DESK CALENDARS - NM 01 - NM 02 ---
+  {
+    id: "p-nm01",
+    slug: "nm-01-new-mini-desk",
+    sku: "MINI-NM01",
+    name: "NM 01 - NEW MINI DESK CALENDAR",
+    categoryId: "mini-desk",
+    series: "NEW MINI DESK CALENDARS - NM 01-02",
+    material: "Both Side Printed 220 GSM Art Card",
+    paperGsm: 220,
+    printingType: "Both Side HD Printing",
+    size: "6 x 4 inches",
+    orientation: "Landscape",
+    moq: 250,
+    stockStatus: "In Stock",
+    tags: ["mini-desk", "nm-series"],
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.7,
+    reviewsCount: 72,
+    thumbnail: asset01,
+    hoverImage: asset01,
+    gallery: [{ url: asset01, alt: "NM 01 - MINI DESK" }],
+    description: "New Mini Desk Calendar NM 01 with dual-sided monthly layout for compact workstations.",
+    specifications: { "Binding": "Mini Wire-O", "Pages": "6 Sheets (12 Months)", "Packaging": "Bulk Pack" },
+    price: 95
+  },
+
+  // --- Item 15: MINI LONG DESK CALENDARS - ML 11 - ML 12 ---
+  {
+    id: "p-ml11",
+    slug: "ml-11-mini-long-desk",
+    sku: "MINI-ML11",
+    name: "ML 11 - MINI LONG DESK CALENDAR",
+    categoryId: "mini-desk",
+    series: "MINI LONG DESK CALENDARS - ML 11-12",
+    material: "Both Side Printed 220 GSM Art Card",
+    paperGsm: 220,
+    printingType: "Both Side HD Printing",
+    size: "10 x 3.5 inches",
+    orientation: "Landscape",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["mini-desk", "ml-series"],
+    featured: false,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 89,
+    thumbnail: asset02,
+    hoverImage: asset02,
+    gallery: [{ url: asset02, alt: "ML 11 - MINI LONG" }],
+    description: "Mini Long Desk Calendar ML 11 designed with extended memo width fitting below computer monitors.",
+    specifications: { "Binding": "Wire-O", "Pages": "6 Sheets Both Side", "Packaging": "Individual Poly" },
+    price: 110
+  },
+
+  // ==========================================
+  // CATEGORY 3: DESK ACCESSORIES (Item 16)
+  // ==========================================
+  
+  // --- Item 16: DESK ACCESSORIES - Corporate Pad T.C. ---
+  {
+    id: "p-tc01",
+    slug: "corporate-pad-tc-80gsm",
+    sku: "ACC-PAD-01",
+    name: "DESK ACCESSORIES - Corporate Pad T.C.",
+    categoryId: "desk-accessories",
+    series: "DESK ACCESSORIES - Corporate Pad T.C.",
+    material: "80 GSM Natural Shade Paper",
+    paperGsm: 80,
+    printingType: "Both Side Printed Natural Shade",
+    size: "7.5 x 9.5 inches",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["desk-accessories", "memo-pad", "natural-paper"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 130,
+    thumbnail: asset21,
+    hoverImage: asset21,
+    gallery: [{ url: asset21, alt: "Corporate Pad T.C." }],
+    description: "Desk Accessories Corporate Pad T.C. printed on eco-friendly 80 GSM natural shade paper with paired memo cube refill.",
+    specifications: { "Sheets": "400 Sheets Memo Pad", "Paper": "80 GSM Natural Shade", "Packaging": "Rigid Desk Holder" },
+    price: 210
+  },
+
+  // ==========================================
+  // CATEGORY 4: AARTI BOOKS (Item 17)
+  // ==========================================
+  
+  // --- Item 17: AARTI BOOKS ---
+  {
+    id: "p-762",
+    slug: "762-shree-ganesh-aarti",
+    sku: "AARTI-762",
+    name: "762 - SHREE GANESH AARTI",
+    categoryId: "aarti-books",
+    series: "AARTI BOOKS",
+    material: "Art Paper 170 GSM",
+    paperGsm: 170,
+    printingType: "Gold Foil & UV Glitter",
+    size: "A4 Vertical",
+    orientation: "Portrait",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["aarti-books", "devotional", "762-series"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 5.0,
+    reviewsCount: 158,
+    thumbnail: religiousHero,
+    hoverImage: religiousHero,
+    gallery: [{ url: religiousHero, alt: "762 - SHREE GANESH AARTI" }],
+    description: "Aarti Book Series 762 featuring authentic Shree Ganesh Aarti verses, chalisa, and gold foil embossed divine artwork.",
+    specifications: { "Binding": "Hardbound / Perfect Bound", "Pages": "32 Pages Full Color", "Packaging": "Gold Foil Gift Sleeve" },
+    price: 135
   },
   {
-    "id": "p6",
-    "slug": "calendar-corporate-calendars-model-6",
-    "sku": "CAL-COR-1006",
-    "name": "Premium Corporate Calendars Model 6",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 170,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.2,
-    "reviewsCount": 198,
-    "thumbnail": "/assets/products/thumb-6.jpg",
-    "hoverImage": "/assets/products/hover-6.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-6.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-6.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 180
+    id: "p-aarti-sangrah",
+    slug: "aarti-sangrah-deluxe",
+    sku: "AARTI-SANGRAH",
+    name: "AARTI SANGRAH - Deluxe Edition",
+    categoryId: "aarti-books",
+    series: "AARTI BOOKS",
+    material: "Imported Art Paper 170 GSM",
+    paperGsm: 170,
+    printingType: "Full Color HD Offset",
+    size: "A4 Vertical",
+    orientation: "Portrait",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["aarti-books", "sangrah"],
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 94,
+    thumbnail: download1,
+    hoverImage: download1,
+    gallery: [{ url: download1, alt: "AARTI SANGRAH" }],
+    description: "Complete Aarti Sangrah devotional book with all major Aartis and Stutis.",
+    specifications: { "Pages": "48 Pages Full Color", "Paper": "170 GSM Art Paper", "Packaging": "Shrink Pack" },
+    price: 140
+  },
+
+  // ==========================================
+  // CATEGORY 5: JUMBO CALENDARS (Item 18)
+  // ==========================================
+  
+  // --- Item 18: Series 3356 ART PAPER Calendars (Single Sheeter) ---
+  {
+    id: "p-3356",
+    slug: "3356-art-paper-jumbo-uv-glitter",
+    sku: "JUMBO-3356",
+    name: "Series 3356 ART PAPER Calendars (Single Sheeter)",
+    categoryId: "jumbo-calendars",
+    series: "Series 3356 ART PAPER Calendars",
+    material: "Imported Art Paper 250 GSM",
+    paperGsm: 250,
+    printingType: "UV GLITTER with Pipe & Box Packaging",
+    size: "20 x 30 inches (Jumbo)",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["jumbo-calendars", "single-sheeter", "3356-series", "pipe-box"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 168,
+    thumbnail: download4,
+    hoverImage: download4,
+    gallery: [{ url: download4, alt: "Series 3356 Jumbo" }],
+    description: "Jumbo Single Sheeter Wall Calendar Series 3356 printed with sparkling UV glitter highlights, fitted top hanging pipe and packed in individual gift box.",
+    specifications: { "Binding": "Plastic Top Hanging Pipe", "Size": "20x30 inches", "Packaging": "Individual Cylinder Box" },
+    price: 280
+  },
+
+  // ==========================================
+  // CATEGORY 6: WALL CALENDARS (Items 1 - 7)
+  // ==========================================
+  
+  // --- Item 1: Series 2028 ART PAPER Calendars (Single Sheeter) ---
+  {
+    id: "p-2028-art",
+    slug: "series-2028-art-paper-calendars",
+    sku: "WALL-2028-ART",
+    name: "Series 2028 ART PAPER Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Series 2028 ART PAPER Calendars",
+    material: "Imported Art Paper 170 GSM",
+    paperGsm: 170,
+    printingType: "6-Color Offset Printing",
+    size: "15 x 20 inches",
+    orientation: "Portrait",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "single-sheeter", "2028-series"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 145,
+    thumbnail: download6,
+    hoverImage: download6,
+    gallery: [{ url: download6, alt: "Series 2028 Art Paper" }],
+    description: "Series 2028 Single Sheeter Wall Calendar printed on premium imported art paper with vivid color reproduction. Also available in Magical Series.",
+    specifications: { "Binding": "Steel Tin Rim Top", "Size": "15x20 inches", "Packaging": "Roll Wrapped" },
+    price: 125
+  },
+
+  // --- Item 2: Series 9\"x18\" Crystal Calendars (Single Sheeter) ---
+  {
+    id: "p-9x18-crystal",
+    slug: "series-9x18-crystal-calendars",
+    sku: "WALL-9X18-CRYSTAL",
+    name: "Series 9\"x18\" Crystal Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Series 9\"x18\" Crystal Calendars",
+    material: "Crystal Coated Card 210 GSM",
+    paperGsm: 210,
+    printingType: "High Gloss Crystal UV",
+    size: "9 x 18 inches",
+    orientation: "Portrait",
+    moq: 200,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "crystal-series"],
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.7,
+    reviewsCount: 92,
+    thumbnail: download7,
+    hoverImage: download7,
+    gallery: [{ url: download7, alt: "Series 9x18 Crystal" }],
+    description: "Series 9\"x18\" Crystal Single Sheeter Wall Calendar featuring high-gloss crystal UV finish for brilliant light reflection.",
+    specifications: { "Binding": "Tin Rim Top", "Size": "9x18 inches", "Packaging": "Bulk Roll" },
+    price: 110
+  },
+
+  // --- Item 3: Series 2028 Crystal Calendars (Single Sheeter) ---
+  {
+    id: "p-2028-crystal",
+    slug: "series-2028-crystal-calendars",
+    sku: "WALL-2028-CRYSTAL",
+    name: "Series 2028 Crystal Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Series 2028 Crystal Calendars",
+    material: "Crystal Art Card 220 GSM",
+    paperGsm: 220,
+    printingType: "Crystal Gloss Finish",
+    size: "15 x 20 inches",
+    orientation: "Portrait",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "2028-series", "crystal"],
+    featured: false,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 112,
+    thumbnail: download8,
+    hoverImage: download8,
+    gallery: [{ url: download8, alt: "Series 2028 Crystal" }],
+    description: "Series 2028 Crystal Single Sheeter Wall Calendar combining 15x20 dimensions with glass-like glossy finish.",
+    specifications: { "Binding": "Steel Tin Rim Top", "Size": "15x20 inches", "Packaging": "Bulk Pack" },
+    price: 135
+  },
+
+  // --- Item 4: Series 2840 Crystal Calendars (Single Sheeter) ---
+  {
+    id: "p-2840-crystal",
+    slug: "series-2840-crystal-calendars",
+    sku: "WALL-2840-CRYSTAL",
+    name: "Series 2840 Crystal Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Series 2840 Crystal Calendars",
+    material: "Crystal Cardstock 240 GSM",
+    paperGsm: 240,
+    printingType: "Crystal Coating + Metallic Accent",
+    size: "18 x 28 inches",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "2840-series", "crystal"],
+    featured: true,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 88,
+    thumbnail: download9,
+    hoverImage: download9,
+    gallery: [{ url: download9, alt: "Series 2840 Crystal" }],
+    description: "Series 2840 Large Format Crystal Single Sheeter Wall Calendar.",
+    specifications: { "Binding": "Tin Rim", "Size": "18x28 inches", "Packaging": "Individual Roll" },
+    price: 175
+  },
+
+  // --- Item 5: Series 2028 LAZER GOLD Calendars (Single Sheeter) ---
+  {
+    id: "p-2028-lazer-gold",
+    slug: "series-2028-lazer-gold-calendars",
+    sku: "WALL-2028-LAZER",
+    name: "Series 2028 LAZER GOLD Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Series 2028 LAZER GOLD Calendars",
+    material: "Lazer Metallic Card 240 GSM",
+    paperGsm: 240,
+    printingType: "Precision Lazer Gold Hot Foil",
+    size: "15 x 20 inches",
+    orientation: "Portrait",
+    moq: 150,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "lazer-gold"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 5.0,
+    reviewsCount: 160,
+    thumbnail: download10,
+    hoverImage: download10,
+    gallery: [{ url: download10, alt: "Series 2028 Lazer Gold" }],
+    description: "Series 2028 Lazer Gold Single Sheeter Wall Calendar crafted with holographic laser gold foil border.",
+    specifications: { "Binding": "Gold Tin Rim Top", "Size": "15x20 inches", "Packaging": "Boxed" },
+    price: 165
+  },
+
+  // --- Item 7: Imported 20x30 Gold Foil Calendars (Single Sheeter) ---
+  {
+    id: "p-20x30-gold-foil",
+    slug: "imported-20x30-gold-foil-calendars",
+    sku: "WALL-20X30-FOIL",
+    name: "Imported 20x30 Gold Foil Calendars (Single Sheeter)",
+    categoryId: "wall",
+    series: "Imported 20x30 Gold Foil Calendars",
+    material: "Imported Royal Cardstock 280 GSM",
+    paperGsm: 280,
+    printingType: "Full Surface Gold Foil Stamping",
+    size: "20 x 30 inches",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["wall-calendars", "gold-foil", "imported"],
+    featured: true,
+    bestSeller: true,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 5.0,
+    reviewsCount: 195,
+    thumbnail: download12,
+    hoverImage: download12,
+    gallery: [{ url: download12, alt: "Imported 20x30 Gold Foil" }],
+    description: "Imported 20x30 Gold Foil Single Sheeter Wall Calendar featuring full gold foil reflective artwork.",
+    specifications: { "Binding": "Heavy Brass Tin Rim Top", "Size": "20x30 inches", "Packaging": "Luxury Tube" },
+    price: 290
+  },
+
+  // ==========================================
+  // CATEGORY 7: SHIPPING CALENDARS (Item 19)
+  // ==========================================
+  
+  // --- Item 19: SHIPPING CALENDARS ---
+  {
+    id: "p-shipping-3month",
+    slug: "shipping-calendars-3-month-view",
+    sku: "SHIP-3M-1019",
+    name: "SHIPPING CALENDARS - 3-Month View Commercial",
+    categoryId: "shipping-calendars",
+    series: "SHIPPING CALENDARS",
+    material: "High Tensile Board + 120 GSM Offset",
+    paperGsm: 250,
+    printingType: "Dual Color Commercial Offset",
+    size: "13 x 34 inches",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["shipping-calendars", "commercial", "logistics"],
+    featured: true,
+    bestSeller: true,
+    newArrival: false,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.9,
+    reviewsCount: 140,
+    thumbnail: download13,
+    hoverImage: download13,
+    gallery: [{ url: download13, alt: "Shipping Calendar" }],
+    description: "Item 19 Shipping Calendar designed for logistics companies with 3-month simultaneous viewing grid and red sliding date indicator window.",
+    specifications: { "Binding": "Triple Wire-O Section Hinge", "Features": "Red Date Indicator Slider", "Packaging": "Flat Boxed" },
+    price: 260
   },
   {
-    "id": "p7",
-    "slug": "calendar-religious-calendars-model-7",
-    "sku": "CAL-REL-1007",
-    "name": "Premium Religious Calendars Model 7",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 210,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": true,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.6,
-    "reviewsCount": 13,
-    "thumbnail": "/assets/products/thumb-7.jpg",
-    "hoverImage": "/assets/products/hover-7.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-7.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-7.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 185
-  },
-  {
-    "id": "p8",
-    "slug": "calendar-wall-calendars-model-8",
-    "sku": "CAL-WAL-1008",
-    "name": "Premium Wall Calendars Model 8",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 250,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.6,
-    "reviewsCount": 82,
-    "thumbnail": "/assets/products/thumb-8.jpg",
-    "hoverImage": "/assets/products/hover-8.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-8.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-8.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 190
-  },
-  {
-    "id": "p9",
-    "slug": "calendar-desk-calendars-model-9",
-    "sku": "CAL-DES-1009",
-    "name": "Premium Desk Calendars Model 9",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 290,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.1,
-    "reviewsCount": 84,
-    "thumbnail": "/assets/products/thumb-9.jpg",
-    "hoverImage": "/assets/products/hover-9.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-9.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-9.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 195
-  },
-  {
-    "id": "p10",
-    "slug": "calendar-corporate-calendars-model-10",
-    "sku": "CAL-COR-1010",
-    "name": "Premium Corporate Calendars Model 10",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 130,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "Out of Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4,
-    "reviewsCount": 199,
-    "thumbnail": "/assets/products/thumb-10.jpg",
-    "hoverImage": "/assets/products/hover-10.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-10.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-10.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 200
-  },
-  {
-    "id": "p11",
-    "slug": "calendar-religious-calendars-model-11",
-    "sku": "CAL-REL-1011",
-    "name": "Premium Religious Calendars Model 11",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 170,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.4,
-    "reviewsCount": 43,
-    "thumbnail": "/assets/products/thumb-11.jpg",
-    "hoverImage": "/assets/products/hover-11.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-11.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-11.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 205
-  },
-  {
-    "id": "p12",
-    "slug": "calendar-wall-calendars-model-12",
-    "sku": "CAL-WAL-1012",
-    "name": "Premium Wall Calendars Model 12",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 210,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.5,
-    "reviewsCount": 85,
-    "thumbnail": "/assets/products/thumb-12.jpg",
-    "hoverImage": "/assets/products/hover-12.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-12.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-12.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 210
-  },
-  {
-    "id": "p13",
-    "slug": "calendar-desk-calendars-model-13",
-    "sku": "CAL-DES-1013",
-    "name": "Premium Desk Calendars Model 13",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 250,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.9,
-    "reviewsCount": 87,
-    "thumbnail": "/assets/products/thumb-13.jpg",
-    "hoverImage": "/assets/products/hover-13.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-13.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-13.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 215
-  },
-  {
-    "id": "p14",
-    "slug": "calendar-corporate-calendars-model-14",
-    "sku": "CAL-COR-1014",
-    "name": "Premium Corporate Calendars Model 14",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 290,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": true,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.7,
-    "reviewsCount": 72,
-    "thumbnail": "/assets/products/thumb-14.jpg",
-    "hoverImage": "/assets/products/hover-14.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-14.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-14.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 220
-  },
-  {
-    "id": "p15",
-    "slug": "calendar-religious-calendars-model-15",
-    "sku": "CAL-REL-1015",
-    "name": "Premium Religious Calendars Model 15",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 130,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.6,
-    "reviewsCount": 193,
-    "thumbnail": "/assets/products/thumb-15.jpg",
-    "hoverImage": "/assets/products/hover-15.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-15.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-15.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 225
-  },
-  {
-    "id": "p16",
-    "slug": "calendar-wall-calendars-model-16",
-    "sku": "CAL-WAL-1016",
-    "name": "Premium Wall Calendars Model 16",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 170,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 5,
-    "reviewsCount": 158,
-    "thumbnail": "/assets/products/thumb-16.jpg",
-    "hoverImage": "/assets/products/hover-16.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-16.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-16.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 230
-  },
-  {
-    "id": "p17",
-    "slug": "calendar-desk-calendars-model-17",
-    "sku": "CAL-DES-1017",
-    "name": "Premium Desk Calendars Model 17",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 210,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.6,
-    "reviewsCount": 200,
-    "thumbnail": "/assets/products/thumb-17.jpg",
-    "hoverImage": "/assets/products/hover-17.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-17.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-17.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 235
-  },
-  {
-    "id": "p18",
-    "slug": "calendar-corporate-calendars-model-18",
-    "sku": "CAL-COR-1018",
-    "name": "Premium Corporate Calendars Model 18",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 250,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4,
-    "reviewsCount": 35,
-    "thumbnail": "/assets/products/thumb-18.jpg",
-    "hoverImage": "/assets/products/hover-18.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-18.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-18.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 240
-  },
-  {
-    "id": "p19",
-    "slug": "calendar-religious-calendars-model-19",
-    "sku": "CAL-REL-1019",
-    "name": "Premium Religious Calendars Model 19",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 290,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 5,
-    "reviewsCount": 101,
-    "thumbnail": "/assets/products/thumb-19.jpg",
-    "hoverImage": "/assets/products/hover-19.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-19.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-19.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 245
-  },
-  {
-    "id": "p20",
-    "slug": "calendar-wall-calendars-model-20",
-    "sku": "CAL-WAL-1020",
-    "name": "Premium Wall Calendars Model 20",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 130,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "Out of Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.5,
-    "reviewsCount": 71,
-    "thumbnail": "/assets/products/thumb-20.jpg",
-    "hoverImage": "/assets/products/hover-20.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-20.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-20.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 250
-  },
-  {
-    "id": "p21",
-    "slug": "calendar-desk-calendars-model-21",
-    "sku": "CAL-DES-1021",
-    "name": "Premium Desk Calendars Model 21",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 170,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": true,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.9,
-    "reviewsCount": 155,
-    "thumbnail": "/assets/products/thumb-21.jpg",
-    "hoverImage": "/assets/products/hover-21.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-21.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-21.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 255
-  },
-  {
-    "id": "p22",
-    "slug": "calendar-corporate-calendars-model-22",
-    "sku": "CAL-COR-1022",
-    "name": "Premium Corporate Calendars Model 22",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 210,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.5,
-    "reviewsCount": 188,
-    "thumbnail": "/assets/products/thumb-22.jpg",
-    "hoverImage": "/assets/products/hover-22.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-22.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-22.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 260
-  },
-  {
-    "id": "p23",
-    "slug": "calendar-religious-calendars-model-23",
-    "sku": "CAL-REL-1023",
-    "name": "Premium Religious Calendars Model 23",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 250,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.9,
-    "reviewsCount": 92,
-    "thumbnail": "/assets/products/thumb-23.jpg",
-    "hoverImage": "/assets/products/hover-23.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-23.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-23.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 265
-  },
-  {
-    "id": "p24",
-    "slug": "calendar-wall-calendars-model-24",
-    "sku": "CAL-WAL-1024",
-    "name": "Premium Wall Calendars Model 24",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 290,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 5,
-    "reviewsCount": 187,
-    "thumbnail": "/assets/products/thumb-24.jpg",
-    "hoverImage": "/assets/products/hover-24.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-24.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-24.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 270
-  },
-  {
-    "id": "p25",
-    "slug": "calendar-desk-calendars-model-25",
-    "sku": "CAL-DES-1025",
-    "name": "Premium Desk Calendars Model 25",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 130,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.3,
-    "reviewsCount": 38,
-    "thumbnail": "/assets/products/thumb-25.jpg",
-    "hoverImage": "/assets/products/hover-25.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-25.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-25.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 275
-  },
-  {
-    "id": "p26",
-    "slug": "calendar-corporate-calendars-model-26",
-    "sku": "CAL-COR-1026",
-    "name": "Premium Corporate Calendars Model 26",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 170,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.6,
-    "reviewsCount": 73,
-    "thumbnail": "/assets/products/thumb-26.jpg",
-    "hoverImage": "/assets/products/hover-26.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-26.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-26.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 280
-  },
-  {
-    "id": "p27",
-    "slug": "calendar-religious-calendars-model-27",
-    "sku": "CAL-REL-1027",
-    "name": "Premium Religious Calendars Model 27",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 210,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.3,
-    "reviewsCount": 78,
-    "thumbnail": "/assets/products/thumb-27.jpg",
-    "hoverImage": "/assets/products/hover-27.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-27.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-27.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 285
-  },
-  {
-    "id": "p28",
-    "slug": "calendar-wall-calendars-model-28",
-    "sku": "CAL-WAL-1028",
-    "name": "Premium Wall Calendars Model 28",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 250,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": true,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.6,
-    "reviewsCount": 122,
-    "thumbnail": "/assets/products/thumb-28.jpg",
-    "hoverImage": "/assets/products/hover-28.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-28.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-28.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 290
-  },
-  {
-    "id": "p29",
-    "slug": "calendar-desk-calendars-model-29",
-    "sku": "CAL-DES-1029",
-    "name": "Premium Desk Calendars Model 29",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 290,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.9,
-    "reviewsCount": 57,
-    "thumbnail": "/assets/products/thumb-29.jpg",
-    "hoverImage": "/assets/products/hover-29.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-29.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-29.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 295
-  },
-  {
-    "id": "p30",
-    "slug": "calendar-corporate-calendars-model-30",
-    "sku": "CAL-COR-1030",
-    "name": "Premium Corporate Calendars Model 30",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 130,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "Out of Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.1,
-    "reviewsCount": 45,
-    "thumbnail": "/assets/products/thumb-30.jpg",
-    "hoverImage": "/assets/products/hover-30.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-30.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-30.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 300
-  },
-  {
-    "id": "p31",
-    "slug": "calendar-religious-calendars-model-31",
-    "sku": "CAL-REL-1031",
-    "name": "Premium Religious Calendars Model 31",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 170,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.7,
-    "reviewsCount": 75,
-    "thumbnail": "/assets/products/thumb-31.jpg",
-    "hoverImage": "/assets/products/hover-31.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-31.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-31.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 305
-  },
-  {
-    "id": "p32",
-    "slug": "calendar-wall-calendars-model-32",
-    "sku": "CAL-WAL-1032",
-    "name": "Premium Wall Calendars Model 32",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 210,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.1,
-    "reviewsCount": 184,
-    "thumbnail": "/assets/products/thumb-32.jpg",
-    "hoverImage": "/assets/products/hover-32.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-32.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-32.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 310
-  },
-  {
-    "id": "p33",
-    "slug": "calendar-desk-calendars-model-33",
-    "sku": "CAL-DES-1033",
-    "name": "Premium Desk Calendars Model 33",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 250,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.9,
-    "reviewsCount": 85,
-    "thumbnail": "/assets/products/thumb-33.jpg",
-    "hoverImage": "/assets/products/hover-33.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-33.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-33.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 315
-  },
-  {
-    "id": "p34",
-    "slug": "calendar-corporate-calendars-model-34",
-    "sku": "CAL-COR-1034",
-    "name": "Premium Corporate Calendars Model 34",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 290,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.2,
-    "reviewsCount": 83,
-    "thumbnail": "/assets/products/thumb-34.jpg",
-    "hoverImage": "/assets/products/hover-34.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-34.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-34.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 320
-  },
-  {
-    "id": "p35",
-    "slug": "calendar-religious-calendars-model-35",
-    "sku": "CAL-REL-1035",
-    "name": "Premium Religious Calendars Model 35",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 130,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": true,
-    "bestSeller": true,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.5,
-    "reviewsCount": 43,
-    "thumbnail": "/assets/products/thumb-35.jpg",
-    "hoverImage": "/assets/products/hover-35.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-35.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-35.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 325
-  },
-  {
-    "id": "p36",
-    "slug": "calendar-wall-calendars-model-36",
-    "sku": "CAL-WAL-1036",
-    "name": "Premium Wall Calendars Model 36",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 170,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.3,
-    "reviewsCount": 71,
-    "thumbnail": "/assets/products/thumb-36.jpg",
-    "hoverImage": "/assets/products/hover-36.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-36.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-36.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 330
-  },
-  {
-    "id": "p37",
-    "slug": "calendar-desk-calendars-model-37",
-    "sku": "CAL-DES-1037",
-    "name": "Premium Desk Calendars Model 37",
-    "categoryId": "c2",
-    "material": "Matte Paper",
-    "paperGsm": 210,
-    "printingType": "Digital Printing",
-    "size": "A4",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "desk-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.8,
-    "reviewsCount": 163,
-    "thumbnail": "/assets/products/thumb-37.jpg",
-    "hoverImage": "/assets/products/hover-37.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-37.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-37.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality desk calendars suitable for all your needs. It features exceptional binding and Digital Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 335
-  },
-  {
-    "id": "p38",
-    "slug": "calendar-corporate-calendars-model-38",
-    "sku": "CAL-COR-1038",
-    "name": "Premium Corporate Calendars Model 38",
-    "categoryId": "c3",
-    "material": "Recycled Paper",
-    "paperGsm": 250,
-    "printingType": "UV Coating",
-    "size": "A5",
-    "orientation": "Square",
-    "moq": 200,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "corporate-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.8,
-    "reviewsCount": 106,
-    "thumbnail": "/assets/products/thumb-38.jpg",
-    "hoverImage": "/assets/products/hover-38.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-38.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-38.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality corporate calendars suitable for all your needs. It features exceptional binding and UV Coating finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 340
-  },
-  {
-    "id": "p39",
-    "slug": "calendar-religious-calendars-model-39",
-    "sku": "CAL-REL-1039",
-    "name": "Premium Religious Calendars Model 39",
-    "categoryId": "c4",
-    "material": "Premium Glossy",
-    "paperGsm": 290,
-    "printingType": "Foil Stamping",
-    "size": "Custom",
-    "orientation": "Portrait",
-    "moq": 100,
-    "stockStatus": "In Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "religious-calendars"
-    ],
-    "featured": false,
-    "bestSeller": false,
-    "newArrival": false,
-    "corporateEligible": true,
-    "sampleAvailable": false,
-    "rating": 4.8,
-    "reviewsCount": 173,
-    "thumbnail": "/assets/products/thumb-39.jpg",
-    "hoverImage": "/assets/products/hover-39.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-39.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-39.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality religious calendars suitable for all your needs. It features exceptional binding and Foil Stamping finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 345
-  },
-  {
-    "id": "p40",
-    "slug": "calendar-wall-calendars-model-40",
-    "sku": "CAL-WAL-1040",
-    "name": "Premium Wall Calendars Model 40",
-    "categoryId": "c1",
-    "material": "Art Paper",
-    "paperGsm": 130,
-    "printingType": "Offset Printing",
-    "size": "A3",
-    "orientation": "Landscape",
-    "moq": 150,
-    "stockStatus": "Out of Stock",
-    "tags": [
-      "premium",
-      "corporate",
-      "wall-calendars"
-    ],
-    "featured": true,
-    "bestSeller": false,
-    "newArrival": true,
-    "corporateEligible": true,
-    "sampleAvailable": true,
-    "rating": 4.1,
-    "reviewsCount": 50,
-    "thumbnail": "/assets/products/thumb-40.jpg",
-    "hoverImage": "/assets/products/hover-40.jpg",
-    "gallery": [
-      {
-        "url": "/assets/products/thumb-40.jpg",
-        "alt": "Image 1"
-      },
-      {
-        "url": "/assets/products/hover-40.jpg",
-        "alt": "Image 2"
-      }
-    ],
-    "description": "This is a highly detailed, premium quality wall calendars suitable for all your needs. It features exceptional binding and Offset Printing finish.",
-    "specifications": {
-      "Binding": "Wire-O",
-      "Pages": "12 Pages + Cover",
-      "Packaging": "Individual Shrink Wrap"
-    },
-    "price": 350
+    id: "p-shipping-4month",
+    slug: "shipping-calendars-4-month-view",
+    sku: "SHIP-4M-1020",
+    name: "SHIPPING CALENDARS - 4-Month View International",
+    categoryId: "shipping-calendars",
+    series: "SHIPPING CALENDARS",
+    material: "High Tensile Board + 120 GSM Offset",
+    paperGsm: 250,
+    printingType: "Dual Color Commercial Offset",
+    size: "13 x 42 inches",
+    orientation: "Portrait",
+    moq: 100,
+    stockStatus: "In Stock",
+    tags: ["shipping-calendars", "freight"],
+    featured: false,
+    bestSeller: false,
+    newArrival: true,
+    corporateEligible: true,
+    sampleAvailable: true,
+    rating: 4.8,
+    reviewsCount: 86,
+    thumbnail: download14,
+    hoverImage: download14,
+    gallery: [{ url: download14, alt: "Shipping Calendar 4 Month" }],
+    description: "4-Month View Shipping Calendar for maritime and international freight management.",
+    specifications: { "Binding": "Quad Wire-O Hinge", "Features": "Red Date Indicator Slider", "Packaging": "Flat Boxed" },
+    price: 295
   }
 ];
 
-const REAL_NAMES = [
-  "300 - MAHA GANPATI",
-  "301 - BHAKTI SAMARPAN",
-  "302 - AARTI SANGRAH",
-  "303 - RADHA MADHAV",
-  "304 - SAI BABA",
-  "305 - JAI JAI JAGANNATH PRABHU",
-  "1501 - SHREE GANESHAYA NAMAHA",
-  "1502 - PRABHU ARADHANA",
-  "1503 - RADHA KRISHNA",
-  "1504 - SAI BABA",
-  "1505 - GO GREEN - Breathe Clean",
-  "1506 - HEALTH & WELLNESS",
-  "1507 - MOTIVATIONAL",
-  "1508 - MOTIVATION - The Will to Win",
-  "1509 - INSPIRATION - Stay Strong",
-  "1510 - DON'T GIVE UP",
-  "1511 - MINDFUL ESCAPE",
-  "1512 - DREAM IT - BELIEVE IT - ACHIEVE IT",
-  "1513 - DO IT NOW",
-  "1514 - ROYAL HERITAGE",
-  "1515 - TRAVEL VISTA",
-  "1516 - NATURE & HORIZONS",
-  "1517 - WONDERFUL NATURE",
-  "1518 - WORLD MONUMENTS",
-  "Pratham Ganesh 2027",
-  "Mangal Ganesh 2027",
-  "Shree Ganesh Aarti",
-  "Pilliyar Patti Ganesh",
-  "Char Dham Yatra",
-  "Om Gayatri Mantra"
-];
-
-export const products: Product[] = rawProducts.map((p, idx) => {
-  const img1 = REAL_IMAGES[idx % REAL_IMAGES.length];
-  const realName = REAL_NAMES[idx % REAL_NAMES.length];
-  return {
-    ...p,
-    name: realName,
-    thumbnail: img1,
-    hoverImage: img1,
-    gallery: [
-      { url: img1, alt: `${realName} View 1` }
-    ]
-  };
-});
 

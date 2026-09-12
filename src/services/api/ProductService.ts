@@ -102,6 +102,12 @@ function getLocalProducts(): Product[] {
     if (saved) {
       const parsed: Product[] = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
+        // Check if cached data is using the old broken category scheme (e.g. 301 having categoryId !== 'corporate-desk')
+        const bhaktisam = parsed.find(p => p.name?.includes('301') || p.name?.includes('BHAKTI'));
+        if (bhaktisam && bhaktisam.categoryId !== 'corporate-desk') {
+          localStorage.removeItem(LOCAL_STORAGE_KEY);
+          return initialProducts.map((p, idx) => sanitizeProduct(p, idx));
+        }
         return parsed.map((p, idx) => sanitizeProduct(p, idx));
       }
     }
