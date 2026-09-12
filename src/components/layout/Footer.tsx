@@ -11,6 +11,7 @@ const FOOTER_SECTIONS = [
       { label: "About Us", href: "/about" },
       { label: "Manufacturing Process", href: "/process" },
       { label: "Corporate Solutions", href: "/corporate" },
+      { label: "Religious Collection", href: "/religious-theme" },
       { label: "Get Quote", href: "/quote" }
     ]
   },

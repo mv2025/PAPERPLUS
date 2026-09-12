@@ -92,27 +92,27 @@ export const MegaMenu = () => {
 
             <div className="col-span-6">
               <Typography variant="h4" className="mb-3 text-sm font-extrabold uppercase tracking-wider text-primary">
-                Featured Highlights
+                Featured Showcases
               </Typography>
               <div className="grid grid-cols-2 gap-3">
-                <a href="/products?category=wall" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
+                <a href="/religious-theme" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
                   <div className="w-full h-24 bg-surface rounded-lg mb-2 overflow-hidden flex items-center justify-center border border-surface-hover">
-                    <img src={religiousHero} alt="Wall Calendars 2027" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img src={religiousHero} alt="Wall & Religious 2027" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <Typography variant="small" className="text-foreground text-xs font-bold group-hover:text-primary transition-colors">
-                    Wall Collection 2027
+                    Religious &amp; Wall 2027
                   </Typography>
-                  <span className="text-[10px] text-muted mt-0.5">Single sheeter art paper</span>
+                  <span className="text-[10px] text-muted mt-0.5">Single sheeters &amp; sacred art</span>
                 </a>
 
-                <a href="/products?category=corporate-desk" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
+                <a href="/corporate" className="bg-background rounded-xl p-3 border border-surface-hover group hover:border-primary transition-all duration-300 hover:-translate-y-0.5 flex flex-col justify-between">
                   <div className="w-full h-24 bg-surface rounded-lg mb-2 overflow-hidden flex items-center justify-center border border-surface-hover p-1">
-                    <img src={deskCalendarHero} alt="Corporate Desk Series" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+                    <img src={deskCalendarHero} alt="Corporate Solutions" className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <Typography variant="small" className="text-foreground text-xs font-bold group-hover:text-primary transition-colors">
-                    Corporate Desk Series
+                    Corporate Solutions
                   </Typography>
-                  <span className="text-[10px] text-muted mt-0.5">300-320 &amp; 1501-1519</span>
+                  <span className="text-[10px] text-muted mt-0.5">Foil dies, swatches &amp; B2B</span>
                 </a>
               </div>
             </div>
@@ -122,6 +122,12 @@ export const MegaMenu = () => {
         <NavigationMenu.Item>
           <NavigationMenu.Link className="block select-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/10 outline-none transition-all duration-300" href="/corporate">
             Corporate Solutions
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Link className="block select-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-[#DA2030] hover:bg-[#DA2030]/10 outline-none transition-all duration-300" href="/religious-theme">
+            Religious Collection
           </NavigationMenu.Link>
         </NavigationMenu.Item>
       </NavigationMenu.List>
