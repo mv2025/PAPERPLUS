@@ -31,6 +31,7 @@ const PRODUCTS = [
   {
     id: 'wall-1',
     categoryId: 'wall',
+    categoryBadge: 'WALL CALENDAR',
     title: 'Pratham Ganesh',
     subtitle: 'Classic Gold Foil Panchang',
     specs: ['Gold Foil Panchang', 'Tin Rim Top Hanging', '12-Month Grid', 'MOQ 100+'],
@@ -40,6 +41,7 @@ const PRODUCTS = [
   {
     id: 'wall-2',
     categoryId: 'wall',
+    categoryBadge: 'WALL CALENDAR',
     title: 'Mangal Ganesh',
     subtitle: 'Auspicious Red Edition',
     specs: ['Vibrant Print Finish', 'Panchang Dates', 'Size: 15x20"', 'MOQ 150+'],
@@ -49,6 +51,7 @@ const PRODUCTS = [
   {
     id: 'wall-3',
     categoryId: 'wall',
+    categoryBadge: 'WALL CALENDAR',
     title: 'Shree Ganesh Aarti',
     subtitle: 'Devotional Wall Planner',
     specs: ['Premium Art Paper', 'Gold Foil Accents', 'Vedic Shlokas', 'MOQ 100+'],
@@ -59,6 +62,7 @@ const PRODUCTS = [
   {
     id: 'desk-1',
     categoryId: 'desk',
+    categoryBadge: 'DESK CALENDAR',
     title: 'Corporate Table Calendar',
     subtitle: 'DESK ACCESSORIES',
     brandLogo: bigWishLogo,
@@ -69,6 +73,7 @@ const PRODUCTS = [
   {
     id: 'desk-2',
     categoryId: 'desk',
+    categoryBadge: 'DESK CALENDAR',
     title: 'Executive Table Calendar',
     subtitle: 'DESK ACCESSORIES',
     brandLogo: bigWishLogo,
@@ -79,6 +84,7 @@ const PRODUCTS = [
   {
     id: 'desk-3',
     categoryId: 'desk',
+    categoryBadge: 'DESK CALENDAR',
     title: 'Maha Ganpati',
     subtitle: 'Executive Series',
     specs: ['Textured Cardstock', 'Monthly Dividers', 'Pen Holder Stand', 'MOQ 200+'],
@@ -88,7 +94,8 @@ const PRODUCTS = [
   // Executive
   {
     id: 'exec-1',
-    categoryId: 'exec-1',
+    categoryId: 'executive',
+    categoryBadge: 'EXECUTIVE PLANNER',
     title: 'Shree Ganeshaya Namaha',
     subtitle: 'Corporate Series',
     specs: ['Hardboard Case', 'Metallic Gold Edges', 'Custom Branding', 'MOQ 100+'],
@@ -98,6 +105,7 @@ const PRODUCTS = [
   {
     id: 'exec-2',
     categoryId: 'executive',
+    categoryBadge: 'EXECUTIVE PLANNER',
     title: 'Go Green - Breathe Clean',
     subtitle: 'Corporate Series',
     specs: ['Imported Art Card', 'Gold Wire-O', 'Monthly Quotes', 'MOQ 150+'],
@@ -108,6 +116,7 @@ const PRODUCTS = [
   {
     id: 'rel-1',
     categoryId: 'religious',
+    categoryBadge: 'RELIGIOUS CALENDAR',
     title: 'Pilliyar Patti Ganesh',
     subtitle: 'South Temple Edition',
     specs: ['Rich Color Embossing', 'Temple Photography', 'Tin Loop Rim', 'MOQ 200+'],
@@ -117,6 +126,7 @@ const PRODUCTS = [
   {
     id: 'rel-2',
     categoryId: 'religious',
+    categoryBadge: 'RELIGIOUS CALENDAR',
     title: 'Diwali Pooja Aarti',
     subtitle: 'Devotional Special',
     specs: ['Gold Foil Shlokas', 'Full Year Dates', 'Individual Envelope', 'MOQ 100+'],
@@ -127,6 +137,7 @@ const PRODUCTS = [
   {
     id: 'cust-1',
     categoryId: 'custom',
+    categoryBadge: 'CUSTOM BRANDING',
     title: 'Char Dham',
     subtitle: 'Bespoke Brand Printing',
     specs: ['Custom Logo Footer', 'Full Color Cover', 'Any Size', 'MOQ 250+'],
@@ -139,7 +150,7 @@ export const ProductUniverseSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategoryId, setActiveCategoryId] = useState<string>(CATEGORIES[0].id);
 
-  const filteredProducts = PRODUCTS.filter(p => p.categoryId === activeCategoryId || (activeCategoryId === 'executive' && p.categoryId === 'exec-1'));
+  const filteredProducts = PRODUCTS.filter(p => p.categoryId === activeCategoryId);
 
   return (
     <section 
@@ -203,7 +214,7 @@ export const ProductUniverseSection = () => {
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 bg-[#e5232e] text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
-                    {prod.subtitle}
+                    {prod.categoryBadge || prod.subtitle}
                   </span>
                   {prod.brandLogo && (
                     <div className="absolute top-3 right-3 bg-white/95 backdrop-blur px-2.5 py-1 rounded-lg border border-[#e8dfd0] shadow-sm">

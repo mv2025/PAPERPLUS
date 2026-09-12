@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography } from '@/components/ui/Typography';
-import { ChevronRight, X, Calendar, Mail, Printer, Tag, ZoomIn } from 'lucide-react';
+import { ChevronRight, X, ZoomIn } from 'lucide-react';
 
 // Real Images Imported from src/assets/foundation/
 import religiousHero from '@/assets/foundation/religious.jpg';
@@ -259,45 +259,7 @@ export default function ReligiousTheme() {
         </div>
       </section>
 
-      {/* Feature Grid ("Made to be useful, designed to be remembered") */}
-      <section className="bg-white border-y border-[#e8dfd0] py-16 mb-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl mb-12">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#e5232e] block mb-2">
-              WHY TEAMS REORDER THIS ONE
-            </span>
-            <Typography variant="h2" className="text-[#14244a] text-3xl sm:text-4xl font-extrabold mb-3">
-              Made to be useful, designed to be remembered
-            </Typography>
-            <Typography variant="muted" className="text-base">
-              A classic 12-month calendar built to stay on the wall all year long. Perfect for home, office, and corporate gifting.
-            </Typography>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-[#e8dfd0] rounded-2xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-[#e8dfd0] bg-white">
-            <div className="p-6">
-              <Calendar className="w-8 h-8 text-[#e5232e] mb-4" />
-              <h3 className="text-base font-bold text-[#14244a] mb-2">12-month wall format</h3>
-              <p className="text-xs text-[#68738b] leading-relaxed">Easy-to-read date grid with plenty of room for daily notes &amp; holiday markers.</p>
-            </div>
-            <div className="p-6">
-              <Mail className="w-8 h-8 text-[#e5232e] mb-4" />
-              <h3 className="text-base font-bold text-[#14244a] mb-2">Individual envelopes</h3>
-              <p className="text-xs text-[#68738b] leading-relaxed">Each calendar is packed in its own clean paper envelope for easy distribution.</p>
-            </div>
-            <div className="p-6">
-              <Printer className="w-8 h-8 text-[#e5232e] mb-4" />
-              <h3 className="text-base font-bold text-[#14244a] mb-2">Free 1-colour print</h3>
-              <p className="text-xs text-[#68738b] leading-relaxed">Add your company name, logo and address at no extra cost on every unit.</p>
-            </div>
-            <div className="p-6">
-              <Tag className="w-8 h-8 text-[#e5232e] mb-4" />
-              <h3 className="text-base font-bold text-[#14244a] mb-2">Clearing &amp; Hanging</h3>
-              <p className="text-xs text-[#68738b] leading-relaxed">Fitted with a sturdy top tin rim and hanging loop that holds straight all year.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Collection Gallery ("Choose your calendar") */}
       <section id="collection" className="max-w-7xl mx-auto px-6 mb-24">
