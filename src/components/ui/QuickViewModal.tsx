@@ -5,6 +5,8 @@ import { Button } from './Button';
 import { Typography } from './Typography';
 import { ShoppingBag, FileText, Heart, ArrowRightLeft } from 'lucide-react';
 
+import defaultFallbackImage from '@/assets/foundation/religious.jpg';
+
 interface QuickViewModalProps {
   product: Product | null;
   isOpen: boolean;
@@ -20,9 +22,15 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
         {/* Gallery Placeholder */}
         <div className="aspect-square bg-background rounded-lg overflow-hidden relative">
           <img 
-            src={product.gallery[0]?.url || product.thumbnail} 
+            src={product.gallery[0]?.url || product.thumbnail || defaultFallbackImage} 
             alt={product.name}
             className="w-full h-full object-cover"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              if (target.src !== defaultFallbackImage) {
+                target.src = defaultFallbackImage;
+              }
+            }}
           />
         </div>
         

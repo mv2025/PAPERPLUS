@@ -2,9 +2,34 @@ import type { Product } from '@/types';
 import { products as initialProducts } from '@/mock/products';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
-// Helper to map DB snake_case record to TypeScript camelCase Product
-function mapDbToProduct(row: any): Product {
+// Helper to sanitize product image paths and ensure valid asset URLs
+function sanitizeProductImage(url: string | undefined, index: number): string {
+  const fallback = initialProducts[index % initialProducts.length]?.thumbnail || initialProducts[0].thumbnail;
+  if (!url || typeof url !== 'string') return fallback;
+  // If url is a legacy mock path like /assets/products/thumb-1.jpg or a dev /src/ path, replace with bundled asset
+  if (url.includes('/assets/products/') || url.includes('/src/assets/') || url.startsWith('/src/')) {
+    return fallback;
+  }
+  return url;
+}
+
+function sanitizeProduct(p: Product, index: number): Product {
+  const thumbnail = sanitizeProductImage(p.thumbnail, index);
+  const hoverImage = sanitizeProductImage(p.hoverImage || p.thumbnail, index);
+  const gallery = Array.isArray(p.gallery) && p.gallery.length > 0
+    ? p.gallery.map(g => ({ ...g, url: sanitizeProductImage(g.url, index) }))
+    : [{ url: thumbnail, alt: p.name }];
   return {
+    ...p,
+    thumbnail,
+    hoverImage,
+    gallery,
+  };
+}
+
+// Helper to map DB snake_case record to TypeScript camelCase Product
+function mapDbToProduct(row: any, idx: number = 0): Product {
+  const p: Product = {
     id: row.id,
     slug: row.slug || row.id,
     sku: row.sku || 'SKU-000',
@@ -32,6 +57,7 @@ function mapDbToProduct(row: any): Product {
     specifications: row.specifications || {},
     price: Number(row.price) || 250,
   };
+  return sanitizeProduct(p, idx);
 }
 
 // Helper to map Product to DB snake_case record
@@ -75,16 +101,12 @@ function getLocalProducts(): Product[] {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
       const parsed: Product[] = JSON.parse(saved);
-      // Validate that stored thumbnails are not legacy broken string paths
-      if (parsed.length > 0 && parsed[0].thumbnail && typeof parsed[0].thumbnail === 'string' && !parsed[0].thumbnail.includes('/assets/products/')) {
-        return parsed;
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed.map((p, idx) => sanitizeProduct(p, idx));
       }
     }
   } catch {}
-  try {
-    localStorage.removeItem(LOCAL_STORAGE_KEY);
-  } catch {}
-  return initialProducts;
+  return initialProducts.map((p, idx) => sanitizeProduct(p, idx));
 }
 
 function saveLocalProducts(products: Product[]) {
@@ -115,7 +137,7 @@ export const ProductService = {
         return getLocalProducts();
       }
 
-      const mapped = data.map(mapDbToProduct);
+      const mapped = data.map((row, idx) => mapDbToProduct(row, idx));
       saveLocalProducts(mapped);
       return mapped;
     } catch (err) {

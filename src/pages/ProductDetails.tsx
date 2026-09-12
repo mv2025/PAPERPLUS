@@ -11,6 +11,8 @@ import { fadeUp } from '@/animations/stagger';
 import { Heart, ArrowRightLeft, FileText, CheckCircle2, ChevronRight } from 'lucide-react';
 import * as Tabs from '@radix-ui/react-tabs';
 
+import defaultFallbackImage from '@/assets/foundation/religious.jpg';
+
 export const ProductDetails = () => {
   const { slug } = useParams<{ slug: string }>();
   const { data: products } = useProducts();
@@ -57,11 +59,14 @@ export const ProductDetails = () => {
             className="w-full aspect-[4/3] bg-surface rounded-2xl overflow-hidden shadow-xl shadow-black relative group"
           >
             <img 
-              src={product.gallery[activeImage]?.url || product.thumbnail} 
+              src={product.gallery[activeImage]?.url || product.thumbnail || defaultFallbackImage} 
               alt={product.name}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="%23222"/></svg>';
+                const target = e.target as HTMLImageElement;
+                if (target.src !== defaultFallbackImage) {
+                  target.src = defaultFallbackImage;
+                }
               }}
             />
           </motion.div>
@@ -73,9 +78,12 @@ export const ProductDetails = () => {
                 onClick={() => setActiveImage(idx)}
                 className={`w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-colors ${activeImage === idx ? 'border-primary' : 'border-transparent opacity-60 hover:opacity-100'}`}
               >
-                <img src={img.url} className="w-full h-full object-cover" alt="Thumbnail" 
+                <img src={img.url || defaultFallbackImage} className="w-full h-full object-cover" alt="Thumbnail" 
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="%23222"/></svg>';
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== defaultFallbackImage) {
+                      target.src = defaultFallbackImage;
+                    }
                   }}
                 />
               </button>

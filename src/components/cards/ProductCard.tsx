@@ -6,6 +6,8 @@ import { Typography } from '../ui/Typography';
 import { Button } from '../ui/Button';
 import { cn } from '@/utils/cn';
 
+import defaultFallbackImage from '@/assets/foundation/religious.jpg';
+
 interface ProductCardProps {
   product: Product;
   onQuickView?: (product: Product) => void;
@@ -78,13 +80,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, 
       {/* Image Container */}
       <div className="relative h-64 sm:h-72 bg-[#FAF6EC] border-b border-surface-hover p-3 flex items-center justify-center overflow-hidden cursor-pointer" onClick={() => onQuickView?.(product)}>
         <img
-          src={product.thumbnail}
+          src={product.thumbnail || defaultFallbackImage}
           alt={product.name}
           className="max-h-full max-w-full object-contain drop-shadow-md transition-transform duration-500 ease-out group-hover:scale-105"
           loading="eager"
           onError={(e) => {
-            // Fallback image if local storage has broken legacy image path
-            (e.target as HTMLImageElement).src = '/assets/foundation/religious.jpg';
+            const target = e.target as HTMLImageElement;
+            if (target.src !== defaultFallbackImage) {
+              target.src = defaultFallbackImage;
+            }
           }}
         />
       </div>
