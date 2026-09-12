@@ -118,39 +118,12 @@ const CORP_ITEMS = [
   { code: '1519', name: 'WORLD MONUMENTS', cat: 'travel', catLabel: 'Travel & Heritage', img: asset45 },
 ];
 
-const getColorFilter = (colorName: string): string => {
-  const name = (colorName || '').toLowerCase();
-  switch (name) {
-    case 'black':
-      return 'brightness(0.5) contrast(1.3) saturate(0.1)';
-    case 'red':
-      return 'hue-rotate(190deg) saturate(2.5) brightness(0.95)';
-    case 'teal':
-      return 'hue-rotate(30deg) saturate(1.4) brightness(0.95)';
-    case 'orange':
-      return 'hue-rotate(160deg) saturate(2.6) brightness(1.05)';
-    case 'green':
-      return 'hue-rotate(85deg) saturate(1.8) brightness(0.85)';
-    case 'grey':
-    case 'gray':
-      return 'grayscale(1) brightness(1.3) contrast(1.1)';
-    case 'yellow':
-      return 'hue-rotate(150deg) saturate(2.4) brightness(1.25)';
-    case 'aqua':
-      return 'hue-rotate(45deg) saturate(1.6) brightness(1.1)';
-    case 'navy':
-    default:
-      return 'none';
-  }
-};
-
 export default function DeskCalendar() {
   const [activeDesignIndex, setActiveDesignIndex] = useState(0);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
-  const [showingInside, setShowingInside] = useState(false);
 
   const [corpFilter, setCorpFilter] = useState('all');
-  const [lightboxData, setLightboxData] = useState<{ img: string; caption: string; filter?: string } | null>(null);
+  const [lightboxData, setLightboxData] = useState<{ img: string; caption: string } | null>(null);
   const [enquiryList, setEnquiryList] = useState<Array<{ title: string; subtitle: string; img: string }>>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -279,7 +252,7 @@ export default function DeskCalendar() {
             Two designs. Nine colorways each.
           </Typography>
           <p className="text-[#5C6478] text-sm sm:text-base">
-            Preview the exact cover art and box fabric before committing to a production run. Tap a swatch to change color, or flip open for January layout.
+            Preview the exact cover art and box fabric before committing to a production run. Tap a swatch to change color.
           </p>
         </div>
 
@@ -290,7 +263,6 @@ export default function DeskCalendar() {
               onClick={() => {
                 setActiveDesignIndex(idx);
                 setActiveColorIndex(0);
-                setShowingInside(false);
               }}
               className={`px-6 py-3 rounded-full text-sm font-bold transition-all ${activeDesignIndex === idx ? 'bg-[#141F42] text-white shadow-md' : 'bg-white border border-[#E8E1D0] text-[#5C6478] hover:border-[#141F42]'}`}
             >
@@ -304,15 +276,14 @@ export default function DeskCalendar() {
             
             {/* Pre-rendered instant colorway image stack (0ms lag swap) */}
             <div 
-              className="relative w-full h-56 sm:h-72 flex items-center justify-center mb-4 sm:mb-6 cursor-pointer group/img"
+              className="relative w-full h-56 sm:h-72 flex items-center justify-center mb-2 cursor-pointer group/img"
               onClick={() => setLightboxData({
-                img: showingInside && currentDesign.inside ? currentDesign.inside : currentColor.img,
-                caption: `${currentDesign.name} — ${showingInside ? `Inside Page Layout (${currentColor.name})` : currentColor.name + ' Fabric Cover'}`,
-                filter: showingInside ? getColorFilter(currentColor.name) : 'none'
+                img: currentColor.img,
+                caption: `${currentDesign.name} — ${currentColor.name} Fabric Cover`
               })}
             >
               {currentDesign.colors.map((c, idx) => {
-                const isActive = !showingInside && activeColorIndex === idx;
+                const isActive = activeColorIndex === idx;
                 return (
                   <img 
                     key={c.name}
@@ -326,47 +297,11 @@ export default function DeskCalendar() {
                   />
                 );
               })}
-              {currentDesign.inside && (
-                <img 
-                  src={currentDesign.inside} 
-                  alt={`${currentDesign.name} inside layout`} 
-                  className={`absolute inset-0 m-auto max-h-56 sm:max-h-72 object-contain drop-shadow-2xl transition-all duration-300 transform-gpu ${
-                    showingInside ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 z-0 pointer-events-none'
-                  }`} 
-                  style={{ filter: getColorFilter(currentColor.name) }}
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              )}
 
               {/* Hover Zoom Overlay */}
               <div className="absolute top-3 right-3 bg-white/90 backdrop-blur p-2 rounded-full shadow border border-[#E8E1D0] opacity-0 group-hover/img:opacity-100 transition-opacity z-20">
                 <ZoomIn className="w-4 h-4 text-[#141F42]" />
               </div>
-            </div>
-
-            {/* View Switcher Pill Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-2 relative z-20">
-              <button
-                onClick={() => setShowingInside(false)}
-                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
-                  !showingInside 
-                    ? 'bg-[#141F42] text-white shadow' 
-                    : 'bg-white border border-[#E8E1D0] text-[#141F42] hover:border-[#141F42]'
-                }`}
-              >
-                Cover View
-              </button>
-              <button
-                onClick={() => setShowingInside(true)}
-                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
-                  showingInside 
-                    ? 'bg-[#DA2030] text-white shadow' 
-                    : 'bg-white border border-[#E8E1D0] text-[#DA2030] hover:bg-[#DA2030]/10'
-                }`}
-              >
-                Product Inside Images →
-              </button>
             </div>
           </div>
 
@@ -386,7 +321,6 @@ export default function DeskCalendar() {
                     key={c.name}
                     onClick={() => {
                       setActiveColorIndex(idx);
-                      setShowingInside(false);
                     }}
                     className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 transition-all active:scale-90 touch-manipulation cursor-pointer ${
                       isSelected 
@@ -575,7 +509,6 @@ export default function DeskCalendar() {
               src={lightboxData.img} 
               alt={lightboxData.caption || 'Product Preview'} 
               className="max-h-[80vh] rounded-xl shadow-2xl object-contain bg-white transition-all duration-300" 
-              style={{ filter: lightboxData.filter || 'none' }}
             />
           </div>
         </div>
