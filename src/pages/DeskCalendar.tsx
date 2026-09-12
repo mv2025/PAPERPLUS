@@ -573,11 +573,10 @@ export default function DeskCalendar() {
             </button>
             <img 
               src={lightboxData.img} 
-              alt={lightboxData.caption} 
+              alt={lightboxData.caption || 'Product Preview'} 
               className="max-h-[80vh] rounded-xl shadow-2xl object-contain bg-white transition-all duration-300" 
               style={{ filter: lightboxData.filter || 'none' }}
             />
-            <p className="text-white text-center mt-3 font-semibold text-sm">{lightboxData.caption}</p>
           </div>
         </div>
       )}
