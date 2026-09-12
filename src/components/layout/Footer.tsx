@@ -18,9 +18,12 @@ const FOOTER_SECTIONS = [
     title: "Products",
     links: [
       { label: "Wall Calendars", href: "/products?category=wall" },
-      { label: "Desk Calendars", href: "/products?category=desk" },
-      { label: "Corporate Series", href: "/corporate" },
-      { label: "Religious Theme", href: "/religious-theme" }
+      { label: "Corporate Desk", href: "/products?category=corporate-desk" },
+      { label: "Mini Desk", href: "/products?category=mini-desk" },
+      { label: "Desk Accessories", href: "/products?category=desk-accessories" },
+      { label: "Aarti Books", href: "/products?category=aarti-books" },
+      { label: "Jumbo Calendars", href: "/products?category=jumbo-calendars" },
+      { label: "Shipping Calendars", href: "/products?category=shipping-calendars" }
     ]
   }
 ];

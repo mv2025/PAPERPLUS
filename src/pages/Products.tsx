@@ -15,10 +15,13 @@ export const Products = () => {
   const categoryFilter = searchParams.get('category');
 
   const CATEGORIES_LIST = [
-    { id: 'c1', label: 'Wall Calendars', aliases: ['c1', 'wall', 'wall-calendars', 'wall calendars'] },
-    { id: 'c2', label: 'Desk Calendars', aliases: ['c2', 'desk', 'desk-calendars', 'desk calendars'] },
-    { id: 'c3', label: 'Corporate Series', aliases: ['c3', 'corporate', 'corporate-calendars', 'corporate calendars'] },
-    { id: 'c4', label: 'Religious Devotional', aliases: ['c4', 'religious', 'religious-calendars', 'religious calendars'] },
+    { id: 'wall', label: 'Wall Calendars', aliases: ['c1', 'wall', 'wall-calendars', 'wall calendars'] },
+    { id: 'corporate-desk', label: 'Corporate Desk Calendars', aliases: ['c2', 'corporate-desk', 'corporate desk', 'desk', 'desk-calendars', 'desk calendars'] },
+    { id: 'mini-desk', label: 'Mini Desk', aliases: ['mini-desk', 'mini desk', 'mini'] },
+    { id: 'desk-accessories', label: 'Desk Accessories', aliases: ['desk-accessories', 'desk accessories'] },
+    { id: 'aarti-books', label: 'Aarti Books', aliases: ['c4', 'aarti-books', 'aarti books', 'aarti', 'religious'] },
+    { id: 'jumbo-calendars', label: 'Jumbo Calendars', aliases: ['jumbo-calendars', 'jumbo calendars', 'jumbo'] },
+    { id: 'shipping-calendars', label: 'Shipping Calendars', aliases: ['shipping-calendars', 'shipping calendars', 'shipping'] },
   ];
 
   const filteredProducts = useMemo(() => {
